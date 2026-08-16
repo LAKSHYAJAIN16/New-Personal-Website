@@ -1,46 +1,133 @@
 "use client";
 
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+
+type Particle = {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  radius: number;
+  baseAlpha: number;
+};
 
 export function AnimatedBackground() {
-  const mx = useMotionValue(0);
-  const my = useMotionValue(0);
-  const sx = useSpring(mx, { stiffness: 40, damping: 20 });
-  const sy = useSpring(my, { stiffness: 40, damping: 20 });
-
-  const x1 = useTransform(sx, (v) => v * 0.04);
-  const y1 = useTransform(sy, (v) => v * 0.04);
-  const x2 = useTransform(sx, (v) => v * -0.03);
-  const y2 = useTransform(sy, (v) => v * -0.03);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    function handleMove(e: MouseEvent) {
-      mx.set(e.clientX - window.innerWidth / 2);
-      my.set(e.clientY - window.innerHeight / 2);
-    }
-    window.addEventListener("mousemove", handleMove);
-    return () => window.removeEventListener("mousemove", handleMove);
-  }, [mx, my]);
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let animationFrameId: number;
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+
+    const mouse = {
+      x: width / 2,
+      y: height / 2,
+      targetX: width / 2,
+      targetY: height / 2,
+      active: false,
+    };
+
+    const handleResize = () => {
+      if (!canvas) return;
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      mouse.targetX = e.clientX;
+      mouse.targetY = e.clientY;
+      mouse.active = true;
+    };
+
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("mousemove", handleMouseMove);
+
+    const count = Math.min(Math.floor((width * height) / 22000), 55);
+    const particles: Particle[] = Array.from({ length: count }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: (Math.random() - 0.5) * 0.5,
+      radius: Math.random() * 1.5 + 0.8,
+      baseAlpha: Math.random() * 0.35 + 0.15,
+    }));
+
+    const render = () => {
+      ctx.clearRect(0, 0, width, height);
+
+      mouse.x += (mouse.targetX - mouse.x) * 0.06;
+      mouse.y += (mouse.targetY - mouse.y) * 0.06;
+
+      // Warm bronze RGB (184, 137, 70)
+      const r = 184,
+        g = 137,
+        b = 70;
+
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0 || p.x > width) p.vx *= -1;
+        if (p.y < 0 || p.y > height) p.vy *= -1;
+
+        if (mouse.active) {
+          const dx = mouse.x - p.x;
+          const dy = mouse.y - p.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 180) {
+            const force = (1 - dist / 180) * 0.03;
+            p.vx += (dx / dist) * force;
+            p.vy += (dy / dist) * force;
+          }
+        }
+
+        p.vx *= 0.98;
+        p.vy *= 0.98;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${p.baseAlpha})`;
+        ctx.fill();
+
+        for (let j = i + 1; j < particles.length; j++) {
+          const p2 = particles[j];
+          const dx = p.x - p2.x;
+          const dy = p.y - p2.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 110) {
+            const lineAlpha = (1 - dist / 110) * 0.12;
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${lineAlpha})`;
+            ctx.lineWidth = 0.7;
+            ctx.stroke();
+          }
+        }
+      }
+
+      animationFrameId = requestAnimationFrame(render);
+    };
+
+    render();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("mousemove", handleMouseMove);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
 
   return (
-    <div className="pointer-events-none fixed inset-0 overflow-hidden -z-10">
-      <motion.div
-        style={{ x: x1, y: y1 }}
-        className="absolute -top-40 left-1/4 h-[32rem] w-[32rem] rounded-full bg-accent/20 blur-[120px]"
-      />
-      <motion.div
-        style={{ x: x2, y: y2 }}
-        className="absolute top-1/3 right-0 h-[28rem] w-[28rem] rounded-full bg-violet-500/10 blur-[120px]"
-      />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,transparent_0%,var(--background)_75%)]" />
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-        }}
-      />
+    <div className="pointer-events-none fixed inset-0 overflow-hidden -z-10 bg-[#FAF9F5]">
+      <canvas ref={canvasRef} className="block h-full w-full opacity-60" />
     </div>
   );
 }

@@ -1,36 +1,42 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { Plus_Jakarta_Sans, Newsreader, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const sansFont = Plus_Jakarta_Sans({
+  variable: "--font-sans",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const serifFont = Newsreader({
+  variable: "--font-serif",
   subsets: ["latin"],
-});
-
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400", "500", "600"],
   style: ["normal", "italic"],
 });
 
+const monoFont = JetBrains_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+});
+
 export const metadata: Metadata = {
-  title: "Lakshya Jain — Software Engineer",
-  description: "Personal website of Lakshya Jain, software engineer.",
+  title: "Lakshya Jain — University of Waterloo CS",
+  description: "Personal website of Lakshya Jain, CS at University of Waterloo.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} h-full antialiased scroll-smooth`}
+      className={`${sansFont.variable} ${serifFont.variable} ${monoFont.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <body className="min-h-full flex flex-col bg-background text-foreground selection:bg-amber-100">
         {children}
       </body>
     </html>

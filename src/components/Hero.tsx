@@ -1,101 +1,140 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
-const name = "Lakshya Jain";
+const roles = [
+  "Software Engineer",
+  "Full-Stack Systems Architect",
+  "AI & Web Application Engineer",
+  "Developer Tools Craftsman",
+];
 
-const container = {
-  hidden: {},
-  show: {
-    transition: { staggerChildren: 0.045, delayChildren: 0.3 },
-  },
-};
+export function Hero({ onShowToast }: { onShowToast?: (msg: string) => void }) {
+  const [roleIndex, setRoleIndex] = useState(0);
 
-const letter = {
-  hidden: { y: "110%", opacity: 0 },
-  show: {
-    y: "0%",
-    opacity: 1,
-    transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] as const },
-  },
-};
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRoleIndex((prev) => (prev + 1) % roles.length);
+    }, 3200);
+    return () => clearInterval(interval);
+  }, []);
 
-export function Hero() {
+  const copyEmail = () => {
+    navigator.clipboard.writeText("lakshya16jain@gmail.com");
+    if (onShowToast) {
+      onShowToast("Email copied to clipboard!");
+    }
+  };
+
+  const name = "Lakshya Jain";
+
   return (
     <section
       id="top"
-      className="relative flex min-h-screen flex-col justify-center px-6"
+      className="relative flex min-h-screen flex-col justify-center px-6 pt-20 pb-16"
     >
-      <div className="mx-auto w-full max-w-4xl">
-        <motion.p
+      <div className="mx-auto w-full max-w-5xl">
+        {/* Dynamic Role Tag */}
+        <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="mb-4 font-mono text-sm uppercase tracking-[0.3em] text-accent"
+          className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-accent"
         >
-          Software Engineer
-        </motion.p>
+          <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent" />
+          <motion.span
+            key={roleIndex}
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -6 }}
+            transition={{ duration: 0.4 }}
+          >
+            {roles[roleIndex]}
+          </motion.span>
+        </motion.div>
 
+        {/* Main Name */}
         <motion.h1
-          variants={container}
-          initial="hidden"
-          animate="show"
-          className="flex flex-wrap text-6xl font-medium tracking-tight sm:text-7xl md:text-8xl"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="text-5xl font-medium tracking-tight sm:text-7xl md:text-8xl"
           aria-label={name}
         >
-          {name.split("").map((char, i) => (
-            <span key={i} className="overflow-hidden pb-2">
-              <motion.span variants={letter} className="inline-block">
-                {char === " " ? " " : char}
-              </motion.span>
-            </span>
-          ))}
+          {name}
         </motion.h1>
 
+        {/* Subtitle / Bio */}
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.1 }}
-          className="mt-6 max-w-xl text-lg text-muted"
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed sm:text-xl"
         >
-          I build fast, thoughtful software — currently focused on{" "}
-          <span className="text-foreground">web</span> and{" "}
-          <span className="text-foreground">systems</span> engineering.
+          I design and engineer fast, reliable, aesthetic software systems — from
+          ultra-responsive web applications to robust backend architectures.
         </motion.p>
 
+        {/* Action Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.25 }}
-          className="mt-10 flex items-center gap-4"
+          transition={{ duration: 0.6, delay: 0.55 }}
+          className="mt-10 flex flex-wrap items-center gap-4"
         >
           <a
             href="#projects"
-            className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-background transition-transform hover:scale-105 active:scale-95"
+            className="rounded-full bg-accent px-6 py-3 text-xs font-mono font-semibold uppercase tracking-wider text-background transition-transform hover:scale-105 active:scale-95 shadow-lg"
           >
-            View my work
+            View Work →
           </a>
-          <a
-            href="#contact"
-            className="rounded-full border border-border px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-muted"
+          <button
+            onClick={copyEmail}
+            className="group flex items-center gap-2 rounded-full border border-border bg-surface px-6 py-3 text-xs font-mono text-foreground transition-all hover:border-muted hover:bg-surface-hover"
           >
-            Get in touch
-          </a>
+            <span>Copy Email</span>
+            <span className="text-muted text-[10px] group-hover:text-accent">
+              (lakshya16jain@gmail.com)
+            </span>
+          </button>
+        </motion.div>
+
+        {/* Minimal Stats Bar */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.75 }}
+          className="mt-16 grid grid-cols-2 gap-6 border-t border-border/60 pt-8 sm:grid-cols-3 max-w-2xl"
+        >
+          <div>
+            <div className="font-mono text-2xl font-bold text-foreground">3+</div>
+            <div className="font-mono text-xs text-muted mt-1">Years Building</div>
+          </div>
+          <div>
+            <div className="font-mono text-2xl font-bold text-foreground">15+</div>
+            <div className="font-mono text-xs text-muted mt-1">Projects Delivered</div>
+          </div>
+          <div>
+            <div className="font-mono text-2xl font-bold text-foreground">&lt; 100ms</div>
+            <div className="font-mono text-xs text-muted mt-1">Latency Focus</div>
+          </div>
         </motion.div>
       </div>
 
+      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 1.6 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        transition={{ duration: 0.6, delay: 0.9 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
         <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-          className="flex h-10 w-6 items-start justify-center rounded-full border border-border p-1.5"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="flex h-9 w-5 justify-center rounded-full border border-border p-1"
         >
-          <div className="h-1.5 w-1.5 rounded-full bg-muted" />
+          <div className="h-1.5 w-1.5 rounded-full bg-accent" />
         </motion.div>
       </motion.div>
     </section>

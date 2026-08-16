@@ -1,43 +1,56 @@
 @import "tailwindcss";
 
 :root {
-  --background: #08080a;
-  --foreground: #f4f4f2;
-  --muted: #8a8a92;
-  --accent: #b8ff3d;
-  --border: #1f1f24;
-  --surface: #101013;
+  --background: #FAF9F5;
+  --foreground: #23211E;
+  --muted: #78746D;
+  --muted-foreground: #5C5850;
+  --accent: #B88946;
+  --accent-rgb: 184, 137, 70;
+  --accent-subtle: #F3EDE2;
+  --border: #E5E0D5;
+  --border-subtle: #EFECE6;
+  --surface: #FFFFFF;
+  --surface-hover: #F5F1E8;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
+  --color-accent-subtle: var(--accent-subtle);
   --color-border: var(--border);
   --color-surface: var(--surface);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-display: var(--font-display);
+  --color-surface-hover: var(--surface-hover);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-serif: var(--font-serif);
 }
 
 * {
   border-color: var(--border);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
 }
 
 ::selection {
-  background: var(--accent);
-  color: #08080a;
+  background: var(--accent-subtle);
+  color: var(--accent);
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -45,14 +58,14 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 999px;
+  background: #DCD6C9;
+  border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--muted);
+  background: #C8C1B2;
 }
 
-.font-display {
-  font-family: var(--font-display), serif;
+.font-serif {
+  font-family: var(--font-serif), Georgia, serif;
 }
