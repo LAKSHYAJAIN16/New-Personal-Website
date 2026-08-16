@@ -20,7 +20,6 @@ const asciiArt = `
 
 export function AboutHero() {
   const [timeStr, setTimeStr] = useState<string>("");
-  const [pingStatus, setPingStatus] = useState<string | null>(null);
 
   useEffect(() => {
     const updateTime = () => {
@@ -39,14 +38,6 @@ export function AboutHero() {
     const interval = setInterval(updateTime, 1000);
     return () => clearInterval(interval);
   }, []);
-
-  const handlePing = () => {
-    setPingStatus("Pinging...");
-    setTimeout(() => {
-      const ms = Math.floor(Math.random() * 12) + 8;
-      setPingStatus(`waterloo: 200 OK (${ms}ms)`);
-    }, 450);
-  };
 
   return (
     <section id="about" className="py-8 md:py-12">
@@ -74,7 +65,7 @@ export function AboutHero() {
             correct, and don&apos;t apologize for it.
           </p>
 
-          {/* Action Buttons */}
+          {/* Action Button */}
           <div className="mt-8 flex items-center gap-6">
             <a
               href="#work"
@@ -82,16 +73,10 @@ export function AboutHero() {
             >
               See my work
             </a>
-            <a
-              href="mailto:lakshya16jain@gmail.com"
-              className="text-sm text-accent transition-colors hover:underline"
-            >
-              Say hello
-            </a>
           </div>
         </div>
 
-        {/* Right Interactive ASCII & System Status Box */}
+        {/* Right ASCII & System Status Box */}
         <div className="w-full max-w-[340px] justify-self-start lg:justify-self-end">
           <div className="rounded border border-accent/40 bg-[#FAF7F0] p-4 font-mono text-xs shadow-sm space-y-3">
             {/* Header */}
@@ -111,7 +96,7 @@ export function AboutHero() {
             </pre>
 
             {/* Live Status Fields */}
-            <div className="space-y-1.5 text-[11px] border-t border-b border-accent/20 py-2.5">
+            <div className="space-y-1.5 text-[11px] border-t border-accent/20 pt-2.5">
               <div className="flex justify-between">
                 <span className="text-muted">STATUS</span>
                 <span className="text-foreground font-medium">UWaterloo CS &apos;30</span>
@@ -128,21 +113,6 @@ export function AboutHero() {
                 <span className="text-muted">FOCUS</span>
                 <span className="text-foreground">Systems &amp; Algorithms</span>
               </div>
-            </div>
-
-            {/* Interactive Ping Button */}
-            <div className="flex items-center justify-between pt-1">
-              <button
-                onClick={handlePing}
-                className="rounded border border-accent/50 bg-accent-subtle/50 px-2.5 py-1 text-[10px] text-accent transition-colors hover:bg-accent-subtle active:scale-95"
-              >
-                ⚡ Ping system
-              </button>
-              {pingStatus && (
-                <span className="text-[10px] text-accent animate-fade-in font-medium">
-                  {pingStatus}
-                </span>
-              )}
             </div>
           </div>
         </div>

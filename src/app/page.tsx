@@ -4,6 +4,8 @@ import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { SidebarNav } from "@/components/SidebarNav";
 import { AboutHero } from "@/components/AboutHero";
 import { WorkSection } from "@/components/WorkSection";
+import { BlogSection } from "@/components/BlogSection";
+import { PhotobookSection } from "@/components/PhotobookSection";
 import { WritingSection } from "@/components/WritingSection";
 import { ResumeSection } from "@/components/ResumeSection";
 
@@ -20,6 +22,8 @@ export default function Home() {
         <main className="flex-1 px-6 py-10 md:px-16 md:py-14 space-y-12">
           <AboutHero />
           <WorkSection />
+          <BlogSection />
+          <PhotobookSection />
           <WritingSection />
           <ResumeSection />
 

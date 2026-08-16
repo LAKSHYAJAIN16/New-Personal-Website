@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 const navItems = [
   { id: "about", label: "About", href: "#about" },
   { id: "work", label: "Work", href: "#work" },
+  { id: "blog", label: "Blog", href: "#blog" },
+  { id: "photobook", label: "Photobook", href: "#photobook" },
   { id: "writing", label: "Writing", href: "#writing" },
   { id: "resume", label: "Resume", href: "#resume" },
 ];
@@ -43,7 +45,7 @@ export function SidebarNav() {
         </a>
 
         {/* Navigation Items */}
-        <nav className="flex md:flex-col gap-6 text-sm font-sans">
+        <nav className="flex flex-wrap md:flex-col gap-5 text-sm font-sans">
           {navItems.map((item) => (
             <a
               key={item.id}
