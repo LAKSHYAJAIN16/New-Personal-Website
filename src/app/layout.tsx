@@ -24,6 +24,10 @@ const monoFont = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Lakshya Jain — University of Waterloo CS",
   description: "Personal website of Lakshya Jain, CS at University of Waterloo.",
+  icons: {
+    icon: "/icon.svg",
+    apple: "/apple-icon.svg",
+  },
 };
 
 export default function RootLayout({
