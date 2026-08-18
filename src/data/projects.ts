@@ -1,39 +1,39 @@
 // TODO: replace with your real projects
 export type Project = {
+  figure: string;
   title: string;
   description: string;
   tags: string[];
   href: string;
-  color: "violet" | "pink" | "lime" | "orange" | "blue";
 };
 
 export const projects: Project[] = [
   {
+    figure: "01",
     title: "[Project One]",
     description: "[One sentence on what it does and why you built it.]",
     tags: ["Tag A", "Tag B", "Tag C"],
     href: "#",
-    color: "violet",
   },
   {
+    figure: "02",
     title: "[Project Two]",
     description: "[One sentence on what it does and why you built it.]",
     tags: ["Tag A", "Tag B"],
     href: "#",
-    color: "pink",
   },
   {
+    figure: "03",
     title: "[Project Three]",
     description: "[One sentence on what it does and why you built it.]",
     tags: ["Tag A", "Tag B", "Tag C"],
     href: "#",
-    color: "orange",
   },
   {
+    figure: "04",
     title: "[Project Four]",
     description: "[One sentence on what it does and why you built it.]",
     tags: ["Tag A"],
     href: "#",
-    color: "blue",
   },
 ];

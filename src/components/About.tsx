@@ -1,59 +1,47 @@
-"use client";
+import { GenerativeFigure } from "./GenerativeFigure";
+import { FigurePlate } from "./FigurePlate";
 
-import { motion } from "framer-motion";
-
-// TODO: replace with your real facts / stack / interests
-const facts = [
-  { label: "Currently", value: "[What you're doing right now]" },
-  { label: "Stack", value: "[Your favorite tools/languages]" },
-  { label: "Also into", value: "[A hobby or interest]" },
-  { label: "Based in", value: "[Your city]" },
+// TODO: replace with your real facts
+const readings: [string, string][] = [
+  ["STATUS", "[What you're doing right now]"],
+  ["FOCUS", "[Your primary stack/interest]"],
+  ["ALSO", "[A hobby or side interest]"],
+  ["LOCATION", "Waterloo, ON"],
+  ["EDUCATION", "CS, University of Waterloo"],
 ];
 
 export function About() {
   return (
-    <section id="about" className="px-4 py-20 sm:px-6 sm:py-28">
-      <div className="mx-auto max-w-4xl">
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="font-mono text-sm font-semibold uppercase tracking-widest text-violet"
-        >
-          01 / About
-        </motion.p>
+    <section id="about" className="px-4 py-16 sm:px-6 sm:py-24">
+      <div className="mx-auto max-w-5xl">
+        <h2 className="mb-8 font-mono text-sm font-semibold uppercase tracking-wide text-ink">
+          About
+        </h2>
 
-        <div className="mt-6 grid gap-10 md:grid-cols-[1.2fr_1fr]">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="font-display text-2xl font-medium leading-snug tracking-tight sm:text-4xl"
+        <div className="grid gap-8 md:grid-cols-2">
+          <FigurePlate
+            number="02"
+            caption="Second pen configuration, lower amplitude — same live renderer, different seed."
           >
-            {/* TODO: replace with your real about copy */}
-            [Write a couple of sentences about your story, what got you into what
-            you do, and what you&apos;re excited about right now.]
-          </motion.p>
+            <GenerativeFigure seed={7} pens={3} className="h-72 w-full" />
+          </FigurePlate>
 
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className="sticker grid grid-cols-2 gap-4 rounded-2xl bg-surface p-5"
-          >
-            {facts.map((fact) => (
-              <div key={fact.label}>
-                <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-                  {fact.label}
-                </p>
-                <p className="mt-1 font-display text-base font-semibold">
-                  {fact.value}
-                </p>
-              </div>
-            ))}
-          </motion.div>
+          <div className="flex flex-col">
+            <p className="font-mono text-base leading-relaxed text-ink sm:text-lg">
+              {/* TODO: replace with your real about copy */}
+              [Write two or three sentences about your story — what got you into
+              building things, and what you&apos;re excited about right now.]
+            </p>
+
+            <dl className="mt-6 divide-y divide-rule border-y border-rule">
+              {readings.map(([label, value]) => (
+                <div key={label} className="flex items-baseline justify-between gap-4 py-2.5">
+                  <dt className="font-mono text-xs tracking-wide text-ink-soft">{label}</dt>
+                  <dd className="text-right font-mono text-sm text-ink">{value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
         </div>
       </div>
     </section>

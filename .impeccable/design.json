@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-17T00:00:00Z",
+  "title": "Design System: Lakshya Jain — Personal Site",
+  "extensions": {
+    "colorMeta": {
+      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#f6f6f4" },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#131211" },
+      "ink-soft": { "role": "neutral", "displayName": "Ink Soft", "canonical": "#52504c" },
+      "rule": { "role": "neutral", "displayName": "Rule", "canonical": "#d8d6d1" },
+      "rule-strong": { "role": "neutral", "displayName": "Rule Strong", "canonical": "#131211" },
+      "signal": { "role": "primary", "displayName": "Signal Red", "canonical": "#b3261e" },
+      "signal-ink": { "role": "primary", "displayName": "Signal Ink", "canonical": "#ffffff" }
+    },
+    "typographyMeta": {
+      "mono": { "displayName": "IBM Plex Mono (regular)", "purpose": "Body-weight labels, captions, tags, nav." },
+      "mono-heading": { "displayName": "IBM Plex Mono (semibold)", "purpose": "Names, headlines, figure/post titles, buttons." },
+      "body": { "displayName": "IBM Plex Sans", "purpose": "Reading prose — about copy, descriptions." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "live-pulse", "value": "opacity 1 -> 0.25, 1.6s ease-in-out infinite", "purpose": "Signal-red status dots reading as a live/recording indicator." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Filled Ink button, used for the contact email-copy control's confirmed state.",
+      "html": "<button class=\"ds-btn-primary\">lakshya16jain@gmail.com</button>",
+      "css": ".ds-btn-primary { background: #131211; color: #f6f6f4; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.875rem; padding: 10px 16px; border: none; transition: background 0.15s; } .ds-btn-primary:hover { background: #b3261e; } .ds-btn-primary:focus-visible { outline: 2px solid #b3261e; outline-offset: 3px; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Bordered ghost button, used for the nav's Contact control.",
+      "html": "<button class=\"ds-btn-outline\">Contact</button>",
+      "css": ".ds-btn-outline { background: transparent; color: #131211; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.75rem; font-weight: 500; padding: 6px 12px; border: 1px solid #131211; transition: background 0.15s, color 0.15s; } .ds-btn-outline:hover { background: #131211; color: #f6f6f4; }"
+    },
+    {
+      "name": "Figure Plate",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "The system's signature component: a numbered, captioned, ruled plate wrapping a live generative canvas.",
+      "html": "<figure class=\"ds-plate\"><span class=\"ds-plate-tag\">FIG. 01</span><div class=\"ds-plate-body\">[live canvas]</div><figcaption class=\"ds-plate-caption\">Live-rendered harmonograph.</figcaption></figure>",
+      "css": ".ds-plate { position: relative; border: 2.5px solid #131211; } .ds-plate-tag { position: absolute; top: -12px; left: 16px; background: #f6f6f4; padding: 0 8px; font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.02em; color: #131211; } .ds-plate-body { min-height: 240px; } .ds-plate-caption { border-top: 1px solid #131211; padding: 12px 16px; font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; line-height: 1.6; color: #52504c; }"
+    },
+    {
+      "name": "Data Row",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Cardless list row used by the Work and Writing sections — figure number, drawn icon, title/description/tags.",
+      "html": "<a class=\"ds-row\" href=\"#\"><span class=\"ds-row-fig\">FIG. 03</span><span class=\"ds-row-title\">[Project title]</span><span class=\"ds-row-desc\">[One sentence description.]</span></a>",
+      "css": ".ds-row { display: grid; grid-template-columns: 6rem auto 1fr; align-items: center; gap: 24px; padding: 24px 4px; border-bottom: 1px solid #d8d6d1; text-decoration: none; } .ds-row-fig { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: #52504c; } .ds-row-title { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 1.125rem; color: #131211; } .ds-row-desc { font-family: 'IBM Plex Sans', sans-serif; font-size: 0.875rem; color: #52504c; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Sticky top bar with mono index-numbered links and a live status dot.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-mark\"><span class=\"ds-nav-dot\"></span>LJ / 001</a><a class=\"ds-nav-link\"><b>01</b> About</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; border-bottom: 1px solid #131211; background: rgba(246,246,244,0.95); } .ds-nav-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #b3261e; animation: ds-live-pulse 1.6s ease-in-out infinite; } .ds-nav-link { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: #52504c; } .ds-nav-link b { color: #131211; } @keyframes ds-live-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Lab Notebook",
+    "overview": "The site reads as a running research notebook, not a marketing page: every section is a numbered figure plate (\"FIG. 01\", \"FIG. 02\"...), and the plates that anchor the page contain a real, live-rendered generative canvas -- a harmonograph traced by a small set of pens on quasi-periodic Lissajous curves, redrawn every frame and nudged by cursor position -- rather than a screenshot or a decorative loop. The world is deliberately light and high-contrast: near-white paper, black ink rules, and one signal-red accent reserved for live/active states, refusing the dark-mode-plus-neon-particles default that this category of site converges on.\n\nThis is a genuine rebuild, not an iteration: it replaces an earlier bold/playful \"sticker\" world (thick borders, hard offset shadows, gradient blobs) on this same project. That world is evidence of what the subject is, not authority over what it becomes, and none of its devices survive here.",
+    "keyCharacteristics": [
+      "Live, not static: the site's signature visual is real-time canvas computation, not an image or CSS animation standing in for one.",
+      "Ruled-plate structure: every major section is a bordered figure with a numbered tag and a caption strip.",
+      "Restrained color: near-white ground and black ink carry the page; signal red is spent only on live/active indicators.",
+      "No serif, no italic display: type is monospace-led (IBM Plex Mono) with IBM Plex Sans for prose."
+    ],
+    "rules": [
+      { "name": "The One Red Rule", "body": "Signal red marks only what is live or active right now. A static fact never gets the red treatment.", "section": "colors" },
+      { "name": "The No-Serif Rule", "body": "No serif or italic display type anywhere. Hierarchy comes from the mono/sans pairing, weight, and scale.", "section": "typography" }
+    ],
+    "dos": [
+      "Do keep Signal red reserved for live/active state only.",
+      "Do use the FIG. numbering as a continuous document sequence across sections.",
+      "Do draw all icons as consistent-stroke SVGs; never substitute a unicode glyph or emoji.",
+      "Do keep every interactive element's focus ring as the 2px Signal outline."
+    ],
+    "donts": [
+      "Don't add box-shadows or hard offset sticker shadows anywhere -- this world is flat, ruled depth only.",
+      "Don't introduce a serif or italic display face.",
+      "Don't add rounded corners; every shape in this system is a sharp rectangle.",
+      "Don't use a generic kicker/eyebrow label above a heading.",
+      "Don't render the grid-ground pattern anywhere it isn't grounding an actual canvas/figure surface."
+    ]
+  }
+}

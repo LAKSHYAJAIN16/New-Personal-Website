@@ -1,116 +1,67 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { GenerativeFigure } from "./GenerativeFigure";
+import { ArrowIcon } from "./icons";
 
-// TODO: swap these for your real roles/taglines
-const roles = ["Software Engineer", "Builder of Things", "[Your Role]", "[Your Vibe]"];
-
-const marqueeWords = [
-  "AVAILABLE FOR WORK",
-  "★",
-  "OPEN TO COLLAB",
-  "★",
-  "BASED IN [YOUR CITY]",
-  "★",
-];
+// TODO: swap for your real focus areas / roles
+const readings = ["SOFTWARE ENGINEER", "BUILDER OF THINGS", "[YOUR FOCUS]", "CS @ WATERLOO"];
 
 export function Hero() {
-  const [roleIndex, setRoleIndex] = useState(0);
+  const [readingIndex, setReadingIndex] = useState(0);
 
   useEffect(() => {
-    const id = setInterval(() => setRoleIndex((i) => (i + 1) % roles.length), 2600);
+    const id = setInterval(() => setReadingIndex((i) => (i + 1) % readings.length), 2800);
     return () => clearInterval(id);
   }, []);
 
   return (
-    <section
-      id="top"
-      className="relative flex min-h-[92vh] flex-col justify-center overflow-hidden px-4 pt-16 pb-10 sm:px-6"
-    >
-      <div className="mx-auto w-full max-w-4xl">
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="sticker-sm mb-6 inline-flex items-center gap-2 rounded-full bg-lime px-4 py-1.5 font-mono text-xs font-medium uppercase tracking-widest text-ink"
-        >
-          <span className="h-2 w-2 rounded-full bg-ink" />
-          <motion.span key={roleIndex} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-            {roles[roleIndex]}
-          </motion.span>
-        </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display text-6xl font-bold leading-[0.95] tracking-tight sm:text-8xl md:text-9xl"
-        >
-          Hey, I&apos;m
-          <br />
-          <span className="relative inline-block">
-            Lakshya
-            <svg
-              aria-hidden
-              viewBox="0 0 300 20"
-              className="absolute -bottom-2 left-0 w-full text-pink"
-            >
-              <path
-                d="M2 15 Q 75 2, 150 12 T 298 10"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="6"
-                strokeLinecap="round"
-              />
-            </svg>
+    <section id="top" className="px-4 pt-6 sm:px-6">
+      <div className="mx-auto max-w-5xl">
+        <figure className="relative border border-rule-strong">
+          <span className="absolute -top-3 left-4 z-10 bg-paper px-2 font-mono text-xs font-medium tracking-wide text-ink">
+            FIG. 01
           </span>
-          .
-        </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.35 }}
-          className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground sm:text-xl"
-        >
-          {/* TODO: replace with your real bio */}
-          [One or two punchy sentences about what you build, what you care about,
-          and what makes you, you.]
-        </motion.p>
+          <GenerativeFigure
+            seed={2}
+            pens={5}
+            className="h-[70vh] w-full min-h-[420px] sm:h-[78vh]"
+          />
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-10 flex flex-wrap items-center gap-4"
-        >
-          <a
-            href="#work"
-            className="sticker rounded-full bg-violet px-6 py-3 font-mono text-sm font-semibold text-paper"
-          >
-            See my work
-          </a>
-          <a
-            href="#contact"
-            className="sticker rounded-full bg-surface px-6 py-3 font-mono text-sm font-semibold text-ink"
-          >
-            Get in touch
-          </a>
-        </motion.div>
-      </div>
+          <div className="absolute bottom-4 left-4 max-w-sm border border-rule-strong bg-paper px-4 py-3 sm:bottom-6 sm:left-6">
+            <p className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-wide text-signal">
+              <span className="live-dot inline-block h-1.5 w-1.5 rounded-full bg-signal" aria-hidden />
+              <span key={readingIndex}>{readings[readingIndex]}</span>
+            </p>
+            <h1 className="mt-2 font-mono text-2xl font-semibold leading-tight tracking-tight text-ink sm:text-3xl">
+              Lakshya Jain
+            </h1>
+            <p className="mt-1 text-sm leading-relaxed text-ink-soft">
+              {/* TODO: replace with a real one-line bio */}
+              [One precise line on what you build and why.]
+            </p>
+            <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1">
+              <a
+                href="#work"
+                className="inline-flex items-center gap-1 font-mono text-xs font-medium text-ink underline decoration-rule-strong underline-offset-4 hover:decoration-signal"
+              >
+                [1] View work <ArrowIcon className="h-3 w-3" />
+              </a>
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-1 font-mono text-xs font-medium text-ink underline decoration-rule-strong underline-offset-4 hover:decoration-signal"
+              >
+                [2] Get in touch <ArrowIcon className="h-3 w-3" />
+              </a>
+            </div>
+          </div>
+        </figure>
 
-      <div className="mt-16 border-y-2 border-ink bg-ink py-3 sm:mt-24">
-        <div className="flex w-max animate-marquee whitespace-nowrap">
-          {[...marqueeWords, ...marqueeWords].map((word, i) => (
-            <span
-              key={i}
-              className="mx-4 font-display text-xl font-bold text-paper sm:text-2xl"
-            >
-              {word}
-            </span>
-          ))}
-        </div>
+        <figcaption className="border border-t-0 border-rule-strong px-4 py-2.5 font-mono text-xs leading-relaxed text-ink-soft">
+          Live-rendered harmonograph — quasi-periodic pen traces, nudged by cursor position in
+          real time. Rendered on &lt;canvas&gt;, no images.
+        </figcaption>
       </div>
     </section>
   );

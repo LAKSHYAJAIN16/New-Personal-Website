@@ -1,42 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  --background: #FFF7EE;
-  --foreground: #16131F;
-  --muted-foreground: #5A5566;
-
-  --ink: #16131F;
-  --paper: #FFF7EE;
-
-  --accent-violet: #6C4CFF;
-  --accent-pink: #FF5CA8;
-  --accent-lime: #C6FF3D;
-  --accent-orange: #FF8A3D;
-  --accent-blue: #3DD6FF;
-
-  --surface: #FFFFFF;
-  --border: #16131F;
-
-  --shadow-color: #16131F;
+  --paper: #f6f6f4;
+  --ink: #131211;
+  --ink-soft: #52504c;
+  --rule: #d8d6d1;
+  --rule-strong: #131211;
+  --signal: #b3261e;
+  --signal-ink: #ffffff;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-ink: var(--ink);
   --color-paper: var(--paper);
-  --color-violet: var(--accent-violet);
-  --color-pink: var(--accent-pink);
-  --color-lime: var(--accent-lime);
-  --color-orange: var(--accent-orange);
-  --color-blue: var(--accent-blue);
-  --color-surface: var(--surface);
-  --color-border: var(--border);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-signal: var(--signal);
+  --color-signal-ink: var(--signal-ink);
 
-  --font-display: var(--font-display);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
+  --font-mono: var(--font-plex-mono);
+  --font-sans: var(--font-plex-sans);
 }
 
 html {
@@ -44,15 +28,29 @@ html {
 }
 
 body {
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), system-ui, sans-serif;
-  overflow-x: hidden;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* Instrument-grade ruled ground: a faint coordinate grid, never louder than content */
+.grid-ground {
+  background-image:
+    linear-gradient(to right, var(--rule) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--rule) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: -1px -1px;
 }
 
 ::selection {
-  background: var(--accent-lime);
-  color: var(--ink);
+  background: var(--signal);
+  color: var(--signal-ink);
+}
+
+* {
+  scrollbar-color: var(--ink) var(--paper);
 }
 
 ::-webkit-scrollbar {
@@ -60,77 +58,38 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background);
+  background: var(--paper);
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--ink);
-  border-radius: 9999px;
-  border: 2px solid var(--background);
+  border: 2px solid var(--paper);
 }
 
-.font-display {
-  font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
+:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
 }
 
 .font-mono {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-plex-mono), ui-monospace, "SFMono-Regular", monospace;
 }
 
-/* Sticker-style hard shadow used across cards / buttons */
-.sticker {
-  border: 2.5px solid var(--border);
-  box-shadow: 6px 6px 0 0 var(--shadow-color);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+/* Blinking live-signal dot used on active/recording indicators */
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
 }
 
-.sticker-sm {
-  border: 2px solid var(--border);
-  box-shadow: 4px 4px 0 0 var(--shadow-color);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.sticker:hover,
-.sticker-sm:hover {
-  transform: translate(-2px, -2px);
-}
-
-.sticker:hover {
-  box-shadow: 9px 9px 0 0 var(--shadow-color);
-}
-
-.sticker-sm:hover {
-  box-shadow: 6px 6px 0 0 var(--shadow-color);
-}
-
-.sticker:active,
-.sticker-sm:active {
-  transform: translate(1px, 1px);
-  box-shadow: 2px 2px 0 0 var(--shadow-color);
-}
-
-@keyframes blob-float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(3%, -4%) scale(1.05); }
-  66% { transform: translate(-3%, 3%) scale(0.96); }
-}
-
-.animate-blob {
-  animation: blob-float 14s ease-in-out infinite;
-}
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-.animate-marquee {
-  animation: marquee 22s linear infinite;
+.live-dot {
+  animation: live-pulse 1.6s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-blob,
-  .animate-marquee {
+  .live-dot {
     animation: none;
+  }
+  html {
+    scroll-behavior: auto;
   }
 }
