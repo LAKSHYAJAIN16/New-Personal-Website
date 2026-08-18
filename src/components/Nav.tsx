@@ -1,89 +1,78 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
   { href: "#about", label: "About" },
-  { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
-  { href: "#terminal", label: "Terminal" },
+  { href: "#work", label: "Work" },
   { href: "#contact", label: "Contact" },
 ];
 
-export function Nav({ onOpenCommandPalette }: { onOpenCommandPalette: () => void }) {
-  const [hovered, setHovered] = useState<string | null>(null);
+export function Nav() {
+  const [open, setOpen] = useState(false);
 
   return (
-    <motion.header
-      initial={{ y: -40, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed top-0 inset-x-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-xl"
-    >
-      <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-3.5">
+    <header className="sticky top-0 z-40 px-4 pt-4 sm:px-6">
+      <nav className="sticker mx-auto flex max-w-4xl items-center justify-between rounded-2xl bg-surface/90 px-4 py-3 backdrop-blur">
         <a
           href="#top"
-          className="flex items-center gap-2.5 font-display text-lg italic tracking-tight text-foreground transition-opacity hover:opacity-80"
+          className="font-display text-lg font-bold tracking-tight text-ink"
         >
-          <span>Lakshya Jain</span>
-          <span className="flex items-center gap-1.5 rounded-full border border-border bg-surface px-2 py-0.5 text-[10px] font-mono not-italic text-muted">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
-            <span>Open for roles</span>
-          </span>
+          LJ<span className="text-violet">.</span>
         </a>
 
-        <div className="flex items-center gap-4">
-          <ul
-            className="hidden sm:flex items-center gap-1 text-xs font-mono"
-            onMouseLeave={() => setHovered(null)}
+        <div className="hidden items-center gap-1 sm:flex">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="rounded-full px-4 py-2 font-mono text-sm text-ink transition-colors hover:bg-lime/60"
+            >
+              {link.label}
+            </a>
+          ))}
+          <a
+            href="#contact"
+            className="sticker-sm ml-2 rounded-full bg-ink px-4 py-2 font-mono text-sm font-medium text-paper transition-colors hover:bg-violet"
+          >
+            Say hi ↗
+          </a>
+        </div>
+
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          className="sticker-sm flex h-9 w-9 items-center justify-center rounded-full bg-surface sm:hidden"
+          aria-label="Toggle menu"
+          aria-expanded={open}
+        >
+          <span className="font-mono text-lg leading-none">{open ? "×" : "☰"}</span>
+        </button>
+      </nav>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -8, height: 0 }}
+            animate={{ opacity: 1, y: 0, height: "auto" }}
+            exit={{ opacity: 0, y: -8, height: 0 }}
+            transition={{ duration: 0.2 }}
+            className="sticker mx-auto mt-2 flex max-w-4xl flex-col gap-1 overflow-hidden rounded-2xl bg-surface p-3 sm:hidden"
           >
             {links.map((link) => (
-              <li key={link.href} className="relative">
-                <a
-                  href={link.href}
-                  onMouseEnter={() => setHovered(link.href)}
-                  className="relative z-10 block px-3 py-1.5 text-muted transition-colors hover:text-foreground"
-                >
-                  {link.label}
-                </a>
-                {hovered === link.href && (
-                  <motion.div
-                    layoutId="nav-hover"
-                    className="absolute inset-0 rounded-lg bg-surface-hover"
-                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                  />
-                )}
-              </li>
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className="rounded-xl px-4 py-3 font-mono text-sm text-ink hover:bg-lime/60"
+              >
+                {link.label}
+              </a>
             ))}
-          </ul>
-
-          <button
-            onClick={onOpenCommandPalette}
-            className="flex items-center gap-2 rounded-lg border border-border bg-surface px-2.5 py-1 text-xs font-mono text-muted transition-all hover:border-accent hover:text-foreground"
-            title="Search / Command Palette"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="13"
-              height="13"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.3-4.3" />
-            </svg>
-            <span className="hidden md:inline">Search</span>
-            <kbd className="rounded border border-border bg-background px-1.5 py-0.5 text-[10px]">
-              ⌘K
-            </kbd>
-          </button>
-        </div>
-      </nav>
-    </motion.header>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
   );
 }

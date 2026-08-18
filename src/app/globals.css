@@ -1,36 +1,42 @@
 @import "tailwindcss";
 
 :root {
-  --background: #FAF9F5;
-  --foreground: #23211E;
-  --muted: #78746D;
-  --muted-foreground: #5C5850;
-  --accent: #B88946;
-  --accent-rgb: 184, 137, 70;
-  --accent-subtle: #F3EDE2;
-  --border: #E5E0D5;
-  --border-subtle: #EFECE6;
+  --background: #FFF7EE;
+  --foreground: #16131F;
+  --muted-foreground: #5A5566;
+
+  --ink: #16131F;
+  --paper: #FFF7EE;
+
+  --accent-violet: #6C4CFF;
+  --accent-pink: #FF5CA8;
+  --accent-lime: #C6FF3D;
+  --accent-orange: #FF8A3D;
+  --accent-blue: #3DD6FF;
+
   --surface: #FFFFFF;
-  --surface-hover: #F5F1E8;
+  --border: #16131F;
+
+  --shadow-color: #16131F;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-subtle: var(--accent-subtle);
-  --color-border: var(--border);
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-violet: var(--accent-violet);
+  --color-pink: var(--accent-pink);
+  --color-lime: var(--accent-lime);
+  --color-orange: var(--accent-orange);
+  --color-blue: var(--accent-blue);
   --color-surface: var(--surface);
-  --color-surface-hover: var(--surface-hover);
+  --color-border: var(--border);
+
+  --font-display: var(--font-display);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
-  --font-serif: var(--font-serif);
-}
-
-* {
-  border-color: var(--border);
 }
 
 html {
@@ -45,12 +51,12 @@ body {
 }
 
 ::selection {
-  background: var(--accent-subtle);
-  color: var(--accent);
+  background: var(--accent-lime);
+  color: var(--ink);
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -58,14 +64,73 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #DCD6C9;
+  background: var(--ink);
   border-radius: 9999px;
+  border: 2px solid var(--background);
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #C8C1B2;
+.font-display {
+  font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
 }
 
-.font-serif {
-  font-family: var(--font-serif), Georgia, serif;
+.font-mono {
+  font-family: var(--font-mono), monospace;
+}
+
+/* Sticker-style hard shadow used across cards / buttons */
+.sticker {
+  border: 2.5px solid var(--border);
+  box-shadow: 6px 6px 0 0 var(--shadow-color);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.sticker-sm {
+  border: 2px solid var(--border);
+  box-shadow: 4px 4px 0 0 var(--shadow-color);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.sticker:hover,
+.sticker-sm:hover {
+  transform: translate(-2px, -2px);
+}
+
+.sticker:hover {
+  box-shadow: 9px 9px 0 0 var(--shadow-color);
+}
+
+.sticker-sm:hover {
+  box-shadow: 6px 6px 0 0 var(--shadow-color);
+}
+
+.sticker:active,
+.sticker-sm:active {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0 0 var(--shadow-color);
+}
+
+@keyframes blob-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(3%, -4%) scale(1.05); }
+  66% { transform: translate(-3%, 3%) scale(0.96); }
+}
+
+.animate-blob {
+  animation: blob-float 14s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 22s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-blob,
+  .animate-marquee {
+    animation: none;
+  }
 }

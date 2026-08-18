@@ -1,89 +1,59 @@
 "use client";
 
-import { Reveal, RevealGroup, revealItem } from "./Reveal";
 import { motion } from "framer-motion";
 
-type SkillCategory = {
-  name: string;
-  skills: string[];
-};
-
-const skillCategories: SkillCategory[] = [
-  {
-    name: "Languages",
-    skills: ["TypeScript", "JavaScript", "Python", "Rust", "Go", "SQL"],
-  },
-  {
-    name: "Frontend & UI",
-    skills: ["Next.js", "React 19", "Tailwind CSS", "Framer Motion", "HTML5/CSS3"],
-  },
-  {
-    name: "Backend & Systems",
-    skills: ["Node.js", "PostgreSQL", "REST APIs", "gRPC", "Kafka", "Redis"],
-  },
-  {
-    name: "DevOps & Tools",
-    skills: ["Docker", "Git", "GitHub Actions", "Vercel", "Linux"],
-  },
+// TODO: replace with your real facts / stack / interests
+const facts = [
+  { label: "Currently", value: "[What you're doing right now]" },
+  { label: "Stack", value: "[Your favorite tools/languages]" },
+  { label: "Also into", value: "[A hobby or interest]" },
+  { label: "Based in", value: "[Your city]" },
 ];
 
 export function About() {
   return (
-    <section id="about" className="px-6 py-24">
-      <div className="mx-auto grid max-w-5xl gap-12 md:grid-cols-[200px_1fr]">
-        <Reveal>
-          <h2 className="font-display text-3xl italic text-muted">About</h2>
-        </Reveal>
+    <section id="about" className="px-4 py-20 sm:px-6 sm:py-28">
+      <div className="mx-auto max-w-4xl">
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="font-mono text-sm font-semibold uppercase tracking-widest text-violet"
+        >
+          01 / About
+        </motion.p>
 
-        <div>
-          <Reveal>
-            <p className="text-xl leading-relaxed text-foreground sm:text-2xl font-normal">
-              I&apos;m Lakshya, a software engineer obsessed with craft and precision.
-              I solve technical challenges by creating clean, scalable architectures
-              and intuitive user interfaces.
-            </p>
-          </Reveal>
+        <div className="mt-6 grid gap-10 md:grid-cols-[1.2fr_1fr]">
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="font-display text-2xl font-medium leading-snug tracking-tight sm:text-4xl"
+          >
+            {/* TODO: replace with your real about copy */}
+            [Write a couple of sentences about your story, what got you into what
+            you do, and what you&apos;re excited about right now.]
+          </motion.p>
 
-          <Reveal delay={0.1} className="mt-4">
-            <p className="max-w-2xl leading-relaxed text-muted-foreground">
-              Whether building low-latency backend engines or pixel-perfect web interfaces,
-              my goal is always the same: software that is fast, maintainable, and delighting
-              to use.
-            </p>
-          </Reveal>
-
-          {/* Categorized Skills Matrix */}
-          <div className="mt-12 space-y-8">
-            <Reveal>
-              <h3 className="font-mono text-xs uppercase tracking-widest text-muted">
-                Technical Stack & Skills
-              </h3>
-            </Reveal>
-
-            <RevealGroup className="grid gap-6 sm:grid-cols-2">
-              {skillCategories.map((cat) => (
-                <motion.div
-                  key={cat.name}
-                  variants={revealItem}
-                  className="rounded-2xl border border-border/80 bg-surface/60 p-5 backdrop-blur-md transition-colors hover:border-border"
-                >
-                  <h4 className="font-mono text-xs font-semibold text-accent mb-3">
-                    {cat.name}
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {cat.skills.map((skill) => (
-                      <span
-                        key={skill}
-                        className="rounded-full border border-border/60 bg-surface-hover/50 px-3 py-1 text-xs text-muted-foreground transition-colors hover:border-accent hover:text-foreground"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
-              ))}
-            </RevealGroup>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="sticker grid grid-cols-2 gap-4 rounded-2xl bg-surface p-5"
+          >
+            {facts.map((fact) => (
+              <div key={fact.label}>
+                <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                  {fact.label}
+                </p>
+                <p className="mt-1 font-display text-base font-semibold">
+                  {fact.value}
+                </p>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>
