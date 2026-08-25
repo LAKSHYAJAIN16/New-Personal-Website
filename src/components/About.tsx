@@ -14,9 +14,7 @@ export function About() {
   return (
     <section id="about" className="px-4 py-16 sm:px-6 sm:py-24">
       <div className="mx-auto max-w-5xl">
-        <h2 className="mb-8 font-mono text-sm font-semibold uppercase tracking-wide text-ink">
-          About
-        </h2>
+        <h2 className="display-face mb-10 text-5xl font-semibold text-ink sm:text-6xl">A little about me.</h2>
 
         <div className="grid gap-8 md:grid-cols-2">
           <FigurePlate
@@ -27,17 +25,17 @@ export function About() {
           </FigurePlate>
 
           <div className="flex flex-col">
-            <p className="font-mono text-base leading-relaxed text-ink sm:text-lg">
+            <p className="display-face text-2xl leading-relaxed text-ink sm:text-3xl">
               {/* TODO: replace with your real about copy */}
               [Write two or three sentences about your story — what got you into
               building things, and what you&apos;re excited about right now.]
             </p>
 
-            <dl className="mt-6 divide-y divide-rule border-y border-rule">
+            <dl className="soft-panel mt-8 divide-y divide-rule px-5">
               {readings.map(([label, value]) => (
                 <div key={label} className="flex items-baseline justify-between gap-4 py-2.5">
-                  <dt className="font-mono text-xs tracking-wide text-ink-soft">{label}</dt>
-                  <dd className="text-right font-mono text-sm text-ink">{value}</dd>
+                  <dt className="text-xs font-semibold tracking-wide text-ink-soft">{label}</dt>
+                  <dd className="text-right text-sm text-ink">{value}</dd>
                 </div>
               ))}
             </dl>

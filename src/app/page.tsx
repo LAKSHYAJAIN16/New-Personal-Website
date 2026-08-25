@@ -4,7 +4,7 @@ import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
-import { ArrowIcon, NodeIcon } from "@/components/icons";
+import { ArrowIcon } from "@/components/icons";
 
 const index = [
   {
@@ -37,39 +37,31 @@ export default function Home() {
 
         <section className="px-4 py-16 sm:px-6 sm:py-24">
           <div className="mx-auto max-w-5xl">
-            <h2 className="mb-8 font-mono text-sm font-semibold uppercase tracking-wide text-ink">
-              Index
-            </h2>
+            <div className="mb-9 flex items-end justify-between gap-4"><h2 className="display-face text-4xl font-semibold text-ink sm:text-5xl">A small archive.</h2><p className="max-w-44 text-right text-sm leading-relaxed text-ink-soft">Three places to wander when you have a minute.</p></div>
 
-            <div className="border-y border-rule-strong">
+            <div className="border-t border-rule">
               {index.map((entry) => (
                 <Link
                   key={entry.figure}
                   href={entry.href}
-                  className="group grid grid-cols-[auto_1fr] items-start gap-4 border-b border-rule px-1 py-6 last:border-b-0 sm:grid-cols-[6rem_auto_1fr] sm:items-center sm:gap-6"
+                  className="archive-row group grid grid-cols-[auto_1fr] items-start gap-4 py-6 sm:grid-cols-[5rem_1fr_auto] sm:items-center sm:gap-6 sm:px-4"
                 >
-                  <span className="hidden font-mono text-xs text-ink-soft sm:block">
-                    FIG. {entry.figure}
-                  </span>
-
-                  <NodeIcon className="mt-1 h-5 w-5 shrink-0 text-ink-soft transition-colors group-hover:text-signal sm:mt-0" />
+                  <span className="display-face hidden text-2xl italic text-signal sm:block">{entry.figure}</span>
 
                   <div className="min-w-0">
                     <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                      <h3 className="font-mono text-base font-semibold text-ink sm:text-lg">
+                      <h3 className="display-face text-2xl font-semibold text-ink sm:text-3xl">
                         {entry.title}
                       </h3>
-                      <span className="font-mono text-xs text-ink-soft sm:hidden">
-                        FIG. {entry.figure}
+                      <span className="text-xs font-semibold tracking-wider text-signal sm:hidden">
+                        {entry.figure}
                       </span>
                     </div>
                     <p className="mt-1 text-sm leading-relaxed text-ink-soft">
                       {entry.description}
                     </p>
-                    <span className="mt-3 inline-flex items-center gap-1 font-mono text-[11px] font-medium text-ink opacity-0 transition-opacity group-hover:opacity-100">
-                      Open <ArrowIcon className="h-3 w-3" />
-                    </span>
                   </div>
+                  <ArrowIcon className="mt-2 hidden h-5 w-5 text-ink transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 sm:block" />
                 </Link>
               ))}
             </div>

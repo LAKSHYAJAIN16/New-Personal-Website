@@ -24,17 +24,15 @@ export function Contact() {
   return (
     <section id="contact" className="px-4 py-16 sm:px-6 sm:py-24">
       <div className="mx-auto max-w-5xl">
-        <h2 className="mb-8 font-mono text-sm font-semibold uppercase tracking-wide text-ink">
-          Contact
-        </h2>
+        <h2 className="display-face mb-10 text-5xl font-semibold text-ink sm:text-6xl">Say hello.</h2>
 
-        <div className="border border-rule-strong px-5 py-10 sm:px-10 sm:py-14">
+        <div className="soft-panel px-5 py-10 sm:px-10 sm:py-14">
           <p className="flex items-center gap-2 font-mono text-xs uppercase tracking-wide text-signal">
             <span className="live-dot inline-block h-1.5 w-1.5 rounded-full bg-signal" aria-hidden />
             Channel open
           </p>
 
-          <h3 className="mt-3 max-w-xl font-mono text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-5xl">
+          <h3 className="display-face mt-3 max-w-xl text-4xl font-semibold leading-[.92] text-ink sm:text-6xl">
             Let&apos;s build something worth documenting.
           </h3>
 
@@ -42,7 +40,7 @@ export function Contact() {
             <button
               type="button"
               onClick={copyEmail}
-              className="inline-flex items-center gap-2 border border-rule-strong px-4 py-2.5 font-mono text-sm text-ink transition-colors hover:bg-ink hover:text-paper"
+              className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-semibold text-paper transition-transform hover:-translate-y-0.5"
             >
               {copied ? (
                 <>

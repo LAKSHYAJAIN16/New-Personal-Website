@@ -1,13 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --paper: #f6f6f4;
-  --ink: #131211;
-  --ink-soft: #52504c;
-  --rule: #d8d6d1;
-  --rule-strong: #131211;
-  --signal: #b3261e;
-  --signal-ink: #ffffff;
+  --paper: #f6eddf;
+  --ink: #17233c;
+  --ink-soft: #596378;
+  --rule: #d9ccb9;
+  --rule-strong: #17233c;
+  --signal: #d85338;
+  --signal-ink: #fff8ee;
+  --sun: #f3b44d;
 }
 
 @theme inline {
@@ -35,14 +36,65 @@ body {
   font-variant-numeric: tabular-nums lining-nums;
 }
 
-/* Instrument-grade ruled ground: a faint coordinate grid, never louder than content */
 .grid-ground {
-  background-image:
-    linear-gradient(to right, var(--rule) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--rule) 1px, transparent 1px);
-  background-size: 40px 40px;
-  background-position: -1px -1px;
+  background: var(--paper);
 }
+
+.grid-ground::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  pointer-events: none;
+  background: radial-gradient(circle at 82% 7%, rgba(243, 180, 77, .24), transparent 24rem);
+}
+
+.display-face {
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: -0.045em;
+}
+
+.hero-stage {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 1.35rem;
+  background: var(--ink);
+  color: var(--signal-ink);
+  box-shadow: 0 24px 60px rgba(23, 35, 60, .2);
+}
+
+.hero-stage::after {
+  position: absolute;
+  width: 29rem;
+  height: 29rem;
+  right: -12rem;
+  top: -14rem;
+  z-index: -1;
+  content: "";
+  border-radius: 50%;
+  background: var(--sun);
+}
+
+.hero-stage canvas { opacity: .45; mix-blend-mode: screen; }
+
+.hero-orb {
+  position: absolute;
+  width: clamp(11rem, 32vw, 23rem);
+  aspect-ratio: 1;
+  right: clamp(-3rem, 8vw, 7rem);
+  bottom: clamp(-6rem, -2vw, -1rem);
+  border-radius: 50%;
+  background: var(--signal);
+  opacity: .92;
+}
+
+.archive-row { border-bottom: 1px solid var(--rule); transition: background-color .22s ease; }
+.archive-row:hover { background: rgba(243, 180, 77, .18); }
+.soft-panel { border-radius: 1rem; background: rgba(255,248,238,.58); box-shadow: 0 14px 36px rgba(23,35,60,.08); }
+
+.site-nav { background: rgba(246,237,223,.88); border-bottom-color: rgba(23,35,60,.14); }
+.nav-mark { display: grid; width: 2rem; height: 2rem; place-items: center; border-radius: 50%; background: var(--signal); color: var(--signal-ink); font-family: Georgia, serif; font-size: 1.1rem; font-style: italic; }
 
 ::selection {
   background: var(--signal);

@@ -16,11 +16,11 @@ export function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-rule-strong bg-paper/95 backdrop-blur">
+    <header className="site-nav sticky top-0 z-40 border-b backdrop-blur">
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3 sm:px-6">
-        <Link href="/" className="flex items-center gap-2 font-mono text-sm font-semibold text-ink">
-          <span className="live-dot inline-block h-1.5 w-1.5 rounded-full bg-signal" aria-hidden />
-          LJ / 001
+        <Link href="/" className="flex items-center gap-2 text-sm font-semibold text-ink">
+          <span className="nav-mark" aria-hidden>l</span>
+          <span className="display-face text-xl">Lakshya Jain</span>
         </Link>
 
         <div className="hidden items-center gap-6 sm:flex">
@@ -35,7 +35,7 @@ export function Nav() {
           ))}
           <a
             href="mailto:lakshya16jain@gmail.com"
-            className="border border-rule-strong px-3 py-1.5 font-mono text-xs font-medium text-ink transition-colors hover:bg-ink hover:text-paper"
+            className="rounded-full bg-signal px-4 py-2 text-xs font-semibold text-signal-ink transition-transform hover:-translate-y-0.5"
           >
             Contact
           </a>
@@ -44,7 +44,7 @@ export function Nav() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="flex h-8 w-8 items-center justify-center border border-rule-strong text-ink sm:hidden"
+          className="flex h-9 w-9 items-center justify-center rounded-full border border-rule-strong text-ink sm:hidden"
           aria-label="Toggle menu"
           aria-expanded={open}
         >
