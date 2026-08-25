@@ -10,7 +10,6 @@
   --gold: #b08a2e;
   --data: #2657c2;
   --mountain: #9a9da3;
-  --valley: #b9d3e8;
 }
 
 @theme inline {
@@ -23,7 +22,6 @@
   --color-gold: var(--gold);
   --color-data: var(--data);
   --color-mountain: var(--mountain);
-  --color-valley: var(--valley);
 
   --font-mono: var(--font-plex-mono);
   --font-sans: var(--font-plex-sans);
@@ -109,15 +107,6 @@ body {
   border-radius: 50%;
   background: var(--data);
   animation: live-pulse 1.8s ease-in-out infinite;
-}
-
-.crease-line {
-  stroke: var(--mountain);
-}
-
-.crease-line--valley {
-  stroke: var(--valley);
-  stroke-dasharray: 2 4;
 }
 
 @keyframes fold-deploy {

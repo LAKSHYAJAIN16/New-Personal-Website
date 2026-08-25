@@ -11,7 +11,6 @@ colors:
   gold: "#b08a2e"
   data: "#2657c2"
   mountain: "#9a9da3"
-  valley: "#b9d3e8"
 typography:
   display:
     fontFamily: "Big Shoulders, 'Arial Narrow', sans-serif"
@@ -51,14 +50,14 @@ components:
 
 **Creative North Star: "Deployable Sheet"**
 
-The site presents itself as precision-engineered hardware documentation, not a portfolio: every panel is cut like a Miura-fold deployment sheet, and the hero's signature move is a crease-pattern field that grows from a single origin point into a full mountain/valley tessellation on load — real SVG geometry, not a decorative loop. The world reads as aerospace-adjacent instrument literature: sheet-white ground, ink-black structure, a single foil-gold accent reserved for primary actions, and a data-blue reserved for live/status values. Corners are never rounded — every edge that isn't a plain rectangle is a deliberate parallelogram cut or a single 45°-notched corner, echoing a folded sheet's own geometry rather than soft app-UI chrome.
+The site presents itself as precision-engineered hardware documentation, not a portfolio: every panel is cut like a Miura-fold deployment sheet, and the hero's signature move is a crease-pattern field that grows from a single origin point into a quiet mountain-fold tessellation on load — real SVG geometry, not a decorative loop. The world reads as aerospace-adjacent instrument literature: sheet-white ground, ink-black structure, a single foil-gold accent reserved for primary actions, and a data-blue reserved for live/status values. Corners are never rounded — every edge that isn't a plain rectangle is a deliberate parallelogram cut or a single 45°-notched corner, echoing a folded sheet's own geometry rather than soft app-UI chrome.
 
-This replaces the prior "Live Paper" world (warm cream, serif display, rounded soft-panels, ambient shadows) outright — a full identity change chosen through a structured direction round, not a refinement. Nothing from that world's rounded/serif/shadow language survives here; the only carry-over is the underlying type infrastructure (IBM Plex Mono/Sans, already self-hosted) reused for a genuinely different reason — mono for anything numbered or measured, sans for reading prose.
+This replaces the prior "Live Paper" world (warm cream, serif display, rounded soft-panels, ambient shadows) outright — a full identity change chosen through a structured direction round, not a refinement. Nothing from that world's rounded/serif/shadow language survives here; the only carry-over is the underlying type infrastructure (IBM Plex Mono/Sans, already self-hosted) reused for a genuinely different reason — mono for anything numbered or measured, sans for reading prose. A first pass ran busier than this — two hues in the crease field, the cut motif on every piece of chrome, two separate status readouts on the hero; a simplification pass pulled all three back to the essentials below.
 
 **Key Characteristics:**
-- Cut, not rounded: every shape in the system is either a plain rectangle, a symmetric parallelogram cut (buttons, badges), or a single 45° corner notch (panels) — zero border-radius anywhere.
-- One accent, one data color: foil-gold marks primary actions only; data-blue marks live/status values only (the pulsing "Ready" dot, rotating role text, page tags). Neither substitutes for the other.
-- Live geometry, not an image: the hero's crease-pattern field is real SVG, grown into place via CSS animation on load — the site's one authored motion moment, not a scroll-triggered gimmick repeated per section.
+- Cut, not rounded: every shape in the system is either a plain rectangle, a symmetric parallelogram cut (buttons, the one Contact/CTA badge), or a single 45° corner notch (panels) — zero border-radius anywhere, and the cut is reserved for actionable elements only, not applied to every piece of chrome.
+- One accent, one data color, used sparingly: foil-gold marks primary actions only; data-blue marks genuinely live/status values only — a single hero status line, the Contact "Channel open" line — never a passive list label or a per-row tag.
+- Live geometry, not an image: the hero's crease-pattern field is real SVG, grown into place via CSS animation on load — fewer, larger, quieter facets in one tone, receding behind the copy rather than competing with it.
 - Flat by default: no box-shadows or ambient elevation anywhere; separation comes from the sheet-white/white contrast, hairline borders, and the gold corner-notch, not from drop shadows.
 
 ## Colors
@@ -69,18 +68,18 @@ A near-monochrome ground (sheet-white/ink-black) carrying two reserved accents: 
 - **Foil Gold** (`#b08a2e`): reserved for primary-action fills only — the nav "Contact" pill, the nav wordmark's monogram badge, the hero's "Deploy" CTA, the Contact section's email-copy button, and the gold corner-notch on every panel. Never used for text on light backgrounds, only as a solid fill paired with ink text.
 
 ### Secondary
-- **Data Blue** (`#2657c2`): reserved for live or status values only — the pulsing "Ready"/"Channel open" status dot and label, the rotating "Currently" role text, and the small uppercase tag preceding each Work/Writing/Photos index row. A static fact never gets this color.
+- **Data Blue** (`#2657c2`): reserved for genuinely live or status values only — the pulsing "Ready" dot and its status line on the Hero, and the "Channel open" line on Contact. Nothing else: not a page tag, not a per-row list label, not a static fact dressed up to look live.
 
 ### Neutral
 - **Sheet** (`#f7f7f5`): the page ground and the `grid-ground` fill.
 - **Panel** (`#ffffff`): every card/panel surface (Hero stage, Figure Plates, data panels) — a step brighter than Sheet so panels read as distinct surfaces without a shadow.
 - **Ink** (`#111315`): primary text, all structural rules, and every filled-dark surface (the mobile nav toggle, the hero's secondary CTA).
-- **Ink Soft** (`#5b5f66`): secondary text — descriptions, captions, nav links at rest, footer copy.
+- **Ink Soft** (`#5b5f66`): secondary text — descriptions, captions, nav links at rest, footer copy, index/row tags, the "Shipped" status word on Work rows.
 - **Line** (`#dcdcd8`): hairline dividers (list rows, panel captions, the Contact link row).
-- **Mountain** (`#9a9da3`) / **Valley** (`#b9d3e8`): the hero crease-field's two alternating facet colors only — never used as UI chrome outside that one component.
+- **Mountain** (`#9a9da3`): the hero crease-field's one facet color, varied only by opacity (not hue) between the two fold directions — never used as UI chrome outside that one component.
 
 ### Named Rules
-**The One Accent, One Data Rule.** Gold means "act on this." Data-blue means "this is live or current." A static label or structural element never borrows either color — that is what Ink and Ink Soft are for.
+**The One Accent, One Data Rule.** Gold means "act on this." Data-blue means "this is live or current, right now." A static label, a passive tag, or a structural element never borrows either color — that is what Ink and Ink Soft are for. A prior pass used Data Blue on page tags and per-row status words; those were never actually live, so they were pulled back to Ink Soft.
 
 ## Typography
 
@@ -115,9 +114,9 @@ Flat by design: no box-shadows anywhere. Depth and separation come from the shee
 
 ## Shapes
 
-Cut, never rounded — `border-radius: 0` everywhere. Three cut vocabularies cover the whole system:
+Cut, never rounded — `border-radius: 0` everywhere. Two cut vocabularies cover the whole system, both reserved for actionable/primary elements only — the nav wordmark badge and the mobile menu toggle are deliberately plain rectangles, not cut, so the motif keeps its meaning:
 - **Parallelogram cut** (`.deploy-cut`, 14px symmetric slant on both vertical edges): every primary/secondary button.
-- **Small parallelogram cut** (`.deploy-cut-sm`, 9px slant): the nav wordmark badge, the nav "Contact" pill, the mobile menu toggle.
+- **Small parallelogram cut** (`.deploy-cut-sm`): the nav "Contact" pill — the nav's one actual call to action.
 - **Single corner notch** (`.sheet-panel`, one 22px 45° cut at the top-left corner, filled gold): every data panel — Figure Plates, the About stat list, the Contact panel.
 
 ## Components
@@ -136,22 +135,24 @@ Cut, never rounded — `border-radius: 0` everywhere. Three cut vocabularies cov
 A white panel with a single 45°-notched top-left corner filled Gold, a hairline border, and a mono field-label/value list or figcaption below. Used for the About stat list, the Contact panel, and every Figure Plate (About's live figure, each Photobooth photo).
 
 ### Hero Crease Field (signature component, `FoldHero`)
-A 7×5 rhombus-tessellation SVG, alternating Mountain-gray and Valley-blue fills with Ink/Data strokes, grown from near-zero scale to full size via one CSS keyframe on load (`fold-deploy`, 1.3s, expo-out) with each facet fading in on a distance-based stagger. Renders at full size immediately under `prefers-reduced-motion: reduce` — no motion, same final state.
+A 4×3 rhombus-tessellation SVG, one Mountain-gray fill varied only by opacity between the two fold directions (no second hue), Ink strokes at low opacity, grown from near-zero scale to full size via one CSS keyframe on load (`fold-deploy`, 1.3s, expo-out) with each facet fading in on a distance-based stagger. Sits at 60% opacity so it reads as ambient texture behind the hero copy, not a competing focal element. Renders at full size immediately under `prefers-reduced-motion: reduce` — no motion, same final state.
 
 ### Navigation
-- **Style:** sticky, translucent Sheet background (`rgba(247,247,245,.92)`) with backdrop-blur, Line bottom border. Wordmark pairs a small Gold parallelogram monogram badge with the Display wordmark. Links are plain uppercase Plex Mono, no index-number prefix. Mobile collapses to a 44×44px Ink parallelogram toggle.
+- **Style:** sticky, translucent Sheet background (`rgba(247,247,245,.92)`) with backdrop-blur, Line bottom border. Wordmark pairs a plain Gold square monogram badge (not cut — see Shapes) with the Display wordmark. Links are plain uppercase Plex Mono, no index-number prefix. Mobile collapses to a 44×44px plain Ink toggle.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** keep Gold reserved for primary-action fills only, and Data Blue reserved for live/status values only (The One Accent, One Data Rule).
-- **Do** keep every cut shape at exactly 0 border-radius — parallelogram or single-corner-notch only, never rounded.
+- **Do** keep Gold reserved for primary-action fills only, and Data Blue reserved for genuinely live/status values only (The One Accent, One Data Rule) — never a passive tag or list label.
+- **Do** keep every cut shape at exactly 0 border-radius — parallelogram or single-corner-notch only, never rounded — and reserve the cut for buttons/panels/the nav CTA, not every piece of chrome.
 - **Do** fill buttons instead of outlining them when a cut class is involved — border/shadow on a clipped element breaks visibly.
 - **Do** reserve the hero name's skew for that one element; every other headline stays upright.
 - **Do** keep the crease-field animation as the system's one authored motion moment — don't add a second scroll-triggered reveal elsewhere.
+- **Do** default to one status line per surface, not several stacked readouts saying overlapping things.
 
 ### Don't:
 - **Don't** add a kicker/eyebrow label directly above a heading — a small status readout is only acceptable when it's placed away from the heading and reads as telemetry, never as a title label.
 - **Don't** add rounded corners anywhere.
 - **Don't** add box-shadows or ambient elevation — depth is border + gold notch only.
 - **Don't** reintroduce decorative sequence numbers (`01`, `FIG. 0X`) — a tag carries a real word or date instead.
+- **Don't** reintroduce a second hue into the crease field, or apply the cut motif to non-actionable chrome (wordmarks, toggles) — both were tried and pulled back for reading as busy.

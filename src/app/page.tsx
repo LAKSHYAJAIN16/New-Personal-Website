@@ -51,7 +51,7 @@ export default function Home() {
                   href={entry.href}
                   className="group grid grid-cols-[auto_1fr] items-start gap-4 border-b border-line px-1 py-6 last:border-b-0 sm:grid-cols-[7rem_1fr_auto] sm:items-center sm:gap-6 sm:px-4"
                 >
-                  <span className="hidden font-mono text-xs font-semibold uppercase tracking-wide text-data sm:block">
+                  <span className="hidden font-mono text-xs font-semibold uppercase tracking-wide text-ink-soft sm:block">
                     {entry.tag}
                   </span>
 
@@ -60,7 +60,7 @@ export default function Home() {
                       <h3 className="display-face text-2xl text-ink sm:text-3xl">
                         {entry.title}
                       </h3>
-                      <span className="font-mono text-xs font-semibold uppercase tracking-wide text-data sm:hidden">
+                      <span className="font-mono text-xs font-semibold uppercase tracking-wide text-ink-soft sm:hidden">
                         {entry.tag}
                       </span>
                     </div>

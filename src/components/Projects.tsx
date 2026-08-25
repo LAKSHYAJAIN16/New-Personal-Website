@@ -14,7 +14,7 @@ export function Projects() {
               href={project.href}
               className="group grid grid-cols-1 gap-3 border-b border-line px-1 py-6 last:border-b-0 sm:grid-cols-[7rem_1fr_auto] sm:items-center sm:gap-6 sm:px-4"
             >
-              <span className="status-ready font-mono text-xs uppercase tracking-wide">
+              <span className="font-mono text-xs uppercase tracking-wide text-ink-soft">
                 Shipped
               </span>
 

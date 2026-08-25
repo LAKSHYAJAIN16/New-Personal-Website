@@ -1,12 +1,12 @@
-const COLS = 7;
-const ROWS = 5;
-const TILE_W = 64;
-const TILE_H = 74;
+const COLS = 4;
+const ROWS = 3;
+const TILE_W = 96;
+const TILE_H = 110;
 
 type Facet = {
   key: string;
   points: string;
-  fill: string;
+  isMountain: boolean;
   delay: number;
 };
 
@@ -25,8 +25,8 @@ function buildFacets(): Facet[] {
       facets.push({
         key: `${row}-${col}`,
         points: `${top} ${right} ${bottom} ${left}`,
-        fill: isMountain ? "var(--mountain)" : "var(--valley)",
-        delay: distance * 0.028,
+        isMountain,
+        delay: distance * 0.04,
       });
     }
   }
@@ -43,17 +43,17 @@ export function FoldHero() {
       <svg
         viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
         preserveAspectRatio="xMaxYMin slice"
-        className="fold-reveal absolute -right-10 -top-6 h-[130%] w-[85%] opacity-90 sm:w-[65%]"
+        className="fold-reveal absolute -right-10 -top-6 h-[130%] w-[75%] opacity-60 sm:w-[55%]"
       >
         {FACETS.map((f) => (
           <polygon
             key={f.key}
             className="fold-facet"
             points={f.points}
-            fill={f.fill}
-            fillOpacity={0.5}
-            stroke={f.fill === "var(--mountain)" ? "var(--ink)" : "var(--data)"}
-            strokeOpacity={0.35}
+            fill="var(--mountain)"
+            fillOpacity={f.isMountain ? 0.32 : 0.14}
+            stroke="var(--ink)"
+            strokeOpacity={0.22}
             strokeWidth={1}
             style={{ animationDelay: `${0.5 + f.delay}s` }}
           />

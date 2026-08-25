@@ -20,7 +20,7 @@ export function Nav() {
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3 sm:px-6">
         <Link href="/" className="flex items-center gap-2.5 text-sm font-semibold text-ink">
           <span
-            className="deploy-cut-sm grid h-7 w-7 place-items-center bg-gold font-mono text-xs font-bold text-ink"
+            className="grid h-7 w-7 place-items-center bg-gold font-mono text-xs font-bold text-ink"
             aria-hidden
           >
             L
@@ -49,7 +49,7 @@ export function Nav() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="deploy-cut-sm flex h-11 w-11 items-center justify-center bg-ink text-sheet sm:hidden"
+          className="flex h-11 w-11 items-center justify-center bg-ink text-sheet sm:hidden"
           aria-label="Toggle menu"
           aria-expanded={open}
         >

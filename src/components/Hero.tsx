@@ -22,7 +22,7 @@ export function Hero() {
 
           <div className="relative z-10 flex min-h-[496px] max-w-xl flex-col justify-between sm:min-h-[544px]">
             <p className="status-ready font-mono text-xs uppercase tracking-wide">
-              Ready <span className="text-ink-soft normal-case">— all systems nominal</span>
+              Ready <span key={readingIndex} className="text-ink-soft normal-case">— currently {readings[readingIndex]}</span>
             </p>
 
             <div>
@@ -37,10 +37,7 @@ export function Hero() {
               <p className="mt-6 max-w-md text-base leading-relaxed text-ink-soft sm:text-lg">
                 [One precise line on what you build and why.]
               </p>
-              <p className="mt-4 font-mono text-xs uppercase tracking-wide text-ink-soft">
-                Currently <span key={readingIndex} className="font-semibold text-data">{readings[readingIndex]}</span>
-              </p>
-              <div className="mt-6 flex flex-wrap gap-4">
+              <div className="mt-8 flex flex-wrap gap-4">
                 <a
                   href="/work"
                   className="deploy-cut inline-flex items-center gap-2 bg-gold px-6 py-3 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5"

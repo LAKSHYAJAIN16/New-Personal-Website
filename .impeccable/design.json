@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-25T01:29:59.611Z",
+  "generatedAt": "2026-08-25T17:30:16.411Z",
   "title": "Design System: Lakshya Jain — Personal Site",
   "extensions": {
     "colorMeta": {
@@ -51,12 +51,6 @@
         "displayName": "Mountain",
         "canonical": "#9a9da3",
         "tonalRamp": ["#2e3033", "#484b4f", "#63666b", "#7d8085", "#9a9da3", "#b3b5ba", "#cccdd0", "#e6e6e8"]
-      },
-      "valley": {
-        "role": "neutral",
-        "displayName": "Valley",
-        "canonical": "#b9d3e8",
-        "tonalRamp": ["#152738", "#22405c", "#325b81", "#4c7ba8", "#7ba3c8", "#b9d3e8", "#d3e3f1", "#ecf3fa"]
       }
     },
     "typographyMeta": {
@@ -114,35 +108,37 @@
       "refersTo": null,
       "description": "Sticky translucent-blur nav with the gold parallelogram monogram wordmark.",
       "html": "<header class=\"ds-nav\"><div class=\"ds-nav-inner\"><a class=\"ds-nav-brand\" href=\"/\"><span class=\"ds-nav-mark\">L</span><span class=\"ds-nav-name\">Lakshya Jain</span></a><nav class=\"ds-nav-links\"><a href=\"#\">About</a><a href=\"#\">Work</a></nav><a class=\"ds-btn-gold\" href=\"#\" style=\"padding:8px 16px;font-size:12px;\">Contact</a></div></header>",
-      "css": ".ds-nav { position: sticky; top: 0; background: rgba(247,247,245,.92); backdrop-filter: blur(6px); border-bottom: 1px solid #dcdcd8; } .ds-nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; } .ds-nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; } .ds-nav-mark { display: grid; place-items: center; width: 28px; height: 28px; background: #b08a2e; color: #111315; font-family: 'IBM Plex Mono', monospace; font-weight: 700; font-size: 12px; clip-path: polygon(9px 0, 100% 0, calc(100% - 9px) 100%, 0 100%); } .ds-nav-name { font-family: 'Big Shoulders', 'Arial Narrow', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em; font-size: 18px; color: #111315; } .ds-nav-links { display: flex; gap: 28px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: #5b5f66; }"
+      "css": ".ds-nav { position: sticky; top: 0; background: rgba(247,247,245,.92); backdrop-filter: blur(6px); border-bottom: 1px solid #dcdcd8; } .ds-nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; } .ds-nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; } .ds-nav-mark { display: grid; place-items: center; width: 28px; height: 28px; background: #b08a2e; color: #111315; font-family: 'IBM Plex Mono', monospace; font-weight: 700; font-size: 12px; } .ds-nav-name { font-family: 'Big Shoulders', 'Arial Narrow', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em; font-size: 18px; color: #111315; } .ds-nav-links { display: flex; gap: 28px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: #5b5f66; }"
     }
   ],
   "narrative": {
     "northStar": "Deployable Sheet",
-    "overview": "The site presents itself as precision-engineered hardware documentation, not a portfolio: every panel is cut like a Miura-fold deployment sheet, and the hero's signature move is a crease-pattern field that grows from a single origin point into a full mountain/valley tessellation on load — real SVG geometry, not a decorative loop. The world reads as aerospace-adjacent instrument literature: sheet-white ground, ink-black structure, a single foil-gold accent reserved for primary actions, and a data-blue reserved for live/status values. Corners are never rounded — every edge that isn't a plain rectangle is a deliberate parallelogram cut or a single 45°-notched corner, echoing a folded sheet's own geometry rather than soft app-UI chrome. This replaces the prior 'Live Paper' world outright — a full identity change chosen through a structured direction round, not a refinement.",
+    "overview": "The site presents itself as precision-engineered hardware documentation, not a portfolio: every panel is cut like a Miura-fold deployment sheet, and the hero's signature move is a crease-pattern field that grows from a single origin point into a quiet mountain-fold tessellation on load — real SVG geometry, not a decorative loop. The world reads as aerospace-adjacent instrument literature: sheet-white ground, ink-black structure, a single foil-gold accent reserved for primary actions, and a data-blue reserved for genuinely live/status values. Corners are never rounded — every edge that isn't a plain rectangle is a deliberate parallelogram cut or a single 45°-notched corner, echoing a folded sheet's own geometry rather than soft app-UI chrome. This replaces the prior 'Live Paper' world outright. A first pass ran busier (two hues in the crease field, the cut motif on every piece of chrome, two stacked hero status lines); a simplification pass pulled it back to the essentials.",
     "keyCharacteristics": [
-      "Cut, not rounded: every shape is a plain rectangle, a symmetric parallelogram cut, or a single 45° corner notch — zero border-radius anywhere.",
-      "One accent, one data color: foil-gold marks primary actions only; data-blue marks live/status values only.",
-      "Live geometry, not an image: the hero's crease-pattern field is real SVG, grown into place via one authored CSS animation on load.",
+      "Cut, not rounded: every shape is a plain rectangle, a symmetric parallelogram cut, or a single 45° corner notch — zero border-radius anywhere, reserved for actionable elements only.",
+      "One accent, one data color, used sparingly: foil-gold marks primary actions only; data-blue marks genuinely live/status values only, never a passive tag or list label.",
+      "Live geometry, not an image: the hero's crease-pattern field is real SVG in one tone, grown into place via one authored CSS animation on load, sitting at 60% opacity as ambient texture rather than a competing focal element.",
       "Flat by default: no box-shadows anywhere — separation comes from contrast, hairline borders, and the gold corner-notch."
     ],
     "rules": [
-      { "name": "The One Accent, One Data Rule", "body": "Gold means act on this. Data-blue means this is live or current. A static label or structural element never borrows either color.", "section": "colors" },
+      { "name": "The One Accent, One Data Rule", "body": "Gold means act on this. Data-blue means this is live or current, right now. A static label, a passive tag, or a structural element never borrows either color.", "section": "colors" },
       { "name": "The Two-Family Rule", "body": "Big Shoulders is reserved for headline-scale moments only; Plex Mono is reserved for anything labeled, numbered, or measured; Plex Sans carries everything else.", "section": "typography" },
       { "name": "The No-Shadow Rule", "body": "Every surface is flat at rest and stays flat on hover; state changes are a translateY lift on buttons, never a shadow.", "section": "elevation" }
     ],
     "dos": [
-      "Do keep Gold reserved for primary-action fills only, and Data Blue reserved for live/status values only.",
-      "Do keep every cut shape at exactly 0 border-radius — parallelogram or single-corner-notch only, never rounded.",
+      "Do keep Gold reserved for primary-action fills only, and Data Blue reserved for genuinely live/status values only.",
+      "Do keep every cut shape at exactly 0 border-radius — parallelogram or single-corner-notch only, never rounded — reserved for buttons/panels/the nav CTA.",
       "Do fill buttons instead of outlining them when a cut class is involved — border/shadow on a clipped element breaks visibly.",
       "Do reserve the hero name's skew for that one element; every other headline stays upright.",
-      "Do keep the crease-field animation as the system's one authored motion moment."
+      "Do keep the crease-field animation as the system's one authored motion moment.",
+      "Do default to one status line per surface, not several stacked readouts."
     ],
     "donts": [
       "Don't add a kicker/eyebrow label directly above a heading.",
       "Don't add rounded corners anywhere.",
       "Don't add box-shadows or ambient elevation.",
-      "Don't reintroduce decorative sequence numbers (01, FIG. 0X)."
+      "Don't reintroduce decorative sequence numbers (01, FIG. 0X).",
+      "Don't reintroduce a second hue into the crease field, or apply the cut motif to non-actionable chrome (wordmarks, toggles) — both were tried and pulled back."
     ]
   }
 }
