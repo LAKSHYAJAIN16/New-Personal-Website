@@ -51,9 +51,9 @@ export function GenerativeFigure({ className, seed = 1, pens = 4 }: GenerativeFi
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
     const root = getComputedStyle(document.documentElement);
-    const paperColor = root.getPropertyValue("--paper").trim() || "#f6f6f4";
-    const inkColor = root.getPropertyValue("--ink").trim() || "#131211";
-    const signalColor = root.getPropertyValue("--signal").trim() || "#b3261e";
+    const paperColor = root.getPropertyValue("--sheet").trim() || "#f7f7f5";
+    const inkColor = root.getPropertyValue("--mountain").trim() || "#9a9da3";
+    const signalColor = root.getPropertyValue("--data").trim() || "#2657c2";
 
     let width = 0;
     let height = 0;

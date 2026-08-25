@@ -6,9 +6,7 @@ export function PhotoboothSection() {
   return (
     <section id="photobooth" className="px-4 py-16 sm:px-6 sm:py-24">
       <div className="mx-auto max-w-5xl">
-        <h2 className="mb-8 font-mono text-sm font-semibold uppercase tracking-wide text-ink">
-          Photobooth
-        </h2>
+        <h1 className="display-face mb-10 text-4xl text-ink sm:text-5xl">Photobooth</h1>
 
         <div className="grid gap-8 sm:grid-cols-2">
           {photos.map((photo) => (

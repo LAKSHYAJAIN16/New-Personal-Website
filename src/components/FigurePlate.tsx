@@ -16,13 +16,13 @@ export function FigurePlate({
   captionClassName = "",
 }: FigurePlateProps) {
   return (
-    <figure className={`soft-panel relative overflow-hidden ${className}`}>
-      <span className="absolute left-4 top-4 z-10 rounded-full bg-signal px-2.5 py-1 text-xs font-semibold text-signal-ink">
-        {number}
+    <figure className={`sheet-panel relative overflow-hidden ${className}`}>
+      <span className="absolute right-3 top-3 z-10 font-mono text-[11px] font-semibold uppercase tracking-wide text-ink-soft">
+        ID {number}
       </span>
       {children}
       <figcaption
-        className={`border-t border-rule px-5 py-4 text-xs leading-relaxed text-ink-soft ${captionClassName}`}
+        className={`border-t border-line px-5 py-4 font-mono text-xs leading-relaxed text-ink-soft ${captionClassName}`}
       >
         {caption}
       </figcaption>

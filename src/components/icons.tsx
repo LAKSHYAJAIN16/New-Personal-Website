@@ -45,15 +45,3 @@ export function CheckIcon({ className }: IconProps) {
     </svg>
   );
 }
-
-export function NodeIcon({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 16 16" className={className} aria-hidden {...strokeProps}>
-      <circle cx="8" cy="8" r="2.1" />
-      <path d="M8 2v3.4" />
-      <path d="M8 10.6V14" />
-      <path d="M2 8h3.4" />
-      <path d="M10.6 8H14" />
-    </svg>
-  );
-}

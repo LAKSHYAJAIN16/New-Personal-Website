@@ -16,26 +16,31 @@ export function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="site-nav sticky top-0 z-40 border-b backdrop-blur">
+    <header className="nav-deploy sticky top-0 z-40 border-b">
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3 sm:px-6">
-        <Link href="/" className="flex items-center gap-2 text-sm font-semibold text-ink">
-          <span className="nav-mark" aria-hidden>l</span>
-          <span className="display-face text-xl">Lakshya Jain</span>
+        <Link href="/" className="flex items-center gap-2.5 text-sm font-semibold text-ink">
+          <span
+            className="deploy-cut-sm grid h-7 w-7 place-items-center bg-gold font-mono text-xs font-bold text-ink"
+            aria-hidden
+          >
+            L
+          </span>
+          <span className="display-face text-lg">Lakshya Jain</span>
         </Link>
 
-        <div className="hidden items-center gap-6 sm:flex">
-          {links.map((link, i) => (
+        <div className="hidden items-center gap-7 sm:flex">
+          {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="font-mono text-xs text-ink-soft transition-colors hover:text-ink"
+              className="font-mono text-xs uppercase tracking-wide text-ink-soft transition-colors hover:text-ink"
             >
-              <span className="text-ink">0{i + 1}</span> {link.label}
+              {link.label}
             </Link>
           ))}
           <a
             href="mailto:lakshya16jain@gmail.com"
-            className="rounded-full bg-signal px-4 py-2 text-xs font-semibold text-signal-ink transition-transform hover:-translate-y-0.5"
+            className="deploy-cut-sm bg-gold px-4 py-2 text-xs font-semibold text-ink transition-transform hover:-translate-y-0.5"
           >
             Contact
           </a>
@@ -44,7 +49,7 @@ export function Nav() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="flex h-9 w-9 items-center justify-center rounded-full border border-rule-strong text-ink sm:hidden"
+          className="deploy-cut-sm flex h-11 w-11 items-center justify-center bg-ink text-sheet sm:hidden"
           aria-label="Toggle menu"
           aria-expanded={open}
         >
@@ -53,13 +58,13 @@ export function Nav() {
       </nav>
 
       {open && (
-        <div className="flex flex-col border-t border-rule-strong sm:hidden">
+        <div className="flex flex-col border-t border-line-strong sm:hidden">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="border-b border-rule px-5 py-3 font-mono text-sm text-ink"
+              className="border-b border-line px-5 py-3 font-mono text-sm text-ink"
             >
               {link.label}
             </Link>

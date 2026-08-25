@@ -1,27 +1,33 @@
 @import "tailwindcss";
 
 :root {
-  --paper: #f6eddf;
-  --ink: #17233c;
-  --ink-soft: #596378;
-  --rule: #d9ccb9;
-  --rule-strong: #17233c;
-  --signal: #d85338;
-  --signal-ink: #fff8ee;
-  --sun: #f3b44d;
+  --sheet: #f7f7f5;
+  --panel: #ffffff;
+  --ink: #111315;
+  --ink-soft: #5b5f66;
+  --line: #dcdcd8;
+  --line-strong: #111315;
+  --gold: #b08a2e;
+  --data: #2657c2;
+  --mountain: #9a9da3;
+  --valley: #b9d3e8;
 }
 
 @theme inline {
-  --color-paper: var(--paper);
+  --color-sheet: var(--sheet);
+  --color-panel: var(--panel);
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
-  --color-rule: var(--rule);
-  --color-rule-strong: var(--rule-strong);
-  --color-signal: var(--signal);
-  --color-signal-ink: var(--signal-ink);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-gold: var(--gold);
+  --color-data: var(--data);
+  --color-mountain: var(--mountain);
+  --color-valley: var(--valley);
 
   --font-mono: var(--font-plex-mono);
   --font-sans: var(--font-plex-sans);
+  --font-display: var(--font-big-shoulders);
 }
 
 html {
@@ -29,7 +35,7 @@ html {
 }
 
 body {
-  background-color: var(--paper);
+  background-color: var(--sheet);
   color: var(--ink);
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   font-feature-settings: "tnum" 1, "lnum" 1;
@@ -37,7 +43,11 @@ body {
 }
 
 .grid-ground {
-  background: var(--paper);
+  background:
+    linear-gradient(90deg, transparent 0, transparent calc(100% - 1px), var(--line) calc(100% - 1px)),
+    var(--sheet);
+  background-size: 100% 100%;
+  position: relative;
 }
 
 .grid-ground::before {
@@ -46,63 +56,113 @@ body {
   z-index: -1;
   content: "";
   pointer-events: none;
-  background: radial-gradient(circle at 82% 7%, rgba(243, 180, 77, .24), transparent 24rem);
+  background-image:
+    linear-gradient(60deg, rgba(154, 157, 163, 0.07) 25%, transparent 25.5%, transparent 75%, rgba(154, 157, 163, 0.07) 75.5%),
+    linear-gradient(-60deg, rgba(154, 157, 163, 0.07) 25%, transparent 25.5%, transparent 75%, rgba(154, 157, 163, 0.07) 75.5%);
+  background-size: 64px 111px;
 }
 
 .display-face {
-  font-family: Georgia, "Times New Roman", serif;
-  letter-spacing: -0.045em;
+  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
 }
 
-.hero-stage {
+.deploy-cut {
+  clip-path: polygon(14px 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+}
+
+.deploy-cut-sm {
+  clip-path: polygon(9px 0, 100% 0, calc(100% - 9px) 100%, 0 100%);
+}
+
+.sheet-panel {
   position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  border-radius: 1.35rem;
-  background: var(--ink);
-  color: var(--signal-ink);
-  box-shadow: 0 24px 60px rgba(23, 35, 60, .2);
+  clip-path: polygon(0 22px, 22px 0, 100% 0, 100% 100%, 0 100%);
+  background: var(--panel);
+  border: 1px solid var(--line);
 }
 
-.hero-stage::after {
+.sheet-panel::before {
   position: absolute;
-  width: 29rem;
-  height: 29rem;
-  right: -12rem;
-  top: -14rem;
-  z-index: -1;
   content: "";
-  border-radius: 50%;
-  background: var(--sun);
+  top: 0;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  background: var(--gold);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 
-.hero-stage canvas { opacity: .45; mix-blend-mode: screen; }
-
-.hero-orb {
-  position: absolute;
-  width: clamp(11rem, 32vw, 23rem);
-  aspect-ratio: 1;
-  right: clamp(-3rem, 8vw, 7rem);
-  bottom: clamp(-6rem, -2vw, -1rem);
-  border-radius: 50%;
-  background: var(--signal);
-  opacity: .92;
+.status-ready {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  color: var(--data);
 }
 
-.archive-row { border-bottom: 1px solid var(--rule); transition: background-color .22s ease; }
-.archive-row:hover { background: rgba(243, 180, 77, .18); }
-.soft-panel { border-radius: 1rem; background: rgba(255,248,238,.58); box-shadow: 0 14px 36px rgba(23,35,60,.08); }
+.status-ready::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--data);
+  animation: live-pulse 1.8s ease-in-out infinite;
+}
 
-.site-nav { background: rgba(246,237,223,.88); border-bottom-color: rgba(23,35,60,.14); }
-.nav-mark { display: grid; width: 2rem; height: 2rem; place-items: center; border-radius: 50%; background: var(--signal); color: var(--signal-ink); font-family: Georgia, serif; font-size: 1.1rem; font-style: italic; }
+.crease-line {
+  stroke: var(--mountain);
+}
+
+.crease-line--valley {
+  stroke: var(--valley);
+  stroke-dasharray: 2 4;
+}
+
+@keyframes fold-deploy {
+  from { transform: scale(0.09) rotate(-6deg); }
+  to { transform: scale(1) rotate(0deg); }
+}
+
+.fold-reveal {
+  transform-origin: 100% 0%;
+  animation: fold-deploy 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+
+@keyframes fold-facet-in {
+  to { opacity: 1; }
+}
+
+.fold-facet {
+  opacity: 0;
+  animation: fold-facet-in 0.5s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fold-reveal {
+    animation: none;
+    transform: scale(1) rotate(0deg);
+  }
+  .fold-facet {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+.nav-deploy {
+  background: rgba(247, 247, 245, 0.92);
+  border-bottom-color: var(--line);
+  backdrop-filter: blur(6px);
+}
 
 ::selection {
-  background: var(--signal);
-  color: var(--signal-ink);
+  background: var(--gold);
+  color: var(--ink);
 }
 
 * {
-  scrollbar-color: var(--ink) var(--paper);
+  scrollbar-color: var(--ink) var(--sheet);
 }
 
 ::-webkit-scrollbar {
@@ -110,21 +170,22 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--paper);
+  background: var(--sheet);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--ink);
-  border: 2px solid var(--paper);
+  background: var(--ink-soft);
+  border: 2px solid var(--sheet);
 }
 
 :focus-visible {
-  outline: 2px solid var(--signal);
+  outline: 2px solid var(--gold);
   outline-offset: 3px;
 }
 
 .font-mono {
   font-family: var(--font-plex-mono), ui-monospace, "SFMono-Regular", monospace;
+  font-variant-numeric: tabular-nums;
 }
 
 /* Blinking live-signal dot used on active/recording indicators */
@@ -138,7 +199,8 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .live-dot {
+  .live-dot,
+  .status-ready::before {
     animation: none;
   }
   html {

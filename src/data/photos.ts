@@ -11,25 +11,25 @@ export const photos: Photo[] = [
   {
     figure: "01",
     src: "/photos/coffee.png",
-    alt: "[Replace with a real photo of you]",
+    alt: "Placeholder photo — to be replaced",
     caption: "[Placeholder — replace with a real photo + a short caption]",
   },
   {
     figure: "02",
     src: "/photos/hackathon.png",
-    alt: "[Replace with a real photo of you]",
+    alt: "Placeholder photo — to be replaced",
     caption: "[Placeholder — replace with a real photo + a short caption]",
   },
   {
     figure: "03",
     src: "/photos/waterloo.png",
-    alt: "[Replace with a real photo of you]",
+    alt: "Placeholder photo — to be replaced",
     caption: "[Placeholder — replace with a real photo + a short caption]",
   },
   {
     figure: "04",
     src: "/photos/sunset.png",
-    alt: "[Replace with a real photo of you]",
+    alt: "Placeholder photo — to be replaced",
     caption: "[Placeholder — replace with a real photo + a short caption]",
   },
 ];

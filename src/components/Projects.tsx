@@ -1,53 +1,41 @@
 import { projects } from "@/data/projects";
-import { ArrowIcon, NodeIcon } from "./icons";
+import { ArrowIcon } from "./icons";
 
 export function Projects() {
   return (
     <section id="work" className="px-4 py-16 sm:px-6 sm:py-24">
       <div className="mx-auto max-w-5xl">
-        <h2 className="mb-8 font-mono text-sm font-semibold uppercase tracking-wide text-ink">
-          Work
-        </h2>
+        <h1 className="display-face mb-10 text-4xl text-ink sm:text-5xl">Work</h1>
 
-        <div className="border-y border-rule-strong">
+        <div className="border-t border-line-strong">
           {projects.map((project) => (
             <a
               key={project.figure}
               href={project.href}
-              className="group grid grid-cols-[auto_1fr] items-start gap-4 border-b border-rule px-1 py-6 last:border-b-0 sm:grid-cols-[6rem_auto_1fr] sm:items-center sm:gap-6"
+              className="group grid grid-cols-1 gap-3 border-b border-line px-1 py-6 last:border-b-0 sm:grid-cols-[7rem_1fr_auto] sm:items-center sm:gap-6 sm:px-4"
             >
-              <span className="hidden font-mono text-xs text-ink-soft sm:block">
-                FIG. {project.figure}
+              <span className="status-ready font-mono text-xs uppercase tracking-wide">
+                Shipped
               </span>
 
-              <NodeIcon className="mt-1 h-5 w-5 shrink-0 text-ink-soft transition-colors group-hover:text-signal sm:mt-0" />
-
               <div className="min-w-0">
-                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                  <h3 className="font-mono text-base font-semibold text-ink sm:text-lg">
-                    {project.title}
-                  </h3>
-                  <span className="font-mono text-xs text-ink-soft sm:hidden">
-                    FIG. {project.figure}
-                  </span>
-                </div>
-                <p className="mt-1 text-sm leading-relaxed text-ink-soft">
-                  {project.description}
-                </p>
+                <h3 className="display-face text-2xl text-ink sm:text-3xl">{project.title}</h3>
+                <p className="mt-1 text-sm leading-relaxed text-ink-soft">{project.description}</p>
                 <div className="mt-3 flex flex-wrap items-center gap-2">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="border border-rule px-2 py-0.5 font-mono text-[11px] text-ink-soft"
+                      className="border border-line-strong px-2.5 py-1 font-mono text-[11px] font-semibold uppercase tracking-wide text-ink-soft"
                     >
                       {tag}
                     </span>
                   ))}
-                  <span className="inline-flex items-center gap-1 font-mono text-[11px] font-medium text-ink opacity-0 transition-opacity group-hover:opacity-100">
-                    Open <ArrowIcon className="h-3 w-3" />
-                  </span>
                 </div>
               </div>
+
+              <span className="inline-flex items-center gap-1 self-start font-mono text-[11px] font-semibold uppercase tracking-wide text-ink opacity-0 transition-opacity group-hover:opacity-100 sm:self-center">
+                Open <ArrowIcon className="h-3 w-3" />
+              </span>
             </a>
           ))}
         </div>

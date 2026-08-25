@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
+import { Big_Shoulders, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 
 const plexMono = IBM_Plex_Mono({
@@ -14,6 +14,12 @@ const plexSans = IBM_Plex_Sans({
   weight: ["400", "500", "600", "700"],
 });
 
+const bigShoulders = Big_Shoulders({
+  variable: "--font-big-shoulders",
+  subsets: ["latin"],
+  weight: ["700", "800", "900"],
+});
+
 export const metadata: Metadata = {
   title: "Lakshya Jain",
   description: "Personal website of Lakshya Jain.",
@@ -24,11 +30,11 @@ export const metadata: Metadata = {
 };
 
 const DIRECTION_CONTRACT = `
-THESIS: A personal site as a running lab notebook -- each section is a numbered figure plate whose content is a real, live-rendered generative canvas, refusing the dark-mode particle-hero portfolio default.
-OWN-WORLD: Near-white ground, black ruled instrument grid, one signal-red accent reserved for live/active states; IBM Plex Mono for numerals and labels, IBM Plex Sans for body -- no serif, no italic display.
-STORY: A visitor sees proof of real technical craft immediately, a live-computed figure rather than a screenshot, reads the person through captioned plates, and leaves knowing what they build.
-FIRST VIEWPORT: A large live generative figure fills most of the frame as FIG. 01, name and title set small and precise beside it on the ruled grid, no hero copy block.
-FORM: Live Paper direction, candidate 3 of 7 own-list grounded candidates, seed key 4896d616.
+THESIS: A personal site as a precision-engineered deployment -- the page unfolds from a compact folded state in one motion, refusing the static hero-plus-card-grid portfolio default.
+OWN-WORLD: Sheet-white ground, ink-black rules and text, foil-gold as the single CTA accent, data-blue for live values; mountain-gray and valley-blue trace mountain/valley crease lines. Big Shoulders Display (skewed on the hero name only) for headlines, IBM Plex Mono for data/labels, IBM Plex Sans for prose. Parallelogram-cut edges replace rounded corners.
+STORY: A visitor watches the page deploy like precision hardware, reads Lakshya as an engineer who ships exact, tested things, and leaves knowing what to open next.
+FIRST VIEWPORT: A crease-pattern field grows from a single origin point on load into a full mountain/valley tessellation filling the right frame; name, status, and primary action sit fixed at the sheet's left edge.
+FORM: Deployable Sheet direction, challenger pick (Miura-fold, re-roll round 1), seed key d4fea6b9.
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
 `;
 
@@ -51,9 +57,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plexMono.variable} ${plexSans.variable} h-full antialiased`}
+      className={`${plexMono.variable} ${plexSans.variable} ${bigShoulders.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-paper text-ink">
+      <body className="min-h-full flex flex-col bg-sheet text-ink">
         <DirectionContract />
         {children}
       </body>

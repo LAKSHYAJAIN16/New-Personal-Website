@@ -1,142 +1,157 @@
 ---
 name: Lakshya Jain — Personal Site
-description: A running lab notebook where each section is a numbered figure plate with a real live-rendered generative canvas.
+description: A precision-engineered "deployment sheet" — the page unfolds from a compact folded state in one motion, all parallelogram cuts and crease-pattern geometry.
 colors:
-  paper: "#f6f6f4"
-  ink: "#131211"
-  ink-soft: "#52504c"
-  rule: "#d8d6d1"
-  rule-strong: "#131211"
-  signal: "#b3261e"
-  signal-ink: "#ffffff"
+  sheet: "#f7f7f5"
+  panel: "#ffffff"
+  ink: "#111315"
+  ink-soft: "#5b5f66"
+  line: "#dcdcd8"
+  line-strong: "#111315"
+  gold: "#b08a2e"
+  data: "#2657c2"
+  mountain: "#9a9da3"
+  valley: "#b9d3e8"
 typography:
-  mono:
-    fontFamily: "IBM Plex Mono, ui-monospace, SFMono-Regular, monospace"
-    fontWeight: 400
-  mono-heading:
-    fontFamily: "IBM Plex Mono, ui-monospace, SFMono-Regular, monospace"
-    fontWeight: 600
+  display:
+    fontFamily: "Big Shoulders, 'Arial Narrow', sans-serif"
+    fontWeight: 800
+    letterSpacing: "-0.02em"
   body:
     fontFamily: "IBM Plex Sans, ui-sans-serif, system-ui, sans-serif"
+    fontWeight: 400
+  label:
+    fontFamily: "IBM Plex Mono, ui-monospace, SFMono-Regular, monospace"
     fontWeight: 400
 spacing:
   plate-gap: "2rem"
   section-y: "4rem"
+  section-y-lg: "6rem"
 components:
-  button-primary:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.paper}"
-    typography: "{typography.mono}"
-    padding: "10px 16px"
-  button-primary-hover:
-    backgroundColor: "{colors.signal}"
-  button-outline:
-    backgroundColor: "transparent"
+  button-gold:
+    backgroundColor: "{colors.gold}"
     textColor: "{colors.ink}"
-    typography: "{typography.mono}"
-    padding: "10px 16px"
+    typography: "{typography.body}"
+    padding: "12px 24px"
+  button-ink:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.sheet}"
+    typography: "{typography.body}"
+    padding: "12px 24px"
+  tag-chip:
+    backgroundColor: "transparent"
+    textColor: "{colors.ink-soft}"
+    typography: "{typography.label}"
+    padding: "4px 10px"
 ---
 
 # Design System: Lakshya Jain — Personal Site
 
 ## Overview
 
-**Creative North Star: "The Lab Notebook"**
+**Creative North Star: "Deployable Sheet"**
 
-The site reads as a running research notebook, not a marketing page: every section is a numbered figure plate ("FIG. 01", "FIG. 02"…), and the plates that anchor the page contain a real, live-rendered generative canvas — a harmonograph traced by a small set of pens on quasi-periodic Lissajous curves, redrawn every frame and nudged by cursor position — rather than a screenshot or a decorative loop. The world is deliberately light and high-contrast: near-white paper, black ink rules, and one signal-red accent reserved for live/active states, refusing the dark-mode-plus-neon-particles default that this category of site converges on. Nothing is a stock card grid; content is presented the way an instrument reading or an academic figure plate is presented — numbered, captioned, ruled.
+The site presents itself as precision-engineered hardware documentation, not a portfolio: every panel is cut like a Miura-fold deployment sheet, and the hero's signature move is a crease-pattern field that grows from a single origin point into a full mountain/valley tessellation on load — real SVG geometry, not a decorative loop. The world reads as aerospace-adjacent instrument literature: sheet-white ground, ink-black structure, a single foil-gold accent reserved for primary actions, and a data-blue reserved for live/status values. Corners are never rounded — every edge that isn't a plain rectangle is a deliberate parallelogram cut or a single 45°-notched corner, echoing a folded sheet's own geometry rather than soft app-UI chrome.
 
-This is a genuine rebuild, not an iteration: it replaces an earlier bold/playful "sticker" world (thick borders, hard offset shadows, gradient blobs) on this same project. That world is evidence of what the subject is, not authority over what it becomes, and none of its devices (hard block shadows, gradient text, unicode-arrow icons) survive here.
+This replaces the prior "Live Paper" world (warm cream, serif display, rounded soft-panels, ambient shadows) outright — a full identity change chosen through a structured direction round, not a refinement. Nothing from that world's rounded/serif/shadow language survives here; the only carry-over is the underlying type infrastructure (IBM Plex Mono/Sans, already self-hosted) reused for a genuinely different reason — mono for anything numbered or measured, sans for reading prose.
 
 **Key Characteristics:**
-- Live, not static: the site's signature visual is real-time `<canvas>` computation, not an image or CSS animation standing in for one.
-- Ruled-plate structure: every major section is a bordered "figure" with a numbered tag and a caption strip, echoing a lab notebook or academic paper.
-- Restrained color: near-white ground and black ink carry the page; signal red is spent only on live/active indicators and the newest pen trace.
-- No serif, no italic display: type is monospace-led (IBM Plex Mono) for anything numeric, labeled, or structural, with IBM Plex Sans for reading prose — a deliberate move away from the "editorial serif + italic" AI-portfolio default.
+- Cut, not rounded: every shape in the system is either a plain rectangle, a symmetric parallelogram cut (buttons, badges), or a single 45° corner notch (panels) — zero border-radius anywhere.
+- One accent, one data color: foil-gold marks primary actions only; data-blue marks live/status values only (the pulsing "Ready" dot, rotating role text, page tags). Neither substitutes for the other.
+- Live geometry, not an image: the hero's crease-pattern field is real SVG, grown into place via CSS animation on load — the site's one authored motion moment, not a scroll-triggered gimmick repeated per section.
+- Flat by default: no box-shadows or ambient elevation anywhere; separation comes from the sheet-white/white contrast, hairline borders, and the gold corner-notch, not from drop shadows.
 
 ## Colors
 
-Two neutrals and one reserved accent; no secondary or tertiary role.
+A near-monochrome ground (sheet-white/ink-black) carrying two reserved accents: one for action, one for data.
 
 ### Primary
-- **Signal Red** (`#b3261e`): reserved exclusively for "live" state — the pulsing status dot, the newest/active pen trace in a generative figure, hover-state link underlines, and the "channel open" contact indicator. Never used for structural chrome (borders, dividers) or decoration.
+- **Foil Gold** (`#b08a2e`): reserved for primary-action fills only — the nav "Contact" pill, the nav wordmark's monogram badge, the hero's "Deploy" CTA, the Contact section's email-copy button, and the gold corner-notch on every panel. Never used for text on light backgrounds, only as a solid fill paired with ink text.
+
+### Secondary
+- **Data Blue** (`#2657c2`): reserved for live or status values only — the pulsing "Ready"/"Channel open" status dot and label, the rotating "Currently" role text, and the small uppercase tag preceding each Work/Writing/Photos index row. A static fact never gets this color.
 
 ### Neutral
-- **Paper** (`#f6f6f4`): the page ground and every plate's fill. Not warm cream — kept neutral-cool to avoid the "cream + serif" AI-portfolio cliché.
-- **Ink** (`#131211`): primary text, headings, and all structural rules/borders.
-- **Ink Soft** (`#52504c`): secondary text — captions, metadata, tag labels, nav links at rest.
-- **Rule** (`#d8d6d1`): quiet dividers (table rows, the background grid, list separators).
-- **Rule Strong** (`#131211`, i.e. Ink): plate borders, the nav's bottom border, anything that needs to read as a drawn instrument line rather than a soft divider.
+- **Sheet** (`#f7f7f5`): the page ground and the `grid-ground` fill.
+- **Panel** (`#ffffff`): every card/panel surface (Hero stage, Figure Plates, data panels) — a step brighter than Sheet so panels read as distinct surfaces without a shadow.
+- **Ink** (`#111315`): primary text, all structural rules, and every filled-dark surface (the mobile nav toggle, the hero's secondary CTA).
+- **Ink Soft** (`#5b5f66`): secondary text — descriptions, captions, nav links at rest, footer copy.
+- **Line** (`#dcdcd8`): hairline dividers (list rows, panel captions, the Contact link row).
+- **Mountain** (`#9a9da3`) / **Valley** (`#b9d3e8`): the hero crease-field's two alternating facet colors only — never used as UI chrome outside that one component.
 
 ### Named Rules
-**The One Red Rule.** Signal red marks only what is live or active right now (a pulsing dot, the pen currently drawing, an active hover). A static fact never gets the red treatment — that is what Ink is for.
+**The One Accent, One Data Rule.** Gold means "act on this." Data-blue means "this is live or current." A static label or structural element never borrows either color — that is what Ink and Ink Soft are for.
 
 ## Typography
 
-**Display/Label Font:** IBM Plex Mono (with ui-monospace, SFMono-Regular, monospace fallback)
+**Display Font:** Big Shoulders (with "Arial Narrow", sans-serif fallback)
 **Body Font:** IBM Plex Sans (with ui-sans-serif, system-ui, sans-serif fallback)
+**Label/Mono Font:** IBM Plex Mono (with ui-monospace, SFMono-Regular, monospace fallback)
 
-**Character:** IBM Plex was designed as an engineering/technical corporate face, which is the point — it reads as instrument-grade, not editorial. Mono carries anything numbered, labeled, or structural (figure tags, nav indices, buttons, data readouts); Sans carries body prose. No serif face and no italic display type appear anywhere in the system — both are the AI-portfolio default this world explicitly refuses.
+**Character:** Big Shoulders is a heavy, uppercase-set condensed grotesk — chosen for its industrial-deployment character, not as a default reach. It carries every headline; nothing else in the system uses it. The hero's name is the system's one skewed element (`skewX(-6deg)`, transform-origin bottom-left) — no other headline is ever skewed.
 
 ### Hierarchy
-- **Display** (600, `text-3xl`–`text-5xl`, tight leading): the hero name and the Contact section's closing line. Bold weight, never italic.
-- **Title** (600, `text-lg`–`text-xl`, mono): project/post titles, plate figcaptions' implicit heading role.
-- **Body** (400, `text-sm`–`text-base`, sans): descriptive prose (about copy, project/post descriptions).
-- **Label** (400–500, `text-xs`–`text-[11px]`, mono, occasionally uppercase with tracking-wide): figure tags ("FIG. 0X"), nav links, tag chips, captions, footer.
+- **Display** (800, `text-4xl`–`text-8xl`, uppercase, tight tracking): every section-opening headline (hero name, "A little about me", "Say hello", each subpage's page title) and archive-row titles.
+- **Body** (400, `text-sm`–`text-2xl`, Plex Sans): descriptive prose — row descriptions, hero subhead, the About lead paragraph (set larger, at `text-xl`–`text-2xl`, for emphasis), footer copy.
+- **Label** (400–600, `text-[11px]`–`text-xs`, Plex Mono, usually uppercase with wide tracking): nav links, status readouts, data-panel field labels (STATUS/FOCUS/LOCATION…), tag chips, citation links.
 
 ### Named Rules
-**The No-Serif Rule.** No serif or italic display type. Emphasis and hierarchy come from the mono/sans pairing, weight, and scale — never from switching families to signal "editorial."
+**The Two-Family Rule.** Big Shoulders is reserved for headline-scale moments only; Plex Mono is reserved for anything labeled, numbered, or measured; Plex Sans carries everything else. No family substitutes for another.
 
 ## Layout
 
-The site is multi-page, not a single scrolling document: `/` (Hero, About, an Index pointer list, Contact), `/work`, `/writing`, and `/photobooth` are separate routes, each independently linkable and each opening with its own Nav/Footer. The FIG. numbering stays a single continuous sequence across that structure by convention rather than by page — Home owns FIG. 01–02 (Hero, About) plus FIG. 03–05 as index pointers to the other three pages; each sub-page restarts its own internal entries at FIG. 01 so a visitor arriving directly at one (not through Home) isn't shown a number with no prior context.
+Still a multi-page site: `/` (Hero, About, an index row-list, Contact), `/work`, `/writing`, and `/photobooth` are independently linkable routes, each opening with its own Nav/Footer and a "[0] Back to index" link. Single-column content capped at `max-w-5xl`, centered, `px-4 sm:px-6` margins, `py-16 sm:py-24` section rhythm. The Hero is the one full-bleed exception: a single bordered white stage (`min-h-[560px] sm:min-h-[620px]`) holding the live crease field and hero copy, dominating the first viewport.
 
-Single-column content capped at `max-w-5xl`, centered, with `px-4 sm:px-6` page margins. Sections stack vertically with generous `py-16 sm:py-24` rhythm; each section opens with a small mono uppercase section label (`About`, `Index`, `Work`, `Writing`, `Contact` — not a decorative kicker, since on Home it doubles as the in-page nav target's visible label). The Hero is the one exception: it is edge-to-edge within the content column and uses viewport-relative height (`h-[70vh] sm:h-[78vh]`) so the generative figure dominates the first viewport.
+No section-number chrome (`FIG. 0X`, `01/02`) survives from the prior world — the earlier ban on decorative sequence numbers is treated as a hard rule here: rows carry a real-word tag (`WORK`, `WRITING`, a date) instead of an arbitrary index.
 
-Nav links to Work and Writing are real page navigations (`next/link` to `/work` / `/writing`); About and Contact stay same-document anchors (`/#about`, `/#contact`) that resolve to Home from any page. Each sub-page opens with a small "[0] Back to index" link in the same citation-link style used throughout, rather than relying on the nav alone for the way back.
-
-Responsive behavior is mobile-first via Tailwind's `sm:` (640px) breakpoint: the nav collapses from an inline link row to a bordered hamburger toggle with a full-width dropdown; project/post rows collapse from a three-column grid (`figure number · icon · content`) to two columns, moving the figure number inline next to the title instead of in its own gutter.
-
-A faint two-axis grid background (`.grid-ground`, 40px cells, drawn from the `rule` color) covers the whole page — an intentional graph-paper/engineering-drafting surface consistent with the lab-notebook world, not a decorative filler pattern.
+Responsive behavior stays mobile-first via Tailwind's `sm:` (640px) breakpoint: Nav collapses to an ink-filled parallelogram icon toggle (44×44px, meeting touch-target minimums) revealing a full-width dropdown; index/data rows collapse from a three-column grid to a stacked single column.
 
 ## Elevation & Depth
 
-Flat by design: no box-shadows anywhere in the system. Depth and separation come entirely from ruled borders (1–2.5px solid Ink) and whitespace, matching a paper/instrument-panel material rather than a layered digital-UI material. This is a deliberate departure from the previous "sticker" world, which used hard offset block shadows; that device belonged to a neobrutalist world this project no longer is.
+Flat by design: no box-shadows anywhere. Depth and separation come from the sheet-white/white contrast between the page ground and panel surfaces, 1px hairline borders (`Line`/`Ink`), and the gold corner-notch that marks every panel — a paper/instrument-plate material, not a layered app-UI one.
+
+### Named Rules
+**The No-Shadow Rule.** Every surface is flat at rest and stays flat on hover; state changes are a translateY lift on buttons, never a shadow.
 
 ## Shapes
 
-No rounded corners anywhere (`border-radius: 0` throughout — plates, buttons, tags, nav elements). Every container is a sharp-cornered rectangle bounded by a ruled border, consistent with drawn instrument panels and printed figure plates rather than soft app-UI chrome.
+Cut, never rounded — `border-radius: 0` everywhere. Three cut vocabularies cover the whole system:
+- **Parallelogram cut** (`.deploy-cut`, 14px symmetric slant on both vertical edges): every primary/secondary button.
+- **Small parallelogram cut** (`.deploy-cut-sm`, 9px slant): the nav wordmark badge, the nav "Contact" pill, the mobile menu toggle.
+- **Single corner notch** (`.sheet-panel`, one 22px 45° cut at the top-left corner, filled gold): every data panel — Figure Plates, the About stat list, the Contact panel.
 
 ## Components
 
 ### Buttons
-- **Shape:** sharp rectangle, 1–2px solid Ink border, no radius.
-- **Primary (filled):** Ink background, Paper text, mono type, `10px 16px` padding (the Contact section's email-copy control uses this on hover).
-- **Outline (default):** transparent background, Ink border and text, mono type; fills to Ink-background/Paper-text on hover (nav "Contact" button, hero CTA links use the underline variant instead — see Links below).
-- **Hover/Focus:** background inverts (outline → filled) or underline decoration shifts from Rule-Strong to Signal; focus-visible always gets a 2px Signal outline with 3px offset (see `:focus-visible` in globals.css).
+- **Shape:** parallelogram-cut (`.deploy-cut`), no radius, ever.
+- **Gold (primary):** Gold fill, Ink text, `12px 24px` padding — the hero's "Deploy" CTA and the Contact email-copy button.
+- **Ink (secondary/utility):** Ink fill, Sheet text, same padding — the hero's "Get in touch" and the mobile nav toggle.
+- **Hover/Focus:** fill buttons lift (`hover:-translate-y-0.5`), never a color swap or a shadow. `:focus-visible` always gets a 2px Gold outline at 3px offset.
+- **Known constraint:** never combine `border` (or `box-shadow`) with a clip-path cut class — the browser clips the border/shadow to the original rectangular box, not the cut polygon, leaving a broken partial outline. Use a solid fill instead of an outline style wherever the cut classes apply.
 
-### Links (inline citation-style)
-- **Style:** bracketed index prefix (`[1]`, `[2]`) in front of the label, mono type, an underline in Rule-Strong that shifts to Signal on hover, paired with a small drawn arrow icon (never a unicode glyph).
+### Tag Chips
+- **Style:** plain rectangle (no cut), 1px Ink border, mono uppercase text — deliberately *not* cut, so the cut motif stays reserved for buttons/panels/badges rather than every small element.
 
-### Figure Plates (signature component)
-The system's one recurring custom component. A `<figure>` bordered in Rule-Strong with a "FIG. 0X" tag overlapping the top-left border (a Paper-background chip so the border reads as broken by the label, like a printed plate number), the figure content itself, and a bottom `<figcaption>` strip in small Ink-Soft mono text describing what the figure shows. Used for the Hero's and About's live-canvas figures, and for each photo in the Photobooth grid (photos are desaturated — `grayscale contrast-125` — so full-color source images don't fight the restrained paper/ink/signal palette); the same numbering sequence continues, unlabeled by a literal `<figure>` wrapper, into the Work and Writing row-lists so the whole page reads as one continuously numbered document.
+### Data Panels (signature component, `sheet-panel`)
+A white panel with a single 45°-notched top-left corner filled Gold, a hairline border, and a mono field-label/value list or figcaption below. Used for the About stat list, the Contact panel, and every Figure Plate (About's live figure, each Photobooth photo).
 
-### Data Rows (Work / Writing lists)
-- **Style:** no cards. A `border-y` wrapped list of rows separated by single Rule dividers, each row a three-column grid (figure number · a drawn node/circuit-mark icon · title+description+tags). Tags are small Rule-bordered mono chips, not filled pills.
+### Hero Crease Field (signature component, `FoldHero`)
+A 7×5 rhombus-tessellation SVG, alternating Mountain-gray and Valley-blue fills with Ink/Data strokes, grown from near-zero scale to full size via one CSS keyframe on load (`fold-deploy`, 1.3s, expo-out) with each facet fading in on a distance-based stagger. Renders at full size immediately under `prefers-reduced-motion: reduce` — no motion, same final state.
 
 ### Navigation
-- **Style:** sticky top bar, Rule-Strong bottom border, Paper background at 95% opacity with backdrop-blur. Links show a mono two-digit index (`01`, `02`…) in Ink ahead of the label in Ink-Soft; a live-pulsing Signal dot sits next to the wordmark at all times. Mobile collapses to a bordered icon-only toggle (drawn menu/close SVGs, never unicode) that reveals a full-width bordered dropdown.
+- **Style:** sticky, translucent Sheet background (`rgba(247,247,245,.92)`) with backdrop-blur, Line bottom border. Wordmark pairs a small Gold parallelogram monogram badge with the Display wordmark. Links are plain uppercase Plex Mono, no index-number prefix. Mobile collapses to a 44×44px Ink parallelogram toggle.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** keep Signal red reserved for live/active state only (The One Red Rule).
-- **Do** use the FIG. numbering as a continuous document sequence across sections, not a per-section restart.
-- **Do** draw all icons as consistent-stroke SVGs (see `src/components/icons.tsx`); never substitute a unicode glyph or emoji.
-- **Do** keep every interactive element's focus ring as the 2px Signal outline — it's the one place Signal is allowed outside a "live" reading.
+- **Do** keep Gold reserved for primary-action fills only, and Data Blue reserved for live/status values only (The One Accent, One Data Rule).
+- **Do** keep every cut shape at exactly 0 border-radius — parallelogram or single-corner-notch only, never rounded.
+- **Do** fill buttons instead of outlining them when a cut class is involved — border/shadow on a clipped element breaks visibly.
+- **Do** reserve the hero name's skew for that one element; every other headline stays upright.
+- **Do** keep the crease-field animation as the system's one authored motion moment — don't add a second scroll-triggered reveal elsewhere.
 
 ### Don't:
-- **Don't** add box-shadows, drop shadows, or hard offset "sticker" shadows anywhere — this world is flat, ruled depth only (see Elevation & Depth).
-- **Don't** introduce a serif or italic display face; the No-Serif Rule holds even for a single accent headline.
-- **Don't** add rounded corners; every shape in this system is a sharp rectangle.
-- **Don't** use a generic kicker/eyebrow label above a heading — the section labels (`About`, `Work`, …) are also live in-page nav anchors, which is why they're exempt, but a decorative eyebrow with no such role has no place here.
-- **Don't** render the grid-ground pattern anywhere it isn't grounding an actual canvas/figure surface — it's earned by this world's lab-notebook premise, not a generic texture to reuse elsewhere.
+- **Don't** add a kicker/eyebrow label directly above a heading — a small status readout is only acceptable when it's placed away from the heading and reads as telemetry, never as a title label.
+- **Don't** add rounded corners anywhere.
+- **Don't** add box-shadows or ambient elevation — depth is border + gold notch only.
+- **Don't** reintroduce decorative sequence numbers (`01`, `FIG. 0X`) — a tag carries a real word or date instead.
