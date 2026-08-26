@@ -22,9 +22,9 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="border-t border-line px-4 py-14 sm:px-6 sm:py-20">
+    <section id="contact" className="px-4 py-14 sm:px-6 sm:py-20">
       <div className="mx-auto max-w-3xl">
-        <h2 className="display-face text-2xl text-ink sm:text-3xl">Leave a note</h2>
+        <h1 className="display-face text-2xl text-ink sm:text-3xl">Leave a note</h1>
 
         <div className="soft-card mt-6 px-5 py-8 sm:px-8 sm:py-10">
           <p className="flex items-center gap-2 text-sm font-medium text-sage">

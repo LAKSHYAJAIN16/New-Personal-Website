@@ -47,15 +47,17 @@ components:
 
 **Creative North Star: "Minihompy Room"**
 
-The site is a cozy little room you visit, not a resume rendered as a webpage: the hero is a hand-illustrated isometric scene (floor, walls, a window, a plant, an armchair, a record player) sitting right beside the name, and the whole system carries that warmth through — sage green, blush pink, and cream, fully rounded pill buttons and soft-shadowed cards, a chunky rounded display face. It's a direct homage to 2000s Cyworld/minihompy personal-room profile pages: a decorated space that stands in for a person, a "today's mood" line instead of a fabricated stat, a "leave a note" contact section instead of a bare form.
+The homepage IS the room: a full-viewport, hand-illustrated isometric scene you click and walk around, not a resume rendered as a webpage. The room is the site's entire navigation — a project-portrait gallery on one wall links to individual projects, a notebook opens Writing, a mail slot opens Contact, a window opens About, a photo frame opens Photobooth — while a jukebox and a bookshelf are pure personality (now-playing / currently-reading), never fake stats. A small acorn character can be walked around the floor with arrow keys or by clicking a tile. A deliberately plain "I'm a recruiter — stop the LARP" button swaps the whole thing for a bare, static fallback: name, role, one line, a plain list of links, a résumé link. It's a direct homage to 2000s Cyworld/minihompy personal-room profile pages: a decorated space that stands in for a person.
 
-This is the third full visual identity this project has carried in one session, chosen deliberately: two more conventional directions ("Deployable Sheet," a spare editorial "keep it simple" build) were tried and set aside before the user picked this one from a served set of options. It replaces both outright. The room illustration is genuinely hand-built SVG (isometric floor/wall math plus stylized flat props), not a placeholder or a generated asset — there is no image-generation tool in this environment, so every visual element here is real vector code, not a synthetic image standing in for one.
+This is the third full visual identity this project has carried in one session (two more conventional directions were tried and set aside before the user picked this one from a served set of options), and within it the room itself went through several iterations in the same conversation: first a small card beside hero text, then a full-page illustration, then this fully interactive, content-driven version. The room illustration is genuinely hand-built SVG (parametric isometric floor/wall math, tile-count-driven so the room can grow, plus stylized flat props) — there is no image-generation tool in this environment, so every visual element is real vector code, not a synthetic image standing in for one.
 
 **Key Characteristics:**
-- Illustrated, not abstract: the hero's signature is a real drawn isometric room, not a metaphor rendered in typography or a background pattern.
-- Rounded everywhere: pill buttons, large soft-cornered cards, a circular nav mark — zero sharp corners anywhere in the system, the direct opposite of every previous world this project carried.
+- The room is the navigation, not a decoration: every real destination (About, Work, Writing, Photos, Contact) is reached by clicking a specific piece of furniture, not a nav-bar-only pattern layered on top.
+- Illustrated, not abstract: the site's signature is a real drawn, walkable isometric room, not a metaphor rendered in typography or a background pattern.
+- Rounded everywhere: pill buttons, large soft-cornered cards, a circular nav mark — zero sharp corners anywhere in the system.
 - One warm neutral pair plus three soft accents: cream ground and warm-brown ink carry the page; sage (primary/actionable), blush, and rain-cloud blue stay decorative or secondary, never competing for attention.
-- Honest, not fabricated: "Today's mood" is genuine personality copy, not a fake live statistic — the reference world's visitor counter was deliberately not carried over, since this project doesn't fabricate numbers it can't back up.
+- Honest, not fabricated: the jukebox and bookshelf show genuine bracketed placeholder copy ("[Song] by [Artist]", "[Book Title]"), not a fake live statistic — this project doesn't invent numbers or activity it can't back up.
+- A quiet, real escape hatch: the recruiter fallback is one plain button, not a second theme to maintain — it reuses the same tokens, just with all illustration and interaction stripped out.
 
 ## Colors
 
@@ -94,9 +96,9 @@ A warm cream-and-brown neutral pair carries the page; sage is the one actionable
 
 ## Layout
 
-Multi-page: `/` (Hero, About, a 3-card "More to explore" grid, Contact), `/work`, `/writing`, and `/photobooth`, each with its own Nav/Footer and a "← Back" link. Single-column content capped at `max-w-3xl`. The Hero is the one two-column exception on `sm:` and up — copy on the left, the illustrated room on the right in its own soft-card frame — collapsing to a single stacked column on mobile.
+`/` is the room and nothing else: a full-viewport (`h-screen`) SVG filling almost the entire frame inside one `soft-card` border, with just a small header (the recruiter-fallback button) above it. `/about`, `/work`, `/writing`, `/photobooth`, and `/contact` are all separate routes, each with its own Nav/Footer/"← Back" link and single-column content capped at `max-w-3xl` — the same template every subpage has shared since the very first version of this site.
 
-Nav labels are playful but map to the same routes as always: Room (home/about), Collection (work), Notebook (writing), Photo corner (photobooth), Say hi (contact).
+Nav links are plain now (Room, About, Work, Writing, Photos, Say hi) — the playful renaming from the previous room iteration was dropped once the room itself became the primary navigation and the nav bar's job narrowed to "get back to a specific page fast."
 
 ## Elevation & Depth
 
@@ -120,10 +122,22 @@ Rounded everywhere: `9999px` (full pill) on every button, badge, and the nav mar
 A `1.5rem`-radius card on the `card` surface color with a hairline `line` border and the sage-tinted soft shadow. Used for the hero's room-illustration frame, the About stat list, the Contact panel, every Work/Writing row, every "More to explore" tile, and every Photobooth Figure Plate.
 
 ### Isometric Room (signature component, `IsoRoom`)
-A hand-built SVG: true isometric floor and two walls computed from shared basis-vector math, a checkerboard floor tile pattern, a window and shelf inset into the walls via the same coordinate interpolation, and a few stylized flat furniture props (armchair, plant, record player) grounded with soft shadow ellipses. This is real vector illustration code, not a generated or placeholder image.
+A hand-built, parametric SVG: floor and two walls generated from a tile size × tile count (currently 14×8), so the room's proportions and density are a formula, not hand-tuned pixels — this is what let the room grow from a small hero card to a full-viewport landscape scene without redrawing it by hand. A checkerboard floor tile grid doubles as click-to-move targets. Furniture is placed with the same `floorPoint(u, v)` fractional-coordinate helper the floor tiles use, so props stay correctly grounded regardless of room size.
+
+### Interactive Hotspots
+Real `<a>` elements layered over specific furniture (never the floor or walls), keyboard-focusable by default: a project-portrait gallery (right wall, one per project, pulled live from the projects data — no fixed count assumed), a notebook (Writing), a mail slot (Contact), a window (About), and a photo frame (Photobooth). Hover or focus reveals a stroke highlight plus a small dark label pill naming the destination — nothing is a hotspot without that same two-part affordance.
+
+### Info Props (no link)
+The jukebox and bookshelf are pure personality, not navigation: a persistent label pill above each ("Playing: [Song] by [Artist]", "Reading: [Book Title]") shown at rest, not hidden behind hover — these are honest bracketed placeholders, the same convention as every other unfilled fact on the site.
+
+### The Acorn (signature component)
+A small round character with a cap, walkable across the floor grid with arrow keys/WASD (one tile per keypress) or by clicking any tile directly. Purely decorative — it never blocks or represents a hotspot.
+
+### Recruiter Fallback (`SimpleFallback`)
+A single plain, static screen: name, role, one line, a row of plain text links to every real page, a résumé link, and a "← Back to the room" link. No illustration, no cards, no rounded pills beyond what the shared tokens already give links — reached via the room's one small header button, and remembered per-browser via `localStorage` so a returning visitor who already opted out isn't dropped back into the room.
 
 ### Navigation
-- **Style:** sticky, translucent cream background with backdrop-blur, hairline bottom border. Wordmark pairs a small circular Sage-filled monogram badge with the Baloo 2 wordmark ("Lakshya's room"). Mobile collapses to a circular Sage-soft icon toggle revealing a rounded dropdown panel.
+- **Style:** sticky, translucent cream background with backdrop-blur, hairline bottom border. Wordmark pairs a small circular Sage-filled monogram badge with the Baloo 2 wordmark ("Lakshya's room"). Mobile collapses to a circular Sage-soft icon toggle revealing a rounded dropdown panel. Only appears on the five subpages — the room's homepage has no nav bar, since the room itself is the navigation.
 
 ## Do's and Don'ts
 
@@ -131,10 +145,13 @@ A hand-built SVG: true isometric floor and two walls computed from shared basis-
 - **Do** keep every corner rounded — pill on interactive chrome, `1.5rem` on cards, never sharp.
 - **Do** keep every card shadow the same sage-tinted, blurred recipe.
 - **Do** keep Blush and Blue confined to the room illustration itself, not general UI accent use.
-- **Do** keep "today's mood" and similar personality copy genuine and rotating, never a fabricated statistic (no invented visitor counts, no fake acorn currency).
+- **Do** keep personality copy (now-playing, currently-reading) genuine and bracketed, never a fabricated statistic (no invented visitor counts, no fake acorn currency).
+- **Do** give every real navigation hotspot both a hover/focus highlight and a label pill — an invisible clickable prop is a defect, not a subtle affordance.
+- **Do** keep the recruiter fallback genuinely plain — it exists specifically to not be the room, so no cards, no illustration, no pills borrowed back in.
 
 ### Don't:
 - **Don't** add a sharp corner anywhere.
 - **Don't** reintroduce a flat, shadowless card — depth is load-bearing in this world.
 - **Don't** spend Blush or Blue as a button/link/badge color outside the illustration.
 - **Don't** fabricate a live number (visitor count, guestbook signatures) that isn't real — say something true and warm instead.
+- **Don't** hardcode room geometry as magic pixel numbers — derive furniture and hotspot positions from `floorPoint`/`leftWallPoint`/`rightWallPoint` so the room stays editable by changing tile size/count, not by redrawing shapes.

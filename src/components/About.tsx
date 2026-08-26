@@ -9,9 +9,9 @@ const readings: [string, string][] = [
 
 export function About() {
   return (
-    <section id="about" className="border-t border-line px-4 py-14 sm:px-6 sm:py-20">
+    <section id="about" className="px-4 py-14 sm:px-6 sm:py-20">
       <div className="mx-auto max-w-3xl">
-        <h2 className="display-face text-2xl text-ink sm:text-3xl">A little about me</h2>
+        <h1 className="display-face text-2xl text-ink sm:text-3xl">A little about me</h1>
 
         <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink sm:text-xl">
           {/* TODO: replace with your real about copy */}

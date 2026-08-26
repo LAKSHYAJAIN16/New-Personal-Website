@@ -1,64 +1,59 @@
-import Link from "next/link";
-import { Nav } from "@/components/Nav";
-import { Hero } from "@/components/Hero";
-import { About } from "@/components/About";
-import { Contact } from "@/components/Contact";
-import { Footer } from "@/components/Footer";
-import { ArrowIcon } from "@/components/icons";
+"use client";
 
-const index = [
-  {
-    title: "My collection",
-    description: "Projects, in full — a separate page.",
-    href: "/work",
-  },
-  {
-    title: "My notebook",
-    description: "Notes and posts, in full — a separate page.",
-    href: "/writing",
-  },
-  {
-    title: "Photo corner",
-    description: "Photos, in full — a separate page.",
-    href: "/photobooth",
-  },
-];
+import { useSyncExternalStore } from "react";
+import { IsoRoom } from "@/components/IsoRoom";
+import { SimpleFallback } from "@/components/SimpleFallback";
+
+const STORAGE_KEY = "stop-the-larp";
+
+function subscribe(callback: () => void) {
+  window.addEventListener("storage", callback);
+  return () => window.removeEventListener("storage", callback);
+}
+
+function getSnapshot() {
+  try {
+    return window.localStorage.getItem(STORAGE_KEY) === "true";
+  } catch {
+    return false;
+  }
+}
+
+function getServerSnapshot() {
+  return false;
+}
 
 export function RealHome() {
+  const revealed = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+
+  const setRevealed = (value: boolean) => {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, String(value));
+    } catch {
+      // localStorage unavailable — the toggle still works for this render
+    }
+    window.dispatchEvent(new Event("storage"));
+  };
+
+  if (revealed) {
+    return <SimpleFallback onBack={() => setRevealed(false)} />;
+  }
+
   return (
-    <div className="min-h-screen">
-      <Nav />
-      <main>
-        <Hero />
-        <About />
+    <div className="flex h-screen flex-col overflow-hidden px-3 py-3 sm:px-5 sm:py-5">
+      <header className="flex shrink-0 items-center justify-end gap-4 pb-2">
+        <button
+          type="button"
+          onClick={() => setRevealed(true)}
+          className="rounded-md border border-line bg-card px-3 py-1.5 text-xs font-medium text-ink-soft shadow-sm transition-colors hover:text-ink"
+        >
+          I&apos;m a recruiter — stop the LARP
+        </button>
+      </header>
 
-        <section className="border-t border-line px-4 py-14 sm:px-6 sm:py-20">
-          <div className="mx-auto max-w-3xl">
-            <h2 className="display-face text-2xl text-ink sm:text-3xl">More to explore</h2>
-
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              {index.map((entry) => (
-                <Link
-                  key={entry.title}
-                  href={entry.href}
-                  className="soft-card group flex flex-col justify-between gap-4 px-5 py-5 transition-transform hover:-translate-y-0.5"
-                >
-                  <div>
-                    <h3 className="display-face text-lg text-ink">{entry.title}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-ink-soft">
-                      {entry.description}
-                    </p>
-                  </div>
-                  <ArrowIcon className="h-4 w-4 shrink-0 self-end text-ink-soft transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-sage" />
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <Contact />
+      <main className="soft-card flex min-h-0 flex-1 items-center justify-center overflow-hidden p-2 sm:p-4">
+        <IsoRoom className="h-full max-h-full w-full" />
       </main>
-      <Footer />
     </div>
   );
 }

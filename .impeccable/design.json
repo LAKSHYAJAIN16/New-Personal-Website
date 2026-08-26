@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-26T04:52:32.191Z",
+  "generatedAt": "2026-08-26T05:29:46.308Z",
   "title": "Design System: Lakshya Jain — Personal Site",
   "extensions": {
     "colorMeta": {
@@ -126,13 +126,16 @@
       "Do keep every corner rounded — pill on interactive chrome, 1.5rem on cards, never sharp.",
       "Do keep every card shadow the same sage-tinted, blurred recipe.",
       "Do keep Blush and Blue confined to the room illustration itself.",
-      "Do keep personality copy like 'today's mood' genuine, never a fabricated statistic."
+      "Do keep personality copy (now-playing, currently-reading) genuine and bracketed, never a fabricated statistic.",
+      "Do give every real navigation hotspot both a hover/focus highlight and a label pill.",
+      "Do keep the recruiter fallback genuinely plain — no cards, no illustration, no pills."
     ],
     "donts": [
       "Don't add a sharp corner anywhere.",
       "Don't reintroduce a flat, shadowless card.",
       "Don't spend Blush or Blue as a button/link/badge color outside the illustration.",
-      "Don't fabricate a live number that isn't real."
+      "Don't fabricate a live number that isn't real.",
+      "Don't hardcode room geometry as magic pixel numbers — derive positions from floorPoint/leftWallPoint/rightWallPoint."
     ]
   }
 }

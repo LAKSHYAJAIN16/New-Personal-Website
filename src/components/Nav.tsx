@@ -5,10 +5,11 @@ import Link from "next/link";
 import { MenuIcon, CloseIcon } from "./icons";
 
 const links = [
-  { href: "/#about", label: "Room" },
-  { href: "/work", label: "Collection" },
-  { href: "/writing", label: "Notebook" },
-  { href: "/photobooth", label: "Photo corner" },
+  { href: "/", label: "Room" },
+  { href: "/about", label: "About" },
+  { href: "/work", label: "Work" },
+  { href: "/writing", label: "Writing" },
+  { href: "/photobooth", label: "Photos" },
 ];
 
 export function Nav() {
@@ -38,7 +39,7 @@ export function Nav() {
             </Link>
           ))}
           <Link
-            href="/#contact"
+            href="/contact"
             className="rounded-full bg-sage px-4 py-2 text-sm font-semibold text-sage-ink shadow-sm transition-transform hover:-translate-y-0.5"
           >
             Say hi
@@ -69,7 +70,7 @@ export function Nav() {
             </Link>
           ))}
           <Link
-            href="/#contact"
+            href="/contact"
             onClick={() => setOpen(false)}
             className="mt-1 rounded-full bg-sage px-4 py-2.5 text-center text-sm font-semibold text-sage-ink"
           >

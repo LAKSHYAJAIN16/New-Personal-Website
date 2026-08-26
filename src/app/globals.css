@@ -115,3 +115,31 @@ body {
     scroll-behavior: auto;
   }
 }
+
+.room-hotspot {
+  cursor: pointer;
+  outline: none;
+}
+
+.room-hotspot-hit {
+  pointer-events: all;
+}
+
+.room-hotspot-highlight,
+.room-hotspot-label {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+}
+
+.room-hotspot:hover .room-hotspot-highlight,
+.room-hotspot:hover .room-hotspot-label,
+.room-hotspot:focus-visible .room-hotspot-highlight,
+.room-hotspot:focus-visible .room-hotspot-label {
+  opacity: 1;
+}
+
+.room-hotspot:focus-visible .room-hotspot-highlight {
+  stroke: var(--ink);
+  stroke-width: 4;
+}
