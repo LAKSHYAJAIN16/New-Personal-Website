@@ -1,63 +1,57 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { FoldHero } from "./FoldHero";
-import { ArrowIcon } from "./icons";
+import { IsoRoom } from "./IsoRoom";
+import { ArrowIcon, DownloadIcon } from "./icons";
 
-const readings = ["SOFTWARE ENGINEER", "BUILDER OF THINGS", "[YOUR FOCUS]", "CS @ WATERLOO"];
+const moods = ["curious", "focused", "caffeinated", "building something"];
 
 export function Hero() {
-  const [readingIndex, setReadingIndex] = useState(0);
+  const [moodIndex, setMoodIndex] = useState(0);
 
   useEffect(() => {
-    const id = setInterval(() => setReadingIndex((i) => (i + 1) % readings.length), 2800);
+    const id = setInterval(() => setMoodIndex((i) => (i + 1) % moods.length), 3200);
     return () => clearInterval(id);
   }, []);
 
   return (
-    <section id="top" className="px-4 pb-16 pt-6 sm:px-6 sm:pb-24">
-      <div className="mx-auto max-w-5xl">
-        <figure className="relative min-h-[560px] overflow-hidden border border-line-strong bg-panel px-6 py-10 sm:min-h-[620px] sm:px-12 sm:py-14">
-          <FoldHero />
-
-          <div className="relative z-10 flex min-h-[496px] max-w-xl flex-col justify-between sm:min-h-[544px]">
-            <p className="status-ready font-mono text-xs uppercase tracking-wide">
-              Ready <span key={readingIndex} className="text-ink-soft normal-case">— currently {readings[readingIndex]}</span>
-            </p>
-
-            <div>
-              <h1
-                className="display-face max-w-lg text-6xl leading-[0.86] text-ink sm:text-8xl"
-                style={{ transform: "skewX(-6deg)", transformOrigin: "0% 100%" }}
-              >
-                Lakshya
-                <br />
-                Jain
-              </h1>
-              <p className="mt-6 max-w-md text-base leading-relaxed text-ink-soft sm:text-lg">
-                [One precise line on what you build and why.]
-              </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <a
-                  href="/work"
-                  className="deploy-cut inline-flex items-center gap-2 bg-gold px-6 py-3 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5"
-                >
-                  Deploy — view work <ArrowIcon className="h-3.5 w-3.5" />
-                </a>
-                <a
-                  href="#contact"
-                  className="deploy-cut inline-flex items-center gap-2 bg-ink px-6 py-3 text-sm font-semibold text-sheet transition-transform hover:-translate-y-0.5"
-                >
-                  Get in touch
-                </a>
-              </div>
-            </div>
+    <section id="top" className="px-4 pb-14 pt-10 sm:px-6 sm:pb-20 sm:pt-14">
+      <div className="mx-auto grid max-w-3xl gap-8 sm:grid-cols-[1.1fr_1fr] sm:items-center sm:gap-6">
+        <div>
+          <p className="flex items-center gap-2 text-sm font-medium text-sage">
+            <span className="live-dot inline-block h-1.5 w-1.5 rounded-full bg-sage" aria-hidden />
+            Today&apos;s mood: <span key={moodIndex}>{moods[moodIndex]}</span>
+          </p>
+          <h1 className="display-face mt-3 text-4xl leading-[1.05] text-ink sm:text-5xl">
+            Lakshya Jain
+          </h1>
+          <p className="mt-2 text-lg text-ink-soft">Software Engineer</p>
+          <p className="mt-4 max-w-sm text-base leading-relaxed text-ink-soft">
+            [One precise line on what you build and why.] Welcome to my little corner of the
+            internet — come in, look around.
+          </p>
+          <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
+            <a
+              href="/work"
+              className="inline-flex items-center gap-2 rounded-full bg-sage px-5 py-3 text-sm font-semibold text-sage-ink shadow-sm transition-transform hover:-translate-y-0.5"
+            >
+              See my collection <ArrowIcon className="h-3.5 w-3.5" />
+            </a>
+            <a
+              href="/resume.pdf"
+              className="link-underline inline-flex items-center gap-1.5 text-sm font-medium text-ink"
+            >
+              <DownloadIcon className="h-3.5 w-3.5" /> Résumé
+            </a>
+            <a href="#contact" className="link-underline text-sm font-medium text-ink">
+              Say hi
+            </a>
           </div>
-        </figure>
-        <figcaption className="mt-3 flex max-w-xl items-start gap-3 text-xs leading-relaxed text-ink-soft">
-          <span className="mt-1 h-2 w-2 shrink-0" style={{ background: "var(--gold)" }} />
-          A live crease field — mountain and valley folds, drawn once on load, no image.
-        </figcaption>
+        </div>
+
+        <div className="soft-card overflow-hidden p-3">
+          <IsoRoom className="w-full" />
+        </div>
       </div>
     </section>
   );

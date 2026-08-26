@@ -22,24 +22,24 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="px-4 py-16 sm:px-6 sm:py-24">
-      <div className="mx-auto max-w-5xl">
-        <h2 className="display-face mb-10 text-4xl text-ink sm:text-5xl">Say hello</h2>
+    <section id="contact" className="border-t border-line px-4 py-14 sm:px-6 sm:py-20">
+      <div className="mx-auto max-w-3xl">
+        <h2 className="display-face text-2xl text-ink sm:text-3xl">Leave a note</h2>
 
-        <div className="sheet-panel px-5 py-10 sm:px-10 sm:py-14">
-          <p className="status-ready font-mono text-xs uppercase tracking-wide">
-            Channel open
+        <div className="soft-card mt-6 px-5 py-8 sm:px-8 sm:py-10">
+          <p className="flex items-center gap-2 text-sm font-medium text-sage">
+            <span className="live-dot inline-block h-1.5 w-1.5 rounded-full bg-sage" aria-hidden />
+            Open to new roles and interesting projects
+          </p>
+          <p className="mt-3 max-w-xl text-lg leading-relaxed text-ink-soft">
+            The fastest way to reach me is email — say hi, I&apos;ll write back.
           </p>
 
-          <h3 className="display-face mt-3 max-w-xl text-3xl leading-[0.95] text-ink sm:text-5xl">
-            Let&apos;s build something worth shipping.
-          </h3>
-
-          <div className="mt-8 flex flex-wrap items-center gap-4">
+          <div className="mt-6 flex flex-wrap items-center gap-4">
             <button
               type="button"
               onClick={copyEmail}
-              className="deploy-cut inline-flex items-center gap-2 bg-gold px-6 py-3 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 rounded-full bg-sage px-5 py-3 text-sm font-semibold text-sage-ink shadow-sm transition-transform hover:-translate-y-0.5"
             >
               {copied ? (
                 <>
@@ -51,14 +51,14 @@ export function Contact() {
             </button>
           </div>
 
-          <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-2 border-t border-line pt-6">
+          <ul className="mt-8 flex flex-wrap gap-x-7 gap-y-2 border-t border-line pt-5">
             {links.map((link) => (
               <li key={link.label}>
                 <a
                   href={link.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1 font-mono text-xs uppercase tracking-wide text-ink-soft transition-colors hover:text-ink"
+                  className="link-underline inline-flex items-center gap-1 text-sm text-ink-soft transition-colors hover:text-ink"
                 >
                   {link.label} <ArrowIcon className="h-3 w-3" />
                 </a>

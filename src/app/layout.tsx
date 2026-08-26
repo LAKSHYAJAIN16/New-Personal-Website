@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
-import { Big_Shoulders, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
+import { Baloo_2, IBM_Plex_Mono, Quicksand } from "next/font/google";
 import "./globals.css";
 
 const plexMono = IBM_Plex_Mono({
   variable: "--font-plex-mono",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
 });
 
-const plexSans = IBM_Plex_Sans({
-  variable: "--font-plex-sans",
+const quicksand = Quicksand({
+  variable: "--font-quicksand",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
 
-const bigShoulders = Big_Shoulders({
-  variable: "--font-big-shoulders",
+const baloo = Baloo_2({
+  variable: "--font-baloo",
   subsets: ["latin"],
-  weight: ["700", "800", "900"],
+  weight: ["600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -30,11 +30,11 @@ export const metadata: Metadata = {
 };
 
 const DIRECTION_CONTRACT = `
-THESIS: A personal site as a precision-engineered deployment -- the page unfolds from a compact folded state in one motion, refusing the static hero-plus-card-grid portfolio default.
-OWN-WORLD: Sheet-white ground, ink-black rules and text, foil-gold as the single CTA accent, data-blue for live values; mountain-gray and valley-blue trace mountain/valley crease lines. Big Shoulders Display (skewed on the hero name only) for headlines, IBM Plex Mono for data/labels, IBM Plex Sans for prose. Parallelogram-cut edges replace rounded corners.
-STORY: A visitor watches the page deploy like precision hardware, reads Lakshya as an engineer who ships exact, tested things, and leaves knowing what to open next.
-FIRST VIEWPORT: A crease-pattern field grows from a single origin point on load into a full mountain/valley tessellation filling the right frame; name, status, and primary action sit fixed at the sheet's left edge.
-FORM: Deployable Sheet direction, challenger pick (Miura-fold, re-roll round 1), seed key d4fea6b9.
+THESIS: A personal site as a cozy decoratable room -- Cyworld-minihompy-inspired warmth and a hand-illustrated isometric scene, refusing both the loud "instrument world" and the bare-minimal editorial builds tried earlier this session.
+OWN-WORLD: Porcelain-cream ground, deep warm-brown ink, sage green as the primary accent, blush pink and rain-cloud blue as quiet secondary tints; Baloo 2 (chunky rounded) for headlines, Quicksand for body/UI, IBM Plex Mono only for tiny structural bits. Fully rounded pill buttons and large soft-shadowed cards -- the opposite of the sharp/flat worlds tried earlier.
+STORY: A visitor steps into Lakshya's little room -- an illustrated isometric scene up front, real content (about, work, writing, photos, contact) reached the way you'd browse a cozy home page, not a resume.
+FIRST VIEWPORT: A hand-drawn isometric room (floor, walls, window, plant, chair, record player) sits beside the name and a warm one-line intro; a soft "today's mood" readout replaces any fabricated stat.
+FORM: User-picked challenger from a served decision round (Cyworld minihompy room), fused against the product's real content; seed key 83b714fd.
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
 `;
 
@@ -57,9 +57,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plexMono.variable} ${plexSans.variable} ${bigShoulders.variable} h-full antialiased`}
+      className={`${plexMono.variable} ${quicksand.variable} ${baloo.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-sheet text-ink">
+      <body className="min-h-full flex flex-col bg-bg text-ink">
         <DirectionContract />
         {children}
       </body>

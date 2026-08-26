@@ -3,29 +3,27 @@ import { ArrowIcon } from "./icons";
 
 export function BlogSection() {
   return (
-    <section id="writing" className="px-4 py-16 sm:px-6 sm:py-24">
-      <div className="mx-auto max-w-5xl">
-        <h1 className="display-face mb-10 text-4xl text-ink sm:text-5xl">Writing</h1>
+    <section id="writing" className="px-4 py-14 sm:px-6 sm:py-20">
+      <div className="mx-auto max-w-3xl">
+        <h1 className="display-face text-2xl text-ink sm:text-3xl">My notebook</h1>
+        <p className="mt-3 max-w-xl text-lg leading-relaxed text-ink-soft">
+          Notes and posts, when I get around to writing them.
+        </p>
 
-        <div className="border-t border-line-strong">
+        <div className="mt-8 flex flex-col gap-4">
           {posts.map((post) => (
             <a
               key={post.figure}
               href={post.href}
-              className="group grid grid-cols-1 gap-3 border-b border-line px-1 py-6 last:border-b-0 sm:grid-cols-[7rem_1fr_auto] sm:items-center sm:gap-6 sm:px-4"
+              className="soft-card group flex items-start justify-between gap-4 px-5 py-5 transition-transform hover:-translate-y-0.5"
             >
-              <span className="font-mono text-xs uppercase tracking-wide text-ink-soft">
-                {post.date}
-              </span>
-
               <div className="min-w-0">
-                <h3 className="display-face text-2xl text-ink sm:text-3xl">{post.title}</h3>
+                <p className="text-sm text-ink-soft">{post.date}</p>
+                <h3 className="display-face mt-1 text-lg text-ink">{post.title}</h3>
                 <p className="mt-1 text-sm leading-relaxed text-ink-soft">{post.excerpt}</p>
               </div>
 
-              <span className="inline-flex items-center gap-1 self-start font-mono text-[11px] font-semibold uppercase tracking-wide text-ink opacity-0 transition-opacity group-hover:opacity-100 sm:self-center">
-                Read <ArrowIcon className="h-3 w-3" />
-              </span>
+              <ArrowIcon className="mt-1 h-4 w-4 shrink-0 text-ink-soft transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-sage" />
             </a>
           ))}
         </div>

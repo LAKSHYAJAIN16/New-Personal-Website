@@ -1,69 +1,75 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-25T17:30:16.411Z",
+  "generatedAt": "2026-08-26T04:52:32.191Z",
   "title": "Design System: Lakshya Jain — Personal Site",
   "extensions": {
     "colorMeta": {
-      "gold": {
+      "sage": {
         "role": "primary",
-        "displayName": "Foil Gold",
-        "canonical": "#b08a2e",
-        "tonalRamp": ["#3a2e10", "#5c4a19", "#836822", "#a67e2a", "#b08a2e", "#c7a355", "#dcc389", "#efe2c2"]
+        "displayName": "Sage",
+        "canonical": "#4f6d59",
+        "tonalRamp": ["#152018", "#213028", "#324638", "#3f5a49", "#4f6d59", "#729581", "#a3c0af", "#d3e5da"]
       },
-      "data": {
+      "blush": {
         "role": "secondary",
-        "displayName": "Data Blue",
-        "canonical": "#2657c2",
-        "tonalRamp": ["#0d1a3d", "#152a63", "#1c3c8c", "#204bab", "#2657c2", "#5379d1", "#8aa3e2", "#c2d0f2"]
+        "displayName": "Blush Petal",
+        "canonical": "#f5c9cf",
+        "tonalRamp": ["#5c1f28", "#8a2f3c", "#c05064", "#dd8794", "#f5c9cf", "#f8d8dc", "#fbe7ea", "#fdf3f4"]
       },
-      "sheet": {
-        "role": "neutral",
-        "displayName": "Sheet",
-        "canonical": "#f7f7f5",
-        "tonalRamp": ["#3a3a38", "#57574f", "#7a7a72", "#9d9d95", "#c0c0b8", "#dcdcd8", "#eeeeec", "#f7f7f5"]
+      "blue": {
+        "role": "secondary",
+        "displayName": "Rain Cloud",
+        "canonical": "#b7c7d6",
+        "tonalRamp": ["#26313c", "#3c4d5c", "#586f82", "#8098aa", "#b7c7d6", "#cdd9e3", "#e2e9ef", "#f2f5f8"]
       },
-      "panel": {
+      "bg": {
         "role": "neutral",
-        "displayName": "Panel",
-        "canonical": "#ffffff",
-        "tonalRamp": ["#3a3a38", "#57574f", "#7a7a72", "#9d9d95", "#c0c0b8", "#dcdcd8", "#f0f0ee", "#ffffff"]
+        "displayName": "Cream Ground",
+        "canonical": "#fff6ec",
+        "tonalRamp": ["#4a3a22", "#6b5432", "#8f7245", "#b6935f", "#d3b587", "#e6d0ac", "#f5e9d5", "#fff6ec"]
+      },
+      "card": {
+        "role": "neutral",
+        "displayName": "Card",
+        "canonical": "#fffdf8",
+        "tonalRamp": ["#4a3a22", "#6b5432", "#8f7245", "#b6935f", "#d3b587", "#e6d0ac", "#f7f3ea", "#fffdf8"]
       },
       "ink": {
         "role": "neutral",
         "displayName": "Ink",
-        "canonical": "#111315",
-        "tonalRamp": ["#050506", "#111315", "#1e2124", "#33373b", "#4c5157", "#6c7278", "#9a9fa4", "#d4d6d8"]
+        "canonical": "#4a3b2e",
+        "tonalRamp": ["#160f0a", "#241a12", "#382a1e", "#4a3b2e", "#6b5744", "#8f7863", "#bbaa97", "#e2d9cd"]
       },
       "ink-soft": {
         "role": "neutral",
         "displayName": "Ink Soft",
-        "canonical": "#5b5f66",
-        "tonalRamp": ["#1c1d1f", "#2c2e31", "#3e4145", "#4e5156", "#5b5f66", "#7b7f85", "#a3a6ab", "#cfd1d3"]
+        "canonical": "#7a6852",
+        "tonalRamp": ["#241d16", "#382d22", "#4f4033", "#635141", "#7a6852", "#998572", "#bcac9b", "#e0d6ca"]
       },
       "line": {
         "role": "neutral",
         "displayName": "Line",
-        "canonical": "#dcdcd8",
-        "tonalRamp": ["#4a4a47", "#6b6b67", "#9a9a95", "#bcbcb7", "#dcdcd8", "#e6e6e3", "#eeeeec", "#f5f5f3"]
+        "canonical": "#eadcc7",
+        "tonalRamp": ["#4a4030", "#6b5f47", "#9c8e6f", "#bfae8f", "#eadcc7", "#f0e5d3", "#f6eee1", "#faf5ee"]
       },
-      "mountain": {
+      "sage-soft": {
         "role": "neutral",
-        "displayName": "Mountain",
-        "canonical": "#9a9da3",
-        "tonalRamp": ["#2e3033", "#484b4f", "#63666b", "#7d8085", "#9a9da3", "#b3b5ba", "#cccdd0", "#e6e6e8"]
+        "displayName": "Sage Soft",
+        "canonical": "#dce8df",
+        "tonalRamp": ["#213028", "#324638", "#4f6d59", "#729581", "#a3c0af", "#c3d8c9", "#dce8df", "#eef5f0"]
       }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display (Big Shoulders)", "purpose": "Headline-scale moments only: hero name (the system's one skewed element), section openers, archive-row titles." },
-      "body": { "displayName": "Body (Plex Sans)", "purpose": "Reading-length prose: descriptions, hero subhead, footer, About lead paragraph." },
-      "label": { "displayName": "Label (Plex Mono)", "purpose": "Anything numbered, labeled, or measured: nav, status readouts, data-panel fields, tag chips." }
+      "display": { "displayName": "Display (Baloo 2)", "purpose": "Every section-opening headline and card title — chunky rounded warmth." },
+      "body": { "displayName": "Body (Quicksand)", "purpose": "Reading-length prose and UI copy." },
+      "label": { "displayName": "Label (Plex Mono)", "purpose": "Footer copyright line only." }
     },
-    "shadows": [],
+    "shadows": [
+      { "name": "soft-card", "value": "0 12px 28px -8px rgba(79,109,89,.18)", "purpose": "Every elevated card surface — the system's one shadow recipe." }
+    ],
     "motion": [
-      { "name": "fold-deploy", "value": "scale(0.09) rotate(-6deg) -> scale(1) rotate(0deg), 1.3s cubic-bezier(0.16,1,0.3,1) 0.15s both", "purpose": "The hero crease field's one-time load-in growth; the system's single authored motion moment." },
-      { "name": "fold-facet-in", "value": "opacity 0 -> 1, 0.5s ease-out, distance-staggered delay", "purpose": "Per-facet fade-in inside the crease field, staggered by grid distance from the origin corner." },
-      { "name": "hover-lift", "value": "transform .2s; hover: translateY(-2px)", "purpose": "Default hover treatment for all filled buttons." },
-      { "name": "live-pulse", "value": "opacity 1 -> 0.25 -> 1, 1.6-1.8s ease-in-out infinite", "purpose": "The status-ready dot (Hero 'Ready', Contact 'Channel open'); disabled under prefers-reduced-motion." }
+      { "name": "hover-lift", "value": "transform .2s; hover: translateY(-2px)", "purpose": "Default hover treatment for buttons and cards." },
+      { "name": "live-pulse", "value": "opacity 1 -> 0.3 -> 1, 2s ease-in-out infinite", "purpose": "The 'today's mood' / 'open to new roles' status dots; disabled under prefers-reduced-motion." }
     ],
     "breakpoints": [
       { "name": "sm", "value": "640px" }
@@ -71,74 +77,62 @@
   },
   "components": [
     {
-      "name": "Gold Button (primary)",
+      "name": "Primary Button",
       "kind": "button",
-      "refersTo": "button-gold",
-      "description": "Gold-filled parallelogram-cut CTA, e.g. the hero's 'Deploy — view work'.",
-      "html": "<button class=\"ds-btn-gold\">Deploy — view work</button>",
-      "css": ".ds-btn-gold { background: #b08a2e; color: #111315; font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif; font-weight: 600; font-size: 14px; padding: 12px 24px; border: none; border-radius: 0; clip-path: polygon(14px 0, 100% 0, calc(100% - 14px) 100%, 0 100%); transition: transform .2s ease; } .ds-btn-gold:hover { transform: translateY(-2px); } .ds-btn-gold:focus-visible { outline: 2px solid #b08a2e; outline-offset: 3px; }"
+      "refersTo": "button-primary",
+      "description": "Sage-filled pill CTA, e.g. 'See my collection' or the nav 'Say hi'.",
+      "html": "<button class=\"ds-btn-primary\">See my collection</button>",
+      "css": ".ds-btn-primary { background: #4f6d59; color: #ffffff; font-family: 'Quicksand', ui-sans-serif, system-ui, sans-serif; font-weight: 600; font-size: 14px; padding: 12px 20px; border: none; border-radius: 9999px; box-shadow: 0 2px 6px rgba(79,109,89,.25); transition: transform .2s ease; } .ds-btn-primary:hover { transform: translateY(-2px); } .ds-btn-primary:focus-visible { outline: 2px solid #4f6d59; outline-offset: 3px; }"
     },
     {
-      "name": "Ink Button (secondary)",
-      "kind": "button",
-      "refersTo": "button-ink",
-      "description": "Ink-filled parallelogram-cut button, e.g. 'Get in touch' and the mobile nav toggle.",
-      "html": "<button class=\"ds-btn-ink\">Get in touch</button>",
-      "css": ".ds-btn-ink { background: #111315; color: #f7f7f5; font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif; font-weight: 600; font-size: 14px; padding: 12px 24px; border: none; border-radius: 0; clip-path: polygon(14px 0, 100% 0, calc(100% - 14px) 100%, 0 100%); transition: transform .2s ease; } .ds-btn-ink:hover { transform: translateY(-2px); }"
+      "name": "Soft Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "The signature rounded, softly-shadowed card used for the hero frame, stat list, work/writing rows, and photo plates.",
+      "html": "<div class=\"ds-card\"><h3>Card title</h3><p>Card description text.</p></div>",
+      "css": ".ds-card { background: #fffdf8; border: 1px solid #eadcc7; border-radius: 24px; padding: 20px; box-shadow: 0 12px 28px -8px rgba(79,109,89,.18); } .ds-card h3 { font-family: 'Baloo 2', ui-rounded, sans-serif; font-weight: 700; font-size: 18px; color: #4a3b2e; } .ds-card p { font-family: 'Quicksand', ui-sans-serif, system-ui, sans-serif; font-size: 14px; color: #7a6852; margin-top: 4px; }"
     },
     {
       "name": "Tag Chip",
       "kind": "chip",
       "refersTo": "tag-chip",
-      "description": "Plain-rectangle bordered tag, e.g. project tags on Work rows. Deliberately not cut.",
-      "html": "<span class=\"ds-tag-chip\">TAG A</span>",
-      "css": ".ds-tag-chip { display: inline-block; background: transparent; color: #5b5f66; border: 1px solid #111315; font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 10px; }"
-    },
-    {
-      "name": "Sheet Panel",
-      "kind": "card",
-      "refersTo": null,
-      "description": "The signature data-panel card: single 45° gold-filled corner notch, hairline border, mono field list or figcaption.",
-      "html": "<figure class=\"ds-sheet-panel\"><div class=\"ds-panel-body\">Live content</div><figcaption class=\"ds-panel-caption\">Second pen configuration, lower amplitude.</figcaption></figure>",
-      "css": ".ds-sheet-panel { position: relative; background: #ffffff; border: 1px solid #dcdcd8; clip-path: polygon(0 22px, 22px 0, 100% 0, 100% 100%, 0 100%); } .ds-sheet-panel::before { position: absolute; content: ''; top: 0; left: 0; width: 22px; height: 22px; background: #b08a2e; clip-path: polygon(0 0, 100% 0, 0 100%); } .ds-panel-body { min-height: 200px; } .ds-panel-caption { border-top: 1px solid #dcdcd8; padding: 16px 20px; font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 12px; line-height: 1.6; color: #5b5f66; }"
+      "description": "Rounded sage-soft tag, e.g. project tags on Collection rows.",
+      "html": "<span class=\"ds-tag-chip\">React</span>",
+      "css": ".ds-tag-chip { display: inline-block; background: #dce8df; color: #4a3b2e; font-family: 'Quicksand', ui-sans-serif, system-ui, sans-serif; font-size: 12px; font-weight: 500; padding: 4px 10px; border-radius: 9999px; }"
     },
     {
       "name": "Navigation Bar",
       "kind": "nav",
       "refersTo": null,
-      "description": "Sticky translucent-blur nav with the gold parallelogram monogram wordmark.",
-      "html": "<header class=\"ds-nav\"><div class=\"ds-nav-inner\"><a class=\"ds-nav-brand\" href=\"/\"><span class=\"ds-nav-mark\">L</span><span class=\"ds-nav-name\">Lakshya Jain</span></a><nav class=\"ds-nav-links\"><a href=\"#\">About</a><a href=\"#\">Work</a></nav><a class=\"ds-btn-gold\" href=\"#\" style=\"padding:8px 16px;font-size:12px;\">Contact</a></div></header>",
-      "css": ".ds-nav { position: sticky; top: 0; background: rgba(247,247,245,.92); backdrop-filter: blur(6px); border-bottom: 1px solid #dcdcd8; } .ds-nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; } .ds-nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; } .ds-nav-mark { display: grid; place-items: center; width: 28px; height: 28px; background: #b08a2e; color: #111315; font-family: 'IBM Plex Mono', monospace; font-weight: 700; font-size: 12px; } .ds-nav-name { font-family: 'Big Shoulders', 'Arial Narrow', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em; font-size: 18px; color: #111315; } .ds-nav-links { display: flex; gap: 28px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: #5b5f66; }"
+      "description": "Sticky translucent-blur nav with a circular sage monogram badge.",
+      "html": "<header class=\"ds-nav\"><div class=\"ds-nav-inner\"><a class=\"ds-nav-brand\" href=\"/\"><span class=\"ds-nav-mark\">L</span><span class=\"ds-nav-name\">Lakshya's room</span></a><nav class=\"ds-nav-links\"><a href=\"#\">Room</a><a href=\"#\">Collection</a></nav><a class=\"ds-btn-primary\" href=\"#\" style=\"padding:8px 16px;font-size:13px;\">Say hi</a></div></header>",
+      "css": ".ds-nav { position: sticky; top: 0; background: rgba(255,246,236,.9); backdrop-filter: blur(8px); border-bottom: 1px solid #eadcc7; } .ds-nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; } .ds-nav-brand { display: flex; align-items: center; gap: 8px; text-decoration: none; } .ds-nav-mark { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 9999px; background: #4f6d59; color: #ffffff; font-family: 'Baloo 2', sans-serif; font-size: 14px; } .ds-nav-name { font-family: 'Baloo 2', ui-rounded, sans-serif; font-weight: 700; font-size: 18px; color: #4a3b2e; } .ds-nav-links { display: flex; gap: 20px; font-family: 'Quicksand', sans-serif; font-size: 14px; color: #7a6852; }"
     }
   ],
   "narrative": {
-    "northStar": "Deployable Sheet",
-    "overview": "The site presents itself as precision-engineered hardware documentation, not a portfolio: every panel is cut like a Miura-fold deployment sheet, and the hero's signature move is a crease-pattern field that grows from a single origin point into a quiet mountain-fold tessellation on load — real SVG geometry, not a decorative loop. The world reads as aerospace-adjacent instrument literature: sheet-white ground, ink-black structure, a single foil-gold accent reserved for primary actions, and a data-blue reserved for genuinely live/status values. Corners are never rounded — every edge that isn't a plain rectangle is a deliberate parallelogram cut or a single 45°-notched corner, echoing a folded sheet's own geometry rather than soft app-UI chrome. This replaces the prior 'Live Paper' world outright. A first pass ran busier (two hues in the crease field, the cut motif on every piece of chrome, two stacked hero status lines); a simplification pass pulled it back to the essentials.",
+    "northStar": "Minihompy Room",
+    "overview": "The site is a cozy little room you visit, not a resume rendered as a webpage: the hero is a hand-illustrated isometric scene sitting right beside the name, and the whole system carries that warmth through — sage green, blush pink, and cream, fully rounded pill buttons and soft-shadowed cards, a chunky rounded display face. It's a direct homage to 2000s Cyworld/minihompy personal-room profile pages. This is the third full visual identity this project has carried in one session, chosen deliberately from a served set of options after two more conventional directions were tried and set aside. The room illustration is genuine hand-built SVG — there is no image-generation tool in this environment, so every visual element is real vector code, not a synthetic image.",
     "keyCharacteristics": [
-      "Cut, not rounded: every shape is a plain rectangle, a symmetric parallelogram cut, or a single 45° corner notch — zero border-radius anywhere, reserved for actionable elements only.",
-      "One accent, one data color, used sparingly: foil-gold marks primary actions only; data-blue marks genuinely live/status values only, never a passive tag or list label.",
-      "Live geometry, not an image: the hero's crease-pattern field is real SVG in one tone, grown into place via one authored CSS animation on load, sitting at 60% opacity as ambient texture rather than a competing focal element.",
-      "Flat by default: no box-shadows anywhere — separation comes from contrast, hairline borders, and the gold corner-notch."
+      "Illustrated, not abstract: the hero's signature is a real drawn isometric room, not a metaphor rendered in typography or a background pattern.",
+      "Rounded everywhere: pill buttons, large soft-cornered cards, a circular nav mark — zero sharp corners, the direct opposite of every previous world this project carried.",
+      "One warm neutral pair plus three soft accents: cream ground and warm-brown ink carry the page; sage, blush, and blue stay secondary or decorative.",
+      "Honest, not fabricated: 'Today's mood' is genuine personality copy, not a fake live statistic."
     ],
     "rules": [
-      { "name": "The One Accent, One Data Rule", "body": "Gold means act on this. Data-blue means this is live or current, right now. A static label, a passive tag, or a structural element never borrows either color.", "section": "colors" },
-      { "name": "The Two-Family Rule", "body": "Big Shoulders is reserved for headline-scale moments only; Plex Mono is reserved for anything labeled, numbered, or measured; Plex Sans carries everything else.", "section": "typography" },
-      { "name": "The No-Shadow Rule", "body": "Every surface is flat at rest and stays flat on hover; state changes are a translateY lift on buttons, never a shadow.", "section": "elevation" }
+      { "name": "The Illustration Owns Blush and Blue", "body": "Blush pink and rain-cloud blue are the room illustration's own material and are not reused as general UI accent colors.", "section": "colors" },
+      { "name": "The Soft-Shadow Rule", "body": "Every elevated surface uses the same blurred, sage-tinted shadow recipe — no zero-blur shadows, no mismatched shadow colors.", "section": "elevation" }
     ],
     "dos": [
-      "Do keep Gold reserved for primary-action fills only, and Data Blue reserved for genuinely live/status values only.",
-      "Do keep every cut shape at exactly 0 border-radius — parallelogram or single-corner-notch only, never rounded — reserved for buttons/panels/the nav CTA.",
-      "Do fill buttons instead of outlining them when a cut class is involved — border/shadow on a clipped element breaks visibly.",
-      "Do reserve the hero name's skew for that one element; every other headline stays upright.",
-      "Do keep the crease-field animation as the system's one authored motion moment.",
-      "Do default to one status line per surface, not several stacked readouts."
+      "Do keep every corner rounded — pill on interactive chrome, 1.5rem on cards, never sharp.",
+      "Do keep every card shadow the same sage-tinted, blurred recipe.",
+      "Do keep Blush and Blue confined to the room illustration itself.",
+      "Do keep personality copy like 'today's mood' genuine, never a fabricated statistic."
     ],
     "donts": [
-      "Don't add a kicker/eyebrow label directly above a heading.",
-      "Don't add rounded corners anywhere.",
-      "Don't add box-shadows or ambient elevation.",
-      "Don't reintroduce decorative sequence numbers (01, FIG. 0X).",
-      "Don't reintroduce a second hue into the crease field, or apply the cut motif to non-actionable chrome (wordmarks, toggles) — both were tried and pulled back."
+      "Don't add a sharp corner anywhere.",
+      "Don't reintroduce a flat, shadowless card.",
+      "Don't spend Blush or Blue as a button/link/badge color outside the illustration.",
+      "Don't fabricate a live number that isn't real."
     ]
   }
 }
