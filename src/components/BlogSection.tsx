@@ -1,5 +1,6 @@
 import { posts } from "@/data/posts";
 import { ArrowIcon } from "./icons";
+import { isPlaceholder, placeholderClass } from "@/lib/placeholder";
 
 export function BlogSection() {
   return (
@@ -18,9 +19,13 @@ export function BlogSection() {
               className="soft-card group flex items-start justify-between gap-4 px-5 py-5 transition-transform hover:-translate-y-0.5"
             >
               <div className="min-w-0">
-                <p className="text-sm text-ink-soft">{post.date}</p>
-                <h3 className="display-face mt-1 text-lg text-ink">{post.title}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-ink-soft">{post.excerpt}</p>
+                <p className={`text-sm text-ink-soft ${isPlaceholder(post.date) ? "italic" : ""}`}>{post.date}</p>
+                <h3 className={`display-face mt-1 text-lg ${isPlaceholder(post.title) ? placeholderClass : "text-ink"}`}>
+                  {post.title}
+                </h3>
+                <p className={`mt-1 text-sm leading-relaxed text-ink-soft ${isPlaceholder(post.excerpt) ? "italic" : ""}`}>
+                  {post.excerpt}
+                </p>
               </div>
 
               <ArrowIcon className="mt-1 h-4 w-4 shrink-0 text-ink-soft transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-sage" />

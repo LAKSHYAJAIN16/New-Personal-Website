@@ -42,7 +42,10 @@ export function RealHome() {
   return (
     <div className="flex h-dvh flex-col overflow-hidden px-3 py-3 sm:px-5 sm:py-5">
       <h1 className="sr-only">Lakshya Jain — Software Engineer</h1>
-      <header className="flex shrink-0 items-center justify-end gap-4 pb-2">
+      <header className="flex shrink-0 items-center justify-between gap-4 pb-2">
+        <p className="hidden text-xs text-ink-soft sm:block">
+          Tap or hover the furniture to explore the room
+        </p>
         <button
           type="button"
           onClick={() => setRevealed(true)}

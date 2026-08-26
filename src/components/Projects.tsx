@@ -1,5 +1,6 @@
 import { projects } from "@/data/projects";
 import { ArrowIcon } from "./icons";
+import { isPlaceholder, placeholderClass } from "@/lib/placeholder";
 
 export function Projects() {
   return (
@@ -18,8 +19,12 @@ export function Projects() {
               className="soft-card group flex items-start justify-between gap-4 px-5 py-5 transition-transform hover:-translate-y-0.5"
             >
               <div className="min-w-0">
-                <h3 className="display-face text-lg text-ink">{project.title}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-ink-soft">{project.description}</p>
+                <h3 className={`display-face text-lg ${isPlaceholder(project.title) ? placeholderClass : "text-ink"}`}>
+                  {project.title}
+                </h3>
+                <p className={`mt-1 text-sm leading-relaxed text-ink-soft ${isPlaceholder(project.description) ? "italic" : ""}`}>
+                  {project.description}
+                </p>
                 <div className="mt-3 flex flex-wrap items-center gap-2">
                   {project.tags.map((tag) => (
                     <span
