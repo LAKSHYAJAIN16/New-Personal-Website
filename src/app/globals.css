@@ -125,18 +125,34 @@ body {
   pointer-events: all;
 }
 
-.room-hotspot-highlight,
-.room-hotspot-label {
+.room-floor-tile {
+  cursor: pointer;
+}
+
+.room-hotspot-highlight {
   opacity: 0;
   transition: opacity 0.15s ease;
   pointer-events: none;
 }
 
+.room-hotspot-label {
+  opacity: 0.82;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  pointer-events: none;
+  transform-origin: center;
+}
+
 .room-hotspot:hover .room-hotspot-highlight,
-.room-hotspot:hover .room-hotspot-label,
 .room-hotspot:focus-visible .room-hotspot-highlight,
-.room-hotspot:focus-visible .room-hotspot-label {
+.room-hotspot:active .room-hotspot-highlight {
   opacity: 1;
+}
+
+.room-hotspot:hover .room-hotspot-label,
+.room-hotspot:focus-visible .room-hotspot-label,
+.room-hotspot:active .room-hotspot-label {
+  opacity: 1;
+  transform: scale(1.06);
 }
 
 .room-hotspot:focus-visible .room-hotspot-highlight {

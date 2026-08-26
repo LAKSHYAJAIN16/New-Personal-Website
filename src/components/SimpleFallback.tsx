@@ -11,7 +11,7 @@ const links = [
 
 export function SimpleFallback({ onBack }: { onBack: () => void }) {
   return (
-    <div className="flex h-screen flex-col items-center justify-center px-4 text-center sm:px-6">
+    <div className="flex h-dvh flex-col items-center justify-center px-4 text-center sm:px-6">
       <h1 className="display-face text-4xl text-ink sm:text-5xl">Lakshya Jain</h1>
       <p className="mt-2 text-lg text-ink-soft">Software Engineer</p>
       <p className="mt-4 max-w-sm text-base leading-relaxed text-ink-soft">

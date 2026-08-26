@@ -40,7 +40,8 @@ export function RealHome() {
   }
 
   return (
-    <div className="flex h-screen flex-col overflow-hidden px-3 py-3 sm:px-5 sm:py-5">
+    <div className="flex h-dvh flex-col overflow-hidden px-3 py-3 sm:px-5 sm:py-5">
+      <h1 className="sr-only">Lakshya Jain — Software Engineer</h1>
       <header className="flex shrink-0 items-center justify-end gap-4 pb-2">
         <button
           type="button"
