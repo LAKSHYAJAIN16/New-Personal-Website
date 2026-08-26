@@ -2,31 +2,6 @@
   "detector": {
     "ignoreRules": [],
     "ignoreFiles": [],
-    "ignoreValues": [
-      {
-        "rule": "design-system-color",
-        "value": "#ff2e9a",
-        "createdAt": "2026-08-26T03:59:15.687Z",
-        "reason": "EDM joke-gate easter egg, intentionally outside the real site's design system (src/components/EdmGate.tsx)"
-      },
-      {
-        "rule": "design-system-color",
-        "value": "#00e5ff",
-        "createdAt": "2026-08-26T03:59:15.821Z",
-        "reason": "EDM joke-gate easter egg, intentionally outside the real site's design system (src/components/EdmGate.tsx)"
-      },
-      {
-        "rule": "design-system-color",
-        "value": "#0a0612",
-        "createdAt": "2026-08-26T04:01:05.654Z",
-        "reason": "EDM joke-gate easter egg, intentionally outside the real site's design system (src/app/globals.css .edm-mode)"
-      },
-      {
-        "rule": "design-system-color",
-        "value": "#fdf4ff",
-        "createdAt": "2026-08-26T04:01:05.786Z",
-        "reason": "EDM joke-gate easter egg, intentionally outside the real site's design system (src/app/globals.css .edm-mode)"
-      }
-    ]
+    "ignoreValues": []
   }
 }

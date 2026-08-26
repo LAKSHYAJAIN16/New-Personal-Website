@@ -1,5 +1,5 @@
-import { HomeGateway } from "@/components/HomeGateway";
+import { RealHome } from "@/components/RealHome";
 
 export default function Home() {
-  return <HomeGateway />;
+  return <RealHome />;
 }
