@@ -148,7 +148,7 @@ const FRAME_CENTER = centroid(FRAME_CORNERS);
 const JUKEBOX_POS = floorPoint(0.65, 0.25);
 const BOOKSHELF_POS = floorPoint(0.15, 0.65);
 const NOTEBOOK_POS = floorPoint(0.45, 0.85);
-const MAIL_POS = floorPoint(0.85, 0.15);
+const MAIL_POS = floorPoint(0.95, 0.9);
 const CHAIR_POS = floorPoint(0.8, 0.6);
 const PLANT_POS = floorPoint(0.08, 0.15);
 const RUG_POS = floorPoint(0.45, 0.45);
@@ -381,7 +381,7 @@ export function IsoRoom({ className = "" }: { className?: string }) {
         <line x1={0} y1={-14} x2={0} y2={6} stroke="var(--line)" strokeWidth={1} />
       </g>
 
-      {/* mail slot, back-right wall foot — Say hi */}
+      {/* mail slot, front-right floor corner — Say hi */}
       <g transform={`translate(${MAIL_POS.x} ${MAIL_POS.y}) scale(1.5)`} pointerEvents="none">
         <ellipse cx={0} cy={22} rx={16} ry={7} fill="rgba(74,59,46,0.12)" />
         <rect x={-12} y={-14} width={24} height={34} rx={3} fill="var(--blush)" stroke="#4a3b2e" strokeWidth={1.2} />
