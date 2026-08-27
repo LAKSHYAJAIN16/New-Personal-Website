@@ -199,7 +199,7 @@ const HOTSPOTS: Hotspot[] = [
 ];
 
 export function IsoRoom({ className = "" }: { className?: string }) {
-  const [pos, setPos] = useState({ u: 0.5, v: 0.4 });
+  const [pos, setPos] = useState({ u: 0.45, v: 0.45 });
   const rootRef = useRef<SVGSVGElement>(null);
 
   const move = useCallback((du: number, dv: number) => {
