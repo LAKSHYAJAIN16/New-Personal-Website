@@ -87,7 +87,15 @@ type Hotspot = {
   label: string;
   points: { x: number; y: number }[];
   labelPos: { x: number; y: number };
+  labelWidth: number;
 };
+
+// Approximate glyph width for the label pill at fontSize 11 in the sans
+// family, plus horizontal padding — labels vary a lot in length ("Say hi"
+// vs. a project title), so a fixed pill width clips or overflows text.
+function labelWidth(label: string) {
+  return Math.max(80, label.length * 6.4 + 28);
+}
 
 const STEP_U = 1 / N_U;
 const STEP_V = 1 / N_V;
@@ -145,7 +153,7 @@ const CHAIR_POS = floorPoint(0.8, 0.6);
 const PLANT_POS = floorPoint(0.08, 0.15);
 const RUG_POS = floorPoint(0.45, 0.45);
 
-const HOTSPOTS: Hotspot[] = [
+const HOTSPOTS_BASE: Omit<Hotspot, "labelWidth">[] = [
   {
     key: "about",
     href: "/about",
@@ -197,6 +205,8 @@ const HOTSPOTS: Hotspot[] = [
     labelPos: g.center,
   })),
 ];
+
+const HOTSPOTS: Hotspot[] = HOTSPOTS_BASE.map((h) => ({ ...h, labelWidth: labelWidth(h.label) }));
 
 export function IsoRoom({ className = "" }: { className?: string }) {
   const [pos, setPos] = useState({ u: 0.45, v: 0.45 });
@@ -400,7 +410,7 @@ export function IsoRoom({ className = "" }: { className?: string }) {
           <polygon points={poly(h.points)} className="room-hotspot-hit" fill="transparent" />
           <polygon points={poly(h.points)} className="room-hotspot-highlight" fill="none" stroke="var(--sage)" strokeWidth={3} strokeLinejoin="round" />
           <g className="room-hotspot-label" transform={`translate(${h.labelPos.x}, ${h.labelPos.y - 14})`}>
-            <rect x={-40} y={-13} width={80} height={22} rx={11} fill="var(--ink)" />
+            <rect x={-h.labelWidth / 2} y={-13} width={h.labelWidth} height={22} rx={11} fill="var(--ink)" />
             <text x={0} y={3} textAnchor="middle" fontSize={11} fontFamily="var(--font-sans), sans-serif" fill="#fffdf8">
               {h.label}
             </text>
