@@ -1,75 +1,88 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-26T05:29:46.308Z",
+  "generatedAt": "2026-08-28T00:00:00.000Z",
   "title": "Design System: Lakshya Jain — Personal Site",
   "extensions": {
     "colorMeta": {
-      "sage": {
+      "terracotta": {
         "role": "primary",
-        "displayName": "Sage",
-        "canonical": "#4f6d59",
-        "tonalRamp": ["#152018", "#213028", "#324638", "#3f5a49", "#4f6d59", "#729581", "#a3c0af", "#d3e5da"]
+        "displayName": "Corduroy Terracotta",
+        "canonical": "#c1502e",
+        "tonalRamp": ["#2b0f07", "#451709", "#6b240f", "#8f3216", "#c1502e", "#d67a54", "#e8a688", "#f6d3c4"]
       },
-      "blush": {
-        "role": "secondary",
-        "displayName": "Blush Petal",
-        "canonical": "#f5c9cf",
-        "tonalRamp": ["#5c1f28", "#8a2f3c", "#c05064", "#dd8794", "#f5c9cf", "#f8d8dc", "#fbe7ea", "#fdf3f4"]
+      "terracotta-strong": {
+        "role": "primary",
+        "displayName": "Terracotta Strong",
+        "canonical": "#9c3d20",
+        "tonalRamp": ["#200903", "#341005", "#4f1a09", "#6c290f", "#9c3d20", "#b66443", "#d0906d", "#e9c0a3"]
       },
-      "blue": {
+      "mustard": {
         "role": "secondary",
-        "displayName": "Rain Cloud",
-        "canonical": "#b7c7d6",
-        "tonalRamp": ["#26313c", "#3c4d5c", "#586f82", "#8098aa", "#b7c7d6", "#cdd9e3", "#e2e9ef", "#f2f5f8"]
+        "displayName": "Mustard Cream",
+        "canonical": "#f3dfae",
+        "tonalRamp": ["#4a3a12", "#6b551d", "#8f7530", "#b89a53", "#d9c184", "#f3dfae", "#f8ebcc", "#fcf5e6"]
+      },
+      "chalk": {
+        "role": "tertiary",
+        "displayName": "Chalkboard Green",
+        "canonical": "#2c4a37",
+        "tonalRamp": ["#0c1610", "#132419", "#1e3626", "#254030", "#2c4a37", "#4a7059", "#7aa38c", "#b7d4c4"]
+      },
+      "brick": {
+        "role": "tertiary",
+        "displayName": "Brick (reserved, unused)",
+        "canonical": "#b5624a",
+        "tonalRamp": ["#291209", "#40200f", "#603017", "#824423", "#b5624a", "#c9866f", "#dcac9c", "#eed3c9"]
       },
       "bg": {
         "role": "neutral",
-        "displayName": "Cream Ground",
-        "canonical": "#fff6ec",
-        "tonalRamp": ["#4a3a22", "#6b5432", "#8f7245", "#b6935f", "#d3b587", "#e6d0ac", "#f5e9d5", "#fff6ec"]
+        "displayName": "Latte Cream",
+        "canonical": "#f4e6cf",
+        "tonalRamp": ["#4a3a1e", "#6b552c", "#8f7442", "#b9986a", "#d8bd97", "#f4e6cf", "#f8eeda", "#fbf5e9"]
       },
       "card": {
         "role": "neutral",
-        "displayName": "Card",
-        "canonical": "#fffdf8",
-        "tonalRamp": ["#4a3a22", "#6b5432", "#8f7245", "#b6935f", "#d3b587", "#e6d0ac", "#f7f3ea", "#fffdf8"]
+        "displayName": "Card Cream",
+        "canonical": "#fffaf0",
+        "tonalRamp": ["#4b3c20", "#6c572e", "#8f7645", "#b99a6c", "#d9bf99", "#f4e8d2", "#fef6e7", "#fffaf0"]
       },
       "ink": {
         "role": "neutral",
-        "displayName": "Ink",
-        "canonical": "#4a3b2e",
-        "tonalRamp": ["#160f0a", "#241a12", "#382a1e", "#4a3b2e", "#6b5744", "#8f7863", "#bbaa97", "#e2d9cd"]
+        "displayName": "Coffee Ink",
+        "canonical": "#3a2317",
+        "tonalRamp": ["#0f0805", "#190f09", "#26170f", "#301d13", "#3a2317", "#5c3c29", "#82593f", "#ab7d5e"]
       },
       "ink-soft": {
         "role": "neutral",
         "displayName": "Ink Soft",
-        "canonical": "#7a6852",
-        "tonalRamp": ["#241d16", "#382d22", "#4f4033", "#635141", "#7a6852", "#998572", "#bcac9b", "#e0d6ca"]
+        "canonical": "#7a5b45",
+        "tonalRamp": ["#221810", "#341f16", "#4a2e21", "#5e3c2c", "#7a5b45", "#93765d", "#b09879", "#cebaa0"]
       },
       "line": {
         "role": "neutral",
         "displayName": "Line",
-        "canonical": "#eadcc7",
-        "tonalRamp": ["#4a4030", "#6b5f47", "#9c8e6f", "#bfae8f", "#eadcc7", "#f0e5d3", "#f6eee1", "#faf5ee"]
-      },
-      "sage-soft": {
-        "role": "neutral",
-        "displayName": "Sage Soft",
-        "canonical": "#dce8df",
-        "tonalRamp": ["#213028", "#324638", "#4f6d59", "#729581", "#a3c0af", "#c3d8c9", "#dce8df", "#eef5f0"]
+        "canonical": "#e0c79a",
+        "tonalRamp": ["#4a3a1e", "#6c572e", "#8f7645", "#b0955f", "#cbb17f", "#e0c79a", "#eedcb9", "#f6ecd8"]
       }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display (Baloo 2)", "purpose": "Every section-opening headline and card title — chunky rounded warmth." },
-      "body": { "displayName": "Body (Quicksand)", "purpose": "Reading-length prose and UI copy." },
-      "label": { "displayName": "Label (Plex Mono)", "purpose": "Footer copyright line only." }
+      "display": { "displayName": "Display (Caveat)", "purpose": "The homepage hero name only — the single loudest use of the chalk script." },
+      "headline": { "displayName": "Headline (Caveat)", "purpose": "Every page's opening title, one script headline per screen." },
+      "body": { "displayName": "Body (IBM Plex Sans)", "purpose": "All prose, subheads, stat values, chip text." },
+      "label": { "displayName": "Label (IBM Plex Mono)", "purpose": "Printed-ticket/receipt-register microcopy only: bio line, table-status, menu subhead, footer stub." }
     },
     "shadows": [
-      { "name": "soft-card", "value": "0 12px 28px -8px rgba(79,109,89,.18)", "purpose": "Every elevated card surface — the system's one shadow recipe." }
+      { "name": "pinned-paper", "value": "0 14px 28px -10px rgba(58, 35, 23, 0.28)", "purpose": "`.soft-card`'s resting shadow, paired with a terracotta push-pin dot — reads as paper pinned above the table." },
+      { "name": "chalkboard-hung", "value": "0 16px 32px -14px rgba(58, 35, 23, 0.5)", "purpose": "`.menu-board`'s heavier shadow, paired with a thick wood-frame border." },
+      { "name": "ticket-chit-rest", "value": "0 3px 0 var(--terracotta-strong)", "purpose": "`.ticket-btn` at rest — hard, zero-blur, scoped exclusively to ticket-style buttons." },
+      { "name": "ticket-chit-pressed", "value": "0 1px 0 var(--terracotta-strong)", "purpose": "`.ticket-btn` hover/focus, paired with translateY(2px) — the button presses down like a die-cut chit." }
     ],
     "motion": [
-      { "name": "hover-lift", "value": "transform .2s; hover: translateY(-2px)", "purpose": "Default hover treatment for buttons and cards." },
-      { "name": "live-pulse", "value": "opacity 1 -> 0.3 -> 1, 2s ease-in-out infinite", "purpose": "The 'today's mood' / 'open to new roles' status dots; disabled under prefers-reduced-motion." }
+      { "name": "ticket-press", "value": "transform .15s ease, box-shadow .15s ease; hover/focus: translateY(2px)", "purpose": "Ticket-button press feedback." },
+      { "name": "link-underline-grow", "value": "background-size .2s ease, 0% to 100% width", "purpose": ".link-underline hover state." },
+      { "name": "chalk-fill", "value": "background-size 0.6s ease-out 0.3s forwards, 0% to 100%", "purpose": ".chalk-highlight fill-in on mount; disabled under prefers-reduced-motion." },
+      { "name": "steam-rise", "value": "translateY(0→-12px) scaleX(1→0.9), opacity .55→.9→0, 2.4s ease-in-out infinite, staggered per path", "purpose": "The coffee-cup mark's steam curls; disabled under prefers-reduced-motion." },
+      { "name": "live-pulse", "value": "opacity 1 -> 0.3 -> 1, 2s ease-in-out infinite", "purpose": "The Contact page's 'open to new roles' status dot; disabled under prefers-reduced-motion." }
     ],
     "breakpoints": [
       { "name": "sm", "value": "640px" }
@@ -77,65 +90,85 @@
   },
   "components": [
     {
-      "name": "Primary Button",
+      "name": "Ticket Button (Primary)",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Sage-filled pill CTA, e.g. 'See my collection' or the nav 'Say hi'.",
-      "html": "<button class=\"ds-btn-primary\">See my collection</button>",
-      "css": ".ds-btn-primary { background: #4f6d59; color: #ffffff; font-family: 'Quicksand', ui-sans-serif, system-ui, sans-serif; font-weight: 600; font-size: 14px; padding: 12px 20px; border: none; border-radius: 9999px; box-shadow: 0 2px 6px rgba(79,109,89,.25); transition: transform .2s ease; } .ds-btn-primary:hover { transform: translateY(-2px); } .ds-btn-primary:focus-visible { outline: 2px solid #4f6d59; outline-offset: 3px; }"
+      "description": "The order-ticket CTA: terracotta fill, hard offset shadow, presses down on hover/focus. Used for the nav 'Say hi' and the Contact email-copy button.",
+      "html": "<button class=\"ds-btn-primary\">Say hi</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--terracotta, #c1502e); color: #fff8ec; font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif; font-weight: 600; font-size: 14px; padding: 8px 16px; border: none; border-radius: 6px; box-shadow: 0 3px 0 var(--terracotta-strong, #9c3d20); transition: transform .15s ease, box-shadow .15s ease; cursor: pointer; } .ds-btn-primary:hover, .ds-btn-primary:focus-visible { transform: translateY(2px); box-shadow: 0 1px 0 var(--terracotta-strong, #9c3d20); } .ds-btn-primary:focus-visible { outline: 2.5px solid var(--terracotta-strong, #9c3d20); outline-offset: 3px; }"
+    },
+    {
+      "name": "Ticket Button (Quiet)",
+      "kind": "button",
+      "refersTo": "button-quiet",
+      "description": "The lower-emphasis ghost variant: card fill, bordered, no shadow, no press animation. Used for the recruiter 'skip to the plain page' toggle.",
+      "html": "<button class=\"ds-btn-quiet\">I&#8217;m a recruiter — skip to the plain page</button>",
+      "css": ".ds-btn-quiet { display: inline-flex; align-items: center; gap: 8px; background: var(--card, #fffaf0); color: var(--ink, #3a2317); font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif; font-weight: 500; font-size: 12px; padding: 6px 12px; border: 1px solid var(--line, #e0c79a); border-radius: 6px; box-shadow: none; cursor: pointer; } .ds-btn-quiet:hover, .ds-btn-quiet:focus-visible { transform: none; box-shadow: none; } .ds-btn-quiet:focus-visible { outline: 2.5px solid var(--terracotta-strong, #9c3d20); outline-offset: 3px; }"
     },
     {
       "name": "Soft Card",
       "kind": "card",
       "refersTo": "card",
-      "description": "The signature rounded, softly-shadowed card used for the hero frame, stat list, work/writing rows, and photo plates.",
-      "html": "<div class=\"ds-card\"><h3>Card title</h3><p>Card description text.</p></div>",
-      "css": ".ds-card { background: #fffdf8; border: 1px solid #eadcc7; border-radius: 24px; padding: 20px; box-shadow: 0 12px 28px -8px rgba(79,109,89,.18); } .ds-card h3 { font-family: 'Baloo 2', ui-rounded, sans-serif; font-weight: 700; font-size: 18px; color: #4a3b2e; } .ds-card p { font-family: 'Quicksand', ui-sans-serif, system-ui, sans-serif; font-size: 14px; color: #7a6852; margin-top: 4px; }"
+      "description": "The signature pinned-paper card: card-cream surface, hairline border, blurred coffee-tinted shadow, and a small terracotta push-pin dot at the top-left corner. Used for the hero panel, Work/Writing rows, the About stat list, and the Contact panel.",
+      "html": "<div class=\"ds-card\"><h3 class=\"ds-card-title\">Card title</h3><p class=\"ds-card-body\">One line of description text.</p></div>",
+      "css": ".ds-card { position: relative; background: var(--card, #fffaf0); border: 1px solid var(--line, #e0c79a); border-radius: 12px; padding: 20px; box-shadow: 0 14px 28px -10px rgba(58, 35, 23, 0.28); } .ds-card::before { content: ''; position: absolute; top: -6px; left: 28px; width: 10px; height: 10px; border-radius: 9999px; background: var(--terracotta, #c1502e); box-shadow: 0 1px 2px rgba(58, 35, 23, 0.4); } .ds-card-title { font-family: 'Caveat', cursive; font-weight: 700; font-size: 18px; color: var(--ink, #3a2317); margin: 0; } .ds-card-body { font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif; font-size: 14px; line-height: 1.6; color: var(--ink-soft, #7a5b45); margin: 4px 0 0; }"
     },
     {
       "name": "Tag Chip",
       "kind": "chip",
       "refersTo": "tag-chip",
-      "description": "Rounded sage-soft tag, e.g. project tags on Collection rows.",
-      "html": "<span class=\"ds-tag-chip\">React</span>",
-      "css": ".ds-tag-chip { display: inline-block; background: #dce8df; color: #4a3b2e; font-family: 'Quicksand', ui-sans-serif, system-ui, sans-serif; font-size: 12px; font-weight: 500; padding: 4px 10px; border-radius: 9999px; }"
+      "description": "Mustard pill used for project tags on Work rows.",
+      "html": "<span class=\"ds-chip\">TypeScript</span>",
+      "css": ".ds-chip { display: inline-block; background: var(--mustard, #f3dfae); color: var(--ink, #3a2317); font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif; font-size: 12px; font-weight: 500; padding: 4px 10px; border-radius: 9999px; }"
     },
     {
       "name": "Navigation Bar",
       "kind": "nav",
       "refersTo": null,
-      "description": "Sticky translucent-blur nav with a circular sage monogram badge.",
-      "html": "<header class=\"ds-nav\"><div class=\"ds-nav-inner\"><a class=\"ds-nav-brand\" href=\"/\"><span class=\"ds-nav-mark\">L</span><span class=\"ds-nav-name\">Lakshya's room</span></a><nav class=\"ds-nav-links\"><a href=\"#\">Room</a><a href=\"#\">Collection</a></nav><a class=\"ds-btn-primary\" href=\"#\" style=\"padding:8px 16px;font-size:13px;\">Say hi</a></div></header>",
-      "css": ".ds-nav { position: sticky; top: 0; background: rgba(255,246,236,.9); backdrop-filter: blur(8px); border-bottom: 1px solid #eadcc7; } .ds-nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; } .ds-nav-brand { display: flex; align-items: center; gap: 8px; text-decoration: none; } .ds-nav-mark { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 9999px; background: #4f6d59; color: #ffffff; font-family: 'Baloo 2', sans-serif; font-size: 14px; } .ds-nav-name { font-family: 'Baloo 2', ui-rounded, sans-serif; font-weight: 700; font-size: 18px; color: #4a3b2e; } .ds-nav-links { display: flex; gap: 20px; font-family: 'Quicksand', sans-serif; font-size: 14px; color: #7a6852; }"
+      "description": "Sticky, translucent-blur nav with a circular terracotta monogram badge, a Caveat wordmark, underline-hover links, and a ticket-button CTA.",
+      "html": "<header class=\"ds-nav\"><nav class=\"ds-nav-row\"><a class=\"ds-nav-brand\" href=\"/\"><span class=\"ds-nav-badge\">L</span><span class=\"ds-nav-word\">Lakshya&#8217;s table</span></a><div class=\"ds-nav-links\"><a class=\"ds-nav-link\" href=\"#\">About</a><a class=\"ds-nav-link\" href=\"#\">Work</a><a class=\"ds-btn-primary\" href=\"#\">Say hi</a></div></nav></header>",
+      "css": ".ds-nav { position: sticky; top: 0; background: rgba(244, 230, 207, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line, #e0c79a); } .ds-nav-row { display: flex; align-items: center; justify-content: space-between; max-width: 768px; margin: 0 auto; padding: 12px 24px; } .ds-nav-brand { display: flex; align-items: center; gap: 8px; text-decoration: none; } .ds-nav-badge { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 9999px; background: var(--terracotta, #c1502e); color: #fff8ec; font-family: 'Caveat', cursive; font-size: 18px; } .ds-nav-word { font-family: 'Caveat', cursive; font-size: 24px; color: var(--ink, #3a2317); } .ds-nav-links { display: flex; align-items: center; gap: 20px; } .ds-nav-link { font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif; font-size: 14px; color: var(--ink-soft, #7a5b45); text-decoration: none; background-image: linear-gradient(var(--terracotta, #c1502e), var(--terracotta, #c1502e)); background-position: 0 100%; background-repeat: no-repeat; background-size: 0% 2px; transition: background-size .2s ease, color .2s ease; } .ds-nav-link:hover, .ds-nav-link:focus-visible { background-size: 100% 2px; color: var(--ink, #3a2317); }"
+    },
+    {
+      "name": "Menu Board",
+      "kind": "custom",
+      "refersTo": "menu-board",
+      "description": "The signature component: the site's real navigation styled as a cafe chalkboard drink list. Chalkboard-green fill, thick wood-frame border, Caveat title, mono subhead, dashed-divided rows with a label/note pair and an arrow that nudges on hover.",
+      "html": "<div class=\"ds-menu-board\"><p class=\"ds-menu-title\">The Menu</p><p class=\"ds-menu-subtitle\">EVERYTHING ON THIS SITE, TODAY</p><ul class=\"ds-menu-list\"><li class=\"ds-menu-item\"><a class=\"ds-menu-link\" href=\"#\"><span><span class=\"ds-menu-label\">About</span><span class=\"ds-menu-note\">who this is, off the menu</span></span><svg class=\"ds-menu-arrow\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M4.5 11.5 11.5 4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M6 4.5h5.5V10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a></li><li class=\"ds-menu-item\"><a class=\"ds-menu-link\" href=\"#\"><span><span class=\"ds-menu-label\">Work</span><span class=\"ds-menu-note\">a few things he&#8217;s made</span></span><svg class=\"ds-menu-arrow\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M4.5 11.5 11.5 4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M6 4.5h5.5V10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a></li></ul></div>",
+      "css": ".ds-menu-board { background: var(--chalk, #2c4a37); border: 10px solid #6b4a30; border-radius: 12px; padding: 40px; box-shadow: 0 16px 32px -14px rgba(58, 35, 23, 0.5); } .ds-menu-title { font-family: 'Caveat', cursive; font-weight: 700; font-size: 30px; color: var(--mustard, #f3dfae); margin: 0; } .ds-menu-subtitle { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.05em; color: rgba(243, 223, 174, 0.7); margin: 4px 0 0; } .ds-menu-list { list-style: none; margin: 24px 0 0; padding: 0; display: flex; flex-direction: column; } .ds-menu-item { border-bottom: 1px dashed rgba(243, 223, 174, 0.25); } .ds-menu-item:last-child { border-bottom: none; } .ds-menu-link { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; text-decoration: none; } .ds-menu-label { display: block; font-family: 'Caveat', cursive; font-size: 24px; color: #fff8ec; transition: color .2s ease; } .ds-menu-note { display: block; font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; color: rgba(243, 223, 174, 0.7); } .ds-menu-arrow { width: 16px; height: 16px; flex-shrink: 0; color: rgba(243, 223, 174, 0.7); transition: transform .2s ease, color .2s ease; } .ds-menu-link:hover .ds-menu-label, .ds-menu-link:focus-visible .ds-menu-label { color: var(--mustard, #f3dfae); } .ds-menu-link:hover .ds-menu-arrow, .ds-menu-link:focus-visible .ds-menu-arrow { transform: translate(2px, -2px); color: var(--mustard, #f3dfae); }"
     }
   ],
   "narrative": {
-    "northStar": "Minihompy Room",
-    "overview": "The site is a cozy little room you visit, not a resume rendered as a webpage: the hero is a hand-illustrated isometric scene sitting right beside the name, and the whole system carries that warmth through — sage green, blush pink, and cream, fully rounded pill buttons and soft-shadowed cards, a chunky rounded display face. It's a direct homage to 2000s Cyworld/minihompy personal-room profile pages. This is the third full visual identity this project has carried in one session, chosen deliberately from a served set of options after two more conventional directions were tried and set aside. The room illustration is genuine hand-built SVG — there is no image-generation tool in this environment, so every visual element is real vector code, not a synthetic image.",
+    "northStar": "Lakshya's Table",
+    "overview": "The homepage is a warm cafe table: a hand-lettered name sign, a one-line order-ticket bio clipped like a printed chit, a steaming coffee-cup mark, and a chalkboard menu board that lists every real section — About, Work, Writing, Photos, Say hi — the way a cafe lists its drinks. The chalkboard is the site's primary navigation, not a decoration beside it. This is the third full visual identity this project has carried in one session; it replaces both an isometric 'room' world and a templated gradient-hero portfolio tried earlier, in favor of a genre the user pinned directly: a 90s NYC coffeehouse hangout. The genre is expressed through material (chalkboard, order tickets, corduroy-couch terracotta, brick, photo-strip framing) rather than through any literal show asset — no trademarked logo, character name or likeness, or title typeface appears anywhere in the shipped UI. The system is deliberately warm and communal rather than slick: flat color fields carry real (not faked-photorealistic) offset and blur shadows, the display face is a genuine chalk-marker script rather than the generic AI-cream-plus-serif pairing, and the one hard, printed-ticket-style shadow is earned narrowly by the order-ticket vocabulary rather than applied as a general 'brutalist' habit. A separate, deliberately plain recruiter fallback (SimpleFallback) strips all of this chrome back to the shared base tokens only — proof the coffeehouse dressing is a world choice, not the only way the content can be read.",
     "keyCharacteristics": [
-      "Illustrated, not abstract: the hero's signature is a real drawn isometric room, not a metaphor rendered in typography or a background pattern.",
-      "Rounded everywhere: pill buttons, large soft-cornered cards, a circular nav mark — zero sharp corners, the direct opposite of every previous world this project carried.",
-      "One warm neutral pair plus three soft accents: cream ground and warm-brown ink carry the page; sage, blush, and blue stay secondary or decorative.",
-      "Honest, not fabricated: 'Today's mood' is genuine personality copy, not a fake live statistic."
+      "The chalkboard is the navigation: every real destination is a menu-board row, not a nav-bar-only pattern layered on top of separate page content.",
+      "One actionable accent: corduroy-couch terracotta carries every button, link-hover, and focus ring; mustard and chalkboard-green stay confined to their own materials (tags/chips, and the menu board itself).",
+      "Chalk script for signage, not for prose: Caveat appears on headlines, titles, and the menu board; body copy is always IBM Plex Sans.",
+      "Order-ticket mono: IBM Plex Mono marks only printed-ticket/receipt-style microcopy — not a general technical-label device.",
+      "Soft by default, hard by exception: elevated surfaces use blurred, coffee-tinted shadows; only the ticket-style buttons use a hard, zero-blur offset shadow, because they represent a literal printed chit.",
+      "Honest, not fabricated: bracketed placeholder copy is styled distinctly (italic, muted) rather than hidden or faked with invented specifics — a convention that predates this redesign and carries forward unchanged."
     ],
     "rules": [
-      { "name": "The Illustration Owns Blush and Blue", "body": "Blush pink and rain-cloud blue are the room illustration's own material and are not reused as general UI accent colors.", "section": "colors" },
-      { "name": "The Soft-Shadow Rule", "body": "Every elevated surface uses the same blurred, sage-tinted shadow recipe — no zero-blur shadows, no mismatched shadow colors.", "section": "elevation" }
+      { "name": "The One Accent Rule", "body": "Terracotta (and its strong companion) is the only color used for actionable UI — buttons, link hovers, focus rings, status dots. Mustard, chalk, and brick are never substituted in for it; each stays confined to the one material it names.", "section": "colors" },
+      { "name": "The Script-Stays-Loud Rule", "body": "Caveat is reserved for headlines, titles, and signage-scale labels; it never sets continuous paragraph text. Body copy is always IBM Plex Sans.", "section": "typography" },
+      { "name": "The Ticket-Register Rule", "body": "IBM Plex Mono marks printed-ticket/receipt-style microcopy specifically (order lines, table-status, menu subheads, the footer stub) — it is not a general 'technical' or 'code' label device.", "section": "typography" },
+      { "name": "The Soft-By-Default Rule", "body": "General elevation (cards, the menu board) is always a blurred, coffee-tinted offset shadow — never a hard, zero-blur edge.", "section": "elevation" },
+      { "name": "The Printed-Ticket Exception", "body": "The one hard, zero-blur offset shadow in the system (0 3px 0 var(--terracotta-strong)) is scoped exclusively to .ticket-btn / .ticket-btn-quiet, because it represents a literal order-ticket or menu-chit object this world already names. It is not a general 'this project uses hard shadows' style — this world is coffeehouse/paper, not neobrutalist, and the exception must not be generalized to any other surface.", "section": "elevation" }
     ],
     "dos": [
-      "Do keep every corner rounded — pill on interactive chrome, 1.5rem on cards, never sharp.",
-      "Do keep every card shadow the same sage-tinted, blurred recipe.",
-      "Do keep Blush and Blue confined to the room illustration itself.",
-      "Do keep personality copy (now-playing, currently-reading) genuine and bracketed, never a fabricated statistic.",
-      "Do give every real navigation hotspot both a hover/focus highlight and a label pill.",
-      "Do keep the recruiter fallback genuinely plain — no cards, no illustration, no pills."
+      "Do keep terracotta (#c1502e) as the only actionable-accent color — buttons, link-hovers, focus rings, and status dots. Mustard, chalk, and brick stay confined to their own named materials.",
+      "Do scope the hard 0 3px 0 ticket-chit shadow to .ticket-btn/.ticket-btn-quiet only. All other elevation stays soft and blurred.",
+      "Do reserve IBM Plex Mono for printed-ticket/receipt-register microcopy (bio lines, table-status labels, menu subheads, the footer stub) — not a general technical-label typeface.",
+      "Do keep Caveat (.display-face) to headlines, titles, and signage-scale labels only; body copy is always IBM Plex Sans.",
+      "Do style honest placeholder copy in italic, muted ink-soft (placeholderClass) wherever real content is missing, per the isPlaceholder convention — never fill a gap with an invented specific.",
+      "Do keep the recruiter fallback (SimpleFallback) genuinely chrome-free: base tokens and .link-underline only, no .soft-card, .menu-board, or .ticket-btn vocabulary borrowed back in."
     ],
     "donts": [
-      "Don't add a sharp corner anywhere.",
-      "Don't reintroduce a flat, shadowless card.",
-      "Don't spend Blush or Blue as a button/link/badge color outside the illustration.",
-      "Don't fabricate a live number that isn't real.",
-      "Don't hardcode room geometry as magic pixel numbers — derive positions from floorPoint/leftWallPoint/rightWallPoint."
+      "Don't place a label or eyebrow above an <h1>. An earlier draft put the 'TABLE STILL OPEN' label above the hero heading; it was corrected to sit beside/under the coffee-cup mark instead. The heading is always the first thing read.",
+      "Don't apply the ticket-chit's hard offset shadow to .soft-card, .menu-board, or any other surface — this world is coffeehouse/paper, not neobrutalist, and the hard shadow is earned only by the literal order-ticket vocabulary.",
+      "Don't spend chalkboard-green or brick outside the one material each is confined to (chalk = .menu-board only; brick is currently unused and reserved) — never repurpose either as a general UI or button color.",
+      "Don't introduce any literal show-branded asset — logo, character name or likeness, or the show's title typeface. The genre (coffeehouse, brick, couch terracotta, chalkboard, photo-strip framing) carries the reference; no trademarked asset does."
     ]
   }
 }

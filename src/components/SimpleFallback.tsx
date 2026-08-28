@@ -35,7 +35,7 @@ export function SimpleFallback({ onBack }: { onBack: () => void }) {
         onClick={onBack}
         className="link-underline mt-12 inline-flex items-center gap-1.5 text-xs text-ink-soft"
       >
-        <ArrowIcon className="h-3 w-3 rotate-[225deg]" /> Back to the room
+        <ArrowIcon className="h-3 w-3 rotate-[225deg]" /> Back to the table
       </button>
     </div>
   );

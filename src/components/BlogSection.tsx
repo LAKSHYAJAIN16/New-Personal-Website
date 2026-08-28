@@ -28,7 +28,7 @@ export function BlogSection() {
                 </p>
               </div>
 
-              <ArrowIcon className="mt-1 h-4 w-4 shrink-0 text-ink-soft transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-sage" />
+              <ArrowIcon className="mt-1 h-4 w-4 shrink-0 text-ink-soft transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-terracotta-strong" />
             </a>
           ))}
         </div>

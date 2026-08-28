@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #fff6ec;
-  --card: #fffdf8;
-  --ink: #4a3b2e;
-  --ink-soft: #7a6852;
-  --line: #eadcc7;
-  --sage: #4f6d59;
-  --sage-soft: #dce8df;
-  --sage-ink: #ffffff;
-  --blush: #f5c9cf;
-  --blue: #b7c7d6;
+  --bg: #f4e6cf;
+  --card: #fffaf0;
+  --ink: #3a2317;
+  --ink-soft: #7a5b45;
+  --line: #e0c79a;
+  --terracotta: #c1502e;
+  --terracotta-strong: #9c3d20;
+  --mustard: #f3dfae;
+  --brick: #b5624a;
+  --chalk: #2c4a37;
 }
 
 @theme inline {
@@ -19,15 +19,15 @@
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
   --color-line: var(--line);
-  --color-sage: var(--sage);
-  --color-sage-soft: var(--sage-soft);
-  --color-sage-ink: var(--sage-ink);
-  --color-blush: var(--blush);
-  --color-blue: var(--blue);
+  --color-terracotta: var(--terracotta);
+  --color-terracotta-strong: var(--terracotta-strong);
+  --color-mustard: var(--mustard);
+  --color-brick: var(--brick);
+  --color-chalk: var(--chalk);
 
   --font-mono: var(--font-plex-mono);
-  --font-sans: var(--font-quicksand);
-  --font-display: var(--font-baloo);
+  --font-sans: var(--font-plex-sans);
+  --font-display: var(--font-caveat);
 }
 
 html {
@@ -43,11 +43,11 @@ body {
 }
 
 .display-face {
-  font-family: var(--font-display), ui-rounded, "Baloo 2", sans-serif;
+  font-family: var(--font-display), "Caveat", cursive;
 }
 
 .link-underline {
-  background-image: linear-gradient(var(--sage), var(--sage));
+  background-image: linear-gradient(var(--terracotta), var(--terracotta));
   background-position: 0 100%;
   background-repeat: no-repeat;
   background-size: 0% 2px;
@@ -58,20 +58,37 @@ body {
   background-size: 100% 2px;
 }
 
+/* A photo pinned to the corkboard: warm paper, a soft coffee-tinted shadow,
+   and a small push-pin at the top -- the opposite of the old room's flat
+   sage-tinted card recipe. */
 .soft-card {
-  border-radius: 1.5rem;
+  position: relative;
+  border-radius: 0.75rem;
   background: var(--card);
   border: 1px solid var(--line);
-  box-shadow: 0 12px 28px -8px rgba(79, 109, 89, 0.18);
+  box-shadow: 0 14px 28px -10px rgba(58, 35, 23, 0.28);
+}
+
+.soft-card::before {
+  content: "";
+  position: absolute;
+  top: -0.4rem;
+  left: 1.75rem;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 999px;
+  background: var(--terracotta);
+  box-shadow: 0 1px 2px rgba(58, 35, 23, 0.4);
+  pointer-events: none;
 }
 
 ::selection {
-  background: var(--blush);
+  background: var(--mustard);
   color: var(--ink);
 }
 
 * {
-  scrollbar-color: var(--sage) var(--bg);
+  scrollbar-color: var(--terracotta-strong) var(--bg);
 }
 
 ::-webkit-scrollbar {
@@ -83,14 +100,36 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--sage);
+  background: var(--terracotta-strong);
   border: 2px solid var(--bg);
   border-radius: 999px;
 }
 
 :focus-visible {
-  outline: 2px solid var(--sage);
+  outline: 2.5px solid var(--terracotta-strong);
   outline-offset: 3px;
+}
+
+/* A chalk highlight that fills in on mount, via background-size rather than
+   a positioned pseudo-element -- avoids stacking-context bugs entirely. */
+@keyframes chalk-fill {
+  to { background-size: 100% 100%; }
+}
+
+.chalk-highlight {
+  background-image: linear-gradient(var(--mustard), var(--mustard));
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  animation: chalk-fill 0.6s ease-out 0.3s forwards;
+  padding: 0 0.15em;
+  border-radius: 0.15em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chalk-highlight {
+    background-size: 100% 100%;
+    animation: none;
+  }
 }
 
 .font-mono {
@@ -116,42 +155,78 @@ body {
   }
 }
 
-.room-hotspot {
-  cursor: pointer;
-  outline: none;
+/* Order-ticket button: a solid terracotta chit with a torn/rounded edge and
+   a hard warm shadow, the couch color doing double duty as the one
+   actionable accent. */
+.ticket-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.375rem;
+  background: var(--terracotta);
+  color: #fff8ec;
+  box-shadow: 0 3px 0 var(--terracotta-strong);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.room-hotspot-hit {
-  pointer-events: all;
+.ticket-btn:hover,
+.ticket-btn:focus-visible {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--terracotta-strong);
 }
 
-.room-floor-tile {
-  cursor: pointer;
+.ticket-btn-quiet {
+  background: var(--card);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  box-shadow: none;
 }
 
-.room-hotspot-highlight {
-  opacity: 0;
-  transition: opacity 0.15s ease;
-  pointer-events: none;
+.ticket-btn-quiet:hover,
+.ticket-btn-quiet:focus-visible {
+  transform: none;
+  box-shadow: none;
 }
 
-.room-hotspot-label {
-  opacity: 0;
-  transition: opacity 0.15s ease, transform 0.15s ease;
-  pointer-events: none;
-  transform-origin: center;
+/* The chalkboard menu board: Central Perk's own material, reused as the
+   site's real navigation -- every section listed the way a cafe lists its
+   drinks. */
+.menu-board {
+  border-radius: 0.75rem;
+  background: var(--chalk);
+  border: 10px solid #6b4a30;
+  box-shadow: 0 16px 32px -14px rgba(58, 35, 23, 0.5);
 }
 
-.room-hotspot:hover .room-hotspot-highlight,
-.room-hotspot:focus-visible .room-hotspot-highlight,
-.room-hotspot:active .room-hotspot-highlight,
-.room-hotspot:hover .room-hotspot-label,
-.room-hotspot:focus-visible .room-hotspot-label,
-.room-hotspot:active .room-hotspot-label {
-  opacity: 1;
+.menu-item {
+  border-bottom: 1px dashed rgba(243, 223, 174, 0.25);
 }
 
-.room-hotspot:focus-visible .room-hotspot-highlight {
-  stroke: var(--ink);
-  stroke-width: 4;
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+@keyframes steam-rise {
+  0% { transform: translateY(0) scaleX(1); opacity: 0.55; }
+  50% { transform: translateY(-6px) scaleX(1.15); opacity: 0.9; }
+  100% { transform: translateY(-12px) scaleX(0.9); opacity: 0; }
+}
+
+.steam path {
+  animation: steam-rise 2.4s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+.steam path:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.steam path:nth-child(3) {
+  animation-delay: 1s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .steam path {
+    animation: none;
+  }
 }

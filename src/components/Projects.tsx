@@ -29,7 +29,7 @@ export function Projects() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full bg-sage-soft px-2.5 py-1 text-xs text-ink"
+                      className="rounded-full bg-mustard px-2.5 py-1 text-xs text-ink"
                     >
                       {tag}
                     </span>
@@ -37,7 +37,7 @@ export function Projects() {
                 </div>
               </div>
 
-              <ArrowIcon className="mt-1 h-4 w-4 shrink-0 text-ink-soft transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-sage" />
+              <ArrowIcon className="mt-1 h-4 w-4 shrink-0 text-ink-soft transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-terracotta-strong" />
             </a>
           ))}
         </div>

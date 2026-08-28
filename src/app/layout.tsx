@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Baloo_2, IBM_Plex_Mono, Quicksand } from "next/font/google";
+import { Caveat, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 
 const plexMono = IBM_Plex_Mono({
@@ -8,16 +8,16 @@ const plexMono = IBM_Plex_Mono({
   weight: ["400", "500", "600"],
 });
 
-const quicksand = Quicksand({
-  variable: "--font-quicksand",
+const plexSans = IBM_Plex_Sans({
+  variable: "--font-plex-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
 
-const baloo = Baloo_2({
-  variable: "--font-baloo",
+const caveat = Caveat({
+  variable: "--font-caveat",
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
+  weight: ["600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -30,11 +30,11 @@ export const metadata: Metadata = {
 };
 
 const DIRECTION_CONTRACT = `
-THESIS: A personal site as a cozy decoratable room -- Cyworld-minihompy-inspired warmth and a hand-illustrated isometric scene, refusing both the loud "instrument world" and the bare-minimal editorial builds tried earlier this session.
-OWN-WORLD: Porcelain-cream ground, deep warm-brown ink, sage green as the primary accent, blush pink and rain-cloud blue as quiet secondary tints; Baloo 2 (chunky rounded) for headlines, Quicksand for body/UI, IBM Plex Mono only for tiny structural bits. Fully rounded pill buttons and large soft-shadowed cards -- the opposite of the sharp/flat worlds tried earlier.
-STORY: A visitor steps into Lakshya's little room -- an illustrated isometric scene up front, real content (about, work, writing, photos, contact) reached the way you'd browse a cozy home page, not a resume.
-FIRST VIEWPORT: A hand-drawn isometric room (floor, walls, window, plant, chair, record player) sits beside the name and a warm one-line intro; a soft "today's mood" readout replaces any fabricated stat.
-FORM: User-picked challenger from a served decision round (Cyworld minihompy room), fused against the product's real content; seed key 83b714fd.
+THESIS: A personal site as a 90s NYC coffeehouse hangout -- warm and communal, refusing both the isometric-room world and the templated gradient-hero portfolio tried earlier this session.
+OWN-WORLD: Warm latte-cream ground and deep coffee-brown ink carry the page; a corduroy-couch terracotta is the one actionable accent, mustard-cream marks tags and chips, brick and chalkboard-green stay confined to their own materials. Caveat (chalk-marker script) for headlines and a chalkboard menu board, IBM Plex Sans for body, IBM Plex Mono for order-ticket labels. No literal show logos, character names, or likenesses -- the genre (coffeehouse, brick, couch, photo strip), not the trademark.
+STORY: A visitor pulls up a seat at Lakshya's table -- a chalkboard menu board lists the same real sections as before (About, Work, Writing, Photos, Say hi) the way a cafe lists its drinks, and a photo-strip frame stands in for a portrait.
+FIRST VIEWPORT: A warm cafe-table scene: a hand-lettered name sign, a one-line order-ticket bio, a steaming coffee-cup mark, and a green chalkboard menu board listing every section by name.
+FORM: User-pinned world (a 90s coffeehouse hangout, genre-inspired by Friends without reproducing its trademarked assets), built directly per the user's explicit pin.
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
 `;
 
@@ -57,7 +57,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plexMono.variable} ${quicksand.variable} ${baloo.variable} h-full antialiased`}
+      className={`${plexMono.variable} ${plexSans.variable} ${caveat.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-bg text-ink">
         <DirectionContract />
