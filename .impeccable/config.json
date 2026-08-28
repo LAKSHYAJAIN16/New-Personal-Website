@@ -2,6 +2,27 @@
   "detector": {
     "ignoreRules": [],
     "ignoreFiles": [],
-    "ignoreValues": []
+    "ignoreValues": [
+      {
+        "rule": "design-system-radius",
+        "value": "0.15em",
+        "createdAt": "2026-08-28T20:17:50.890Z"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "11px",
+        "createdAt": "2026-08-28T20:17:51.095Z"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "10px",
+        "createdAt": "2026-08-28T20:17:51.297Z"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#6b4a30",
+        "createdAt": "2026-08-28T20:18:04.501Z"
+      }
+    ]
   }
 }
