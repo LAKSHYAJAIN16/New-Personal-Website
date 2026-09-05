@@ -23,10 +23,6 @@ const caveat = Caveat({
 export const metadata: Metadata = {
   title: "Lakshya Jain",
   description: "Personal website of Lakshya Jain.",
-  icons: {
-    icon: "/icon.svg",
-    apple: "/apple-icon.svg",
-  },
 };
 
 const DIRECTION_CONTRACT = `
