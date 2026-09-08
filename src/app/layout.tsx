@@ -1,24 +1,5 @@
 import type { Metadata } from "next";
-import { Caveat, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
-
-const plexMono = IBM_Plex_Mono({
-  variable: "--font-plex-mono",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-});
-
-const plexSans = IBM_Plex_Sans({
-  variable: "--font-plex-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const caveat = Caveat({
-  variable: "--font-caveat",
-  subsets: ["latin"],
-  weight: ["600", "700"],
-});
 
 export const metadata: Metadata = {
   title: "Lakshya Jain",
@@ -26,12 +7,12 @@ export const metadata: Metadata = {
 };
 
 const DIRECTION_CONTRACT = `
-THESIS: A personal site as a 90s NYC coffeehouse hangout -- warm and communal, refusing both the isometric-room world and the templated gradient-hero portfolio tried earlier this session.
-OWN-WORLD: Warm latte-cream ground and deep coffee-brown ink carry the page; a corduroy-couch terracotta is the one actionable accent, mustard-cream marks tags and chips, brick and chalkboard-green stay confined to their own materials. Caveat (chalk-marker script) for headlines and a chalkboard menu board, IBM Plex Sans for body, IBM Plex Mono for order-ticket labels. No literal show logos, character names, or likenesses -- the genre (coffeehouse, brick, couch, photo strip), not the trademark.
-STORY: A visitor pulls up a seat at Lakshya's table -- a chalkboard menu board lists the same real sections as before (About, Work, Writing, Photos, Say hi) the way a cafe lists its drinks, and a photo-strip frame stands in for a portrait.
-FIRST VIEWPORT: A warm cafe-table scene: a hand-lettered name sign, a one-line order-ticket bio, a steaming coffee-cup mark, and a green chalkboard menu board listing every section by name.
-FORM: User-pinned world (a 90s coffeehouse hangout, genre-inspired by Friends without reproducing its trademarked assets), built directly per the user's explicit pin.
-FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
+THESIS: A personal site as plain, unstyled text -- one page, no chrome -- refusing every decorated world tried earlier this session (an isometric room, a coffeehouse hangout).
+OWN-WORLD: Pure white ground and near-black ink carry the page; the only color is a hairline gray for dividers and underline rest-state. A single system serif (Georgia) for everything -- no sourced display face, no card, no shadow, no button. The category standard, played straight, taken as the user's explicit standing preference (canon).
+STORY: A visitor reads one page top to bottom: a short bio, a list of work, a list of writing, a few photos, and how to get in touch -- nothing to click through, nothing to discover, no navigation beyond in-page anchors.
+FIRST VIEWPORT: A narrow centered column of plain serif text: a name, a one-line bio, and the start of the work list -- no image, no hero, no button above the fold.
+FORM: User-pinned canon direction (explicitly referencing patrickcollison.com's genre of radical personal-site minimalism, executed with original content, never his actual text).
+FINISH: unreviewed and undocumented is unfinished; this build ends with a verification pass and DESIGN.md recording the (deliberately small) system.
 `;
 
 function DirectionContract() {
@@ -51,10 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${plexMono.variable} ${plexSans.variable} ${caveat.variable} h-full antialiased`}
-    >
+    <html lang="en" className="h-full antialiased">
       <body className="min-h-full flex flex-col bg-bg text-ink">
         <DirectionContract />
         {children}

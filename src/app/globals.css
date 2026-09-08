@@ -1,232 +1,46 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #f4e6cf;
-  --card: #fffaf0;
-  --ink: #3a2317;
-  --ink-soft: #7a5b45;
-  --line: #e0c79a;
-  --terracotta: #c1502e;
-  --terracotta-strong: #9c3d20;
-  --mustard: #f3dfae;
-  --brick: #b5624a;
-  --chalk: #2c4a37;
+  --bg: #ffffff;
+  --ink: #171717;
+  --ink-soft: #666666;
+  --line: #e5e5e5;
 }
 
 @theme inline {
   --color-bg: var(--bg);
-  --color-card: var(--card);
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
   --color-line: var(--line);
-  --color-terracotta: var(--terracotta);
-  --color-terracotta-strong: var(--terracotta-strong);
-  --color-mustard: var(--mustard);
-  --color-brick: var(--brick);
-  --color-chalk: var(--chalk);
 
-  --font-mono: var(--font-plex-mono);
-  --font-sans: var(--font-plex-sans);
-  --font-display: var(--font-caveat);
-}
-
-html {
-  scroll-behavior: smooth;
+  --font-sans: Georgia, "Times New Roman", ui-serif, serif;
 }
 
 body {
   background-color: var(--bg);
   color: var(--ink);
-  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-  font-feature-settings: "tnum" 1, "lnum" 1;
-  font-variant-numeric: tabular-nums lining-nums;
+  font-family: var(--font-sans);
 }
 
-.display-face {
-  font-family: var(--font-display), "Caveat", cursive;
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.15s ease;
 }
 
-.link-underline {
-  background-image: linear-gradient(var(--terracotta), var(--terracotta));
-  background-position: 0 100%;
-  background-repeat: no-repeat;
-  background-size: 0% 2px;
-  transition: background-size 0.2s ease;
-}
-
-.link-underline:hover {
-  background-size: 100% 2px;
-}
-
-/* A photo pinned to the corkboard: warm paper, a soft coffee-tinted shadow,
-   and a small push-pin at the top -- the opposite of the old room's flat
-   sage-tinted card recipe. */
-.soft-card {
-  position: relative;
-  border-radius: 0.75rem;
-  background: var(--card);
-  border: 1px solid var(--line);
-  box-shadow: 0 14px 28px -10px rgba(58, 35, 23, 0.28);
-}
-
-.soft-card::before {
-  content: "";
-  position: absolute;
-  top: -0.4rem;
-  left: 1.75rem;
-  width: 0.65rem;
-  height: 0.65rem;
-  border-radius: 999px;
-  background: var(--terracotta);
-  box-shadow: 0 1px 2px rgba(58, 35, 23, 0.4);
-  pointer-events: none;
+a:hover,
+a:focus-visible {
+  text-decoration-color: var(--ink);
 }
 
 ::selection {
-  background: var(--mustard);
+  background: var(--line);
   color: var(--ink);
-}
-
-* {
-  scrollbar-color: var(--terracotta-strong) var(--bg);
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--terracotta-strong);
-  border: 2px solid var(--bg);
-  border-radius: 999px;
 }
 
 :focus-visible {
-  outline: 2.5px solid var(--terracotta-strong);
-  outline-offset: 3px;
-}
-
-/* A chalk highlight that fills in on mount, via background-size rather than
-   a positioned pseudo-element -- avoids stacking-context bugs entirely. */
-@keyframes chalk-fill {
-  to { background-size: 100% 100%; }
-}
-
-.chalk-highlight {
-  background-image: linear-gradient(var(--mustard), var(--mustard));
-  background-repeat: no-repeat;
-  background-size: 0% 100%;
-  animation: chalk-fill 0.6s ease-out 0.3s forwards;
-  padding: 0 0.15em;
-  border-radius: 0.15em;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .chalk-highlight {
-    background-size: 100% 100%;
-    animation: none;
-  }
-}
-
-.font-mono {
-  font-family: var(--font-plex-mono), ui-monospace, "SFMono-Regular", monospace;
-  font-variant-numeric: tabular-nums;
-}
-
-@keyframes live-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
-}
-
-.live-dot {
-  animation: live-pulse 2s ease-in-out infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .live-dot {
-    animation: none;
-  }
-  html {
-    scroll-behavior: auto;
-  }
-}
-
-/* Order-ticket button: a solid terracotta chit with a torn/rounded edge and
-   a hard warm shadow, the couch color doing double duty as the one
-   actionable accent. */
-.ticket-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  border-radius: 0.375rem;
-  background: var(--terracotta);
-  color: #fff8ec;
-  box-shadow: 0 3px 0 var(--terracotta-strong);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.ticket-btn:hover,
-.ticket-btn:focus-visible {
-  transform: translateY(2px);
-  box-shadow: 0 1px 0 var(--terracotta-strong);
-}
-
-.ticket-btn-quiet {
-  background: var(--card);
-  color: var(--ink);
-  border: 1px solid var(--line);
-  box-shadow: none;
-}
-
-.ticket-btn-quiet:hover,
-.ticket-btn-quiet:focus-visible {
-  transform: none;
-  box-shadow: none;
-}
-
-/* The chalkboard menu board: Central Perk's own material, reused as the
-   site's real navigation -- every section listed the way a cafe lists its
-   drinks. */
-.menu-board {
-  border-radius: 0.75rem;
-  background: var(--chalk);
-  border: 10px solid #6b4a30;
-  box-shadow: 0 16px 32px -14px rgba(58, 35, 23, 0.5);
-}
-
-.menu-item {
-  border-bottom: 1px dashed rgba(243, 223, 174, 0.25);
-}
-
-.menu-item:last-child {
-  border-bottom: none;
-}
-
-@keyframes steam-rise {
-  0% { transform: translateY(0) scaleX(1); opacity: 0.55; }
-  50% { transform: translateY(-6px) scaleX(1.15); opacity: 0.9; }
-  100% { transform: translateY(-12px) scaleX(0.9); opacity: 0; }
-}
-
-.steam path {
-  animation: steam-rise 2.4s ease-in-out infinite;
-  transform-origin: bottom center;
-}
-
-.steam path:nth-child(2) {
-  animation-delay: 0.5s;
-}
-
-.steam path:nth-child(3) {
-  animation-delay: 1s;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .steam path {
-    animation: none;
-  }
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
 }
