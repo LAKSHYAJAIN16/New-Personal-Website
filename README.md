@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Personal Website
 
-## Getting Started
+Lakshya Jain's personal site — a single-page personal home base introducing who he is, what he builds, and what he's into. Built to feel like it belongs to one specific person rather than reading as a generic templated "software engineer portfolio."
 
-First, run the development server:
+## What it does
+
+The site is a single scrollable page (`src/app/page.tsx`) with jump-linked sections — about, work, writing, photobooth, and contact — plus a few standalone routes (`/about`, `/work`, `/writing`, `/blog`, `/blog/[slug]`, `/contact`, `/photobooth`) for deep-linking into each area. Content (bio copy, project entries, blog posts, photos, social links) is data-driven from `src/data/` and is explicitly marked as placeholder where real content hasn't been supplied yet (see `src/lib/placeholder.ts` and `PRODUCT.md`), so the site never presents fabricated achievements or stock content as real.
+
+There's no single conversion goal — the site is meant to be memorable for recruiters, collaborators, and friends, not a funnel toward one action.
+
+## Key features
+
+- Single-page layout with anchored sections (about / work / writing / photobooth / contact) plus matching standalone routes
+- Data-driven content: projects (`src/data/projects.ts`), blog posts (`src/data/posts.ts`), photos (`src/data/photos.ts`)
+- Explicit placeholder system (`src/lib/placeholder.ts`) that visually/semantically flags content not yet real, instead of inventing details
+- Framer Motion-driven animation (e.g. branded loading splash)
+- Custom design direction tracked in `DESIGN.md`, with an `impeccable` design-review skill wired up under `.claude/skills/` for iterating on the UI
+
+## Tech stack
+
+- [Next.js](https://nextjs.org/) 16 (App Router, Turbopack)
+- [React](https://react.dev/) 19
+- [Tailwind CSS](https://tailwindcss.com/) 4
+- [Framer Motion](https://www.framer.com/motion/) — animation
+- TypeScript
+- ESLint (`eslint-config-next`)
+
+## Setup
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Usage
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run dev    # Start the dev server at http://localhost:3000
+npm run build  # Production build
+npm run start  # Serve the production build
+npm run lint    # Run ESLint
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project structure
 
-## Learn More
+```
+src/
+  app/
+    page.tsx           # Home page: about / work / writing / photobooth / contact sections
+    about/, work/, writing/, blog/, blog/[slug]/, contact/, photobooth/
+                        # Standalone routes for each section
+    layout.tsx, globals.css
+  data/
+    projects.ts         # Work/project entries
+    posts.ts             # Blog posts
+    photos.ts            # Photobooth images
+  lib/
+    placeholder.ts       # Marks content as placeholder vs. real
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Project docs
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `PRODUCT.md` — product context: audience, positioning, and what content is real vs. placeholder
+- `DESIGN.md` — design direction and decisions
+- `AGENTS.md` — notes for AI coding agents working in this repo
