@@ -1,64 +1,52 @@
 # Personal Website
 
-Lakshya Jain's personal site — a single-page personal home base introducing who he is, what he builds, and what he's into. Built to feel like it belongs to one specific person rather than reading as a generic templated "software engineer portfolio."
+My personal site — a home base for who I am, what I build, and what I'm into. I wanted it to actually feel like mine, not another templated "software engineer portfolio" that could belong to anyone.
 
-## What it does
+It's one scrollable page (`src/app/page.tsx`) with jump-linked sections — about, work, writing, photobooth, contact — plus standalone routes (`/about`, `/work`, `/writing`, `/blog`, `/blog/[slug]`, `/contact`, `/photobooth`) for when someone wants to link directly into a section. All the actual content — bio copy, project entries, blog posts, photos, social links — is data-driven out of `src/data/`, and anywhere I haven't filled in real content yet, it's explicitly marked as a placeholder (see `src/lib/placeholder.ts` and `PRODUCT.md`) rather than faking it with stock text or invented achievements.
 
-The site is a single scrollable page (`src/app/page.tsx`) with jump-linked sections — about, work, writing, photobooth, and contact — plus a few standalone routes (`/about`, `/work`, `/writing`, `/blog`, `/blog/[slug]`, `/contact`, `/photobooth`) for deep-linking into each area. Content (bio copy, project entries, blog posts, photos, social links) is data-driven from `src/data/` and is explicitly marked as placeholder where real content hasn't been supplied yet (see `src/lib/placeholder.ts` and `PRODUCT.md`), so the site never presents fabricated achievements or stock content as real.
+There's no single "convert here" goal on this site. It's meant to be memorable for recruiters, collaborators, and friends alike — not a funnel pushing toward one action.
 
-There's no single conversion goal — the site is meant to be memorable for recruiters, collaborators, and friends, not a funnel toward one action.
+## Notable bits
 
-## Key features
+- Single-page layout with anchored sections, mirrored by standalone routes for deep linking
+- Content lives in `src/data/` — projects, blog posts, photos — separate from the page components
+- An explicit placeholder system (`src/lib/placeholder.ts`) so unfinished content is flagged instead of faked
+- Framer Motion for animation (the branded loading splash, etc.)
+- A design direction tracked in `DESIGN.md`, with an `impeccable` design-review skill under `.claude/skills/` that I use to iterate on the UI
 
-- Single-page layout with anchored sections (about / work / writing / photobooth / contact) plus matching standalone routes
-- Data-driven content: projects (`src/data/projects.ts`), blog posts (`src/data/posts.ts`), photos (`src/data/photos.ts`)
-- Explicit placeholder system (`src/lib/placeholder.ts`) that visually/semantically flags content not yet real, instead of inventing details
-- Framer Motion-driven animation (e.g. branded loading splash)
-- Custom design direction tracked in `DESIGN.md`, with an `impeccable` design-review skill wired up under `.claude/skills/` for iterating on the UI
+## Stack
 
-## Tech stack
+Next.js 16 (App Router, Turbopack), React 19, Tailwind CSS 4, Framer Motion, TypeScript, ESLint.
 
-- [Next.js](https://nextjs.org/) 16 (App Router, Turbopack)
-- [React](https://react.dev/) 19
-- [Tailwind CSS](https://tailwindcss.com/) 4
-- [Framer Motion](https://www.framer.com/motion/) — animation
-- TypeScript
-- ESLint (`eslint-config-next`)
-
-## Setup
+## Running it
 
 ```bash
 npm install
+npm run dev     # dev server at http://localhost:3000
+npm run build   # production build
+npm run start   # serve the production build
+npm run lint    # ESLint
 ```
 
-## Usage
-
-```bash
-npm run dev    # Start the dev server at http://localhost:3000
-npm run build  # Production build
-npm run start  # Serve the production build
-npm run lint    # Run ESLint
-```
-
-## Project structure
+## Layout
 
 ```
 src/
   app/
-    page.tsx           # Home page: about / work / writing / photobooth / contact sections
+    page.tsx    # home page: about / work / writing / photobooth / contact
     about/, work/, writing/, blog/, blog/[slug]/, contact/, photobooth/
-                        # Standalone routes for each section
+                # standalone routes for each section
     layout.tsx, globals.css
   data/
-    projects.ts         # Work/project entries
-    posts.ts             # Blog posts
-    photos.ts            # Photobooth images
+    projects.ts # work/project entries
+    posts.ts    # blog posts
+    photos.ts   # photobooth images
   lib/
-    placeholder.ts       # Marks content as placeholder vs. real
+    placeholder.ts # marks content as placeholder vs. real
 ```
 
-## Project docs
+## Other docs in here
 
-- `PRODUCT.md` — product context: audience, positioning, and what content is real vs. placeholder
+- `PRODUCT.md` — who this is for and what's real vs. placeholder
 - `DESIGN.md` — design direction and decisions
 - `AGENTS.md` — notes for AI coding agents working in this repo
