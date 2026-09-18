@@ -2,7 +2,7 @@
 
 > My personal site — a home base for who I am, what I build, and what I'm into.
 
-I wanted it to actually feel like mine, not another templated "software engineer portfolio." It's one scrollable page with jump-linked sections (about, work, writing, photobooth, contact), plus standalone routes for linking directly into each one. Content is data-driven out of `src/data/`, and anything not filled in yet is explicitly marked as a placeholder instead of faked.
+Every "software engineer portfolio" template looks the same, so this skips it: one scrollable page with jump-linked sections (about, work, writing, photobooth, contact), plus standalone routes for linking directly into each one. Content is data-driven out of `src/data/`, and anything not filled in yet is explicitly marked as a placeholder instead of faked.
 
 - Single-page layout with anchored sections, mirrored by standalone routes for deep linking
 - Content lives in `src/data/` — projects, blog posts, photos — separate from page components
