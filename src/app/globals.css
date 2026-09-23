@@ -269,3 +269,6 @@ body:has(.gallery-dialog[open]) { overflow: hidden; }
   .essay-page { padding-top: 36px; }
   .essay-list li { align-items: flex-start; flex-direction: column; gap: 2px; }
 }
+
+/* Ambient dot grid behind all content (see DotField). */
+.dot-field { position: fixed; inset: 0; z-index: -1; pointer-events: none; }

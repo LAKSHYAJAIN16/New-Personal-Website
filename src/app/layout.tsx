@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { DotField } from "@/components/DotField";
 
 export const metadata: Metadata = {
   title: "Lakshya Jain",
@@ -35,6 +36,7 @@ export default function RootLayout({
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full flex flex-col bg-bg text-ink">
         <DirectionContract />
+        <DotField />
         <div className="loading-splash" aria-hidden="true">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/lakshya-mark.png" alt="" />
