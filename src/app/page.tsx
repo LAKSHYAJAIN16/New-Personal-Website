@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { projects } from "@/data/projects";
 import { PhotoGallery } from "@/components/PhotoGallery";
-import { ProjectGallery } from "@/components/ProjectGallery";
+import { ProjectsNotebook } from "@/components/ProjectsNotebook";
 import { placeholderClass } from "@/lib/placeholder";
 import { ExpandableRow } from "@/components/ExpandableRow";
 import { NamePronunciation } from "@/components/NamePronunciation";
@@ -98,7 +98,7 @@ export default function Home() {
             <h2 className="label text-ink">projects</h2>
             <span className="label text-ink-soft">{String(projects.length).padStart(2, "0")} projects</span>
           </div>
-          <ProjectGallery />
+          <ProjectsNotebook />
         </section>
 
         <section id="achievements" className="mt-16 scroll-mt-10">

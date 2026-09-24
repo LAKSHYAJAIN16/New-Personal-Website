@@ -1,122 +1,129 @@
 ---
 name: Lakshya Jain — Personal Site
-description: A single plain page, black serif text on white — no cards, no color, no chrome, in the genre of radically minimal personal-site design.
+description: A typographic personal poster with a monumental lowercase name and compact numbered work.
 colors:
   bg: "#ffffff"
   ink: "#171717"
-  ink-soft: "#666666"
-  line: "#e5e5e5"
+  ink-soft: "#696969"
+  line: "#e3e3e3"
+  line-strong: "#b8b8b8"
+  accent: "#171717"
+  accent-soft: "#e9e9e9"
+  dark-bg: "#111111"
+  dark-ink: "#f5f5f5"
+  dark-ink-soft: "#aaaaaa"
+  dark-line: "#303030"
+  dark-line-strong: "#555555"
+  dark-accent: "#ffffff"
+  dark-accent-soft: "#333333"
 typography:
-  body:
-    fontFamily: "Georgia, Times New Roman, ui-serif, serif"
-    fontSize: "1rem"
-    fontWeight: 400
-    lineHeight: 1.6
-  heading:
-    fontFamily: "Georgia, Times New Roman, ui-serif, serif"
-    fontSize: "1.5rem"
-    fontWeight: 700
-    lineHeight: 1.3
+  display:
+    fontFamily: "var(--font-dm-sans), sans-serif"
+    fontSize: "clamp(48px, 7vw, 96px)"
+    fontWeight: 500
+    lineHeight: 1.18
+    letterSpacing: "-0.04em"
   title:
-    fontFamily: "Georgia, Times New Roman, ui-serif, serif"
-    fontSize: "1.125rem"
-    fontWeight: 700
-    lineHeight: 1.3
+    fontFamily: "var(--font-dm-sans), sans-serif"
+    fontSize: "26px"
+    fontWeight: 500
+    lineHeight: 1.25
+    letterSpacing: "-0.025em"
+  body:
+    fontFamily: "var(--font-dm-sans), sans-serif"
+    fontSize: "14px"
+    lineHeight: 1.65
+  label:
+    fontFamily: "var(--font-plex-mono), ui-monospace, 'SF Mono', 'Cascadia Mono', Consolas, monospace"
+    fontSize: "0.6875rem"
+    fontWeight: 500
+    letterSpacing: "0.08em"
 spacing:
-  xs: "4px"
-  sm: "12px"
-  md: "24px"
-  lg: "48px"
-  xl: "96px"
+  row: "24px"
+  section: "72px"
 components:
-  link:
+  project-row:
     textColor: "{colors.ink}"
-    typography: "{typography.body}"
+    padding: "24px 0"
+  label:
+    textColor: "{colors.ink-soft}"
+    typography: "{typography.label}"
 ---
 
 # Design System: Lakshya Jain — Personal Site
 
 ## Overview
 
-**Creative North Star: "The Plain Page"**
+**Creative North Star: "Typographic poster"**
 
-The site is one page of plain text: a name, a short bio, and four lists (work, writing, photos, contact), read top to bottom with no navigation beyond in-page jumps. It follows the genre of radically minimal personal-site design — a category of real, well-known personal homepages built from almost nothing but readable prose and underlined links — without imitating any one person's actual page or copy. This is a deliberate, user-requested reversal of every decorated world this project carried earlier (an illustrated isometric room, a 90s coffeehouse hangout): no card, no button, no shadow, no sourced display face, no accent color. Old routes (`/about`, `/work`, `/writing`, `/photobooth`, `/contact`) now redirect to anchors on `/` rather than rendering separate pages — the site has one real page.
+The user-selected option 2 makes the name the primary visual event. Broad whitespace, tightly tracked sans-serif type, small mono labels, and compact ruled entries give the personal site a clear hierarchy. This replaces the earlier monospace dev-log direction.
 
-**Key Characteristics:**
-- One page, no navigation chrome: every former subpage is a same-page anchor now (`/#work`, `/#writing`, etc.), reached by redirect for old links.
-- No sourced font: Georgia (a system serif) carries every weight of type. This is the brief's own instruction, not a fallback — plainness is the point.
-- No accent color: ink and a single hairline gray are the entire palette. A link is only distinguished by its underline.
-- Content over container: work and writing are inline text lines (`title — description`), never cards; photos are small plain `<img>` tiles with no frame, shadow, or caption chrome.
-- Honest placeholders persist unchanged: bracketed, italic, muted text still marks unfilled facts — the one convention carried forward from every earlier world.
+Key characteristics are a monumental lowercase name, a neutral white/black palette, flat content, and a Hindi name swap on hover. Preserve honest placeholders and the existing personal content while developing this visual language.
 
 ## Colors
 
-Two colors and a hairline gray — no accent, by design.
-
 ### Primary
-- **Ink** (`#171717`): all text, all links (undecorated except by underline), all headings.
+
+Ink carries headings and primary content. Accent stays neutral and controls link interaction and focus; it is not a separate chromatic highlight.
 
 ### Neutral
-- **Background** (`#ffffff`): the page.
-- **Ink Soft** (`#666666`): secondary text — meta labels, descriptions, the footer line. Measures 5.74:1 against the background, clearing WCAG AA.
-- **Line** (`#e5e5e5`): the link underline's rest state and the footer's top hairline. Decorative only; never relied on alone to convey information.
 
-### Named Rules
-**The No-Accent Rule.** Nothing on this page uses a saturated color. A future addition that reaches for one has left this world.
+White is the light background. Soft ink carries descriptions and metadata; line separates entries, line-strong supports the name effect, and accent-soft supplies text selection. The `dark-*` primitives replace their matching CSS variables in dark mode. Drive all colors through these shared theme variables.
+
+**The Neutral Palette Rule.** Keep the white, black, and gray character in both themes; the previous gold palette is superseded.
 
 ## Typography
 
-**Body/Display/Label Font:** Georgia (with Times New Roman, ui-serif, serif fallback) — one face for everything.
+DM Sans carries the display, titles, navigation, and body. IBM Plex Mono carries labels and project numbers. The body role above describes project descriptions; other prose uses the existing small-to-base text sizes, with the intro reaching 18px on larger screens.
 
-**Character:** A plain system serif, chosen specifically because it needs no download and carries no invented "brand voice" — the opposite of every prior world's sourced display face.
+**The Poster Scale Rule.** The hero intentionally exceeds 96px, reaching the display token's maximum: this is the explicitly selected direction, not an accidental oversized heading. Render the name lowercase with medium weight and tight tracking. Hindi uses the browser's Devanagari fallback, with vertical room for its marks.
 
-### Hierarchy
-- **Heading** (700, `text-2xl`, Georgia): the name at the top of the page.
-- **Title** (700, `text-lg`, Georgia): each section label (Work, Writing, Photos, Contact).
-- **Body** (400, `text-base`/`text-sm`, Georgia, line-height 1.6): everything else — bio, list entries, contact copy.
-
-### Named Rules
-**The One-Face Rule.** Every weight of type on the page is Georgia. No mono, no script, no second family — introducing one is a world change, not a component choice.
+Default labels are uppercase. Homepage intro labels override this to lowercase; the work and subsequent content also use tighter tracking (0.025em). Project titles are lowercase. Do not force arbitrary article content into lowercase.
 
 ## Layout
 
-A single centered column, `max-w-xl` (36rem), with generous vertical rhythm between sections (`mt-12`) and tight rhythm within a list (`gap-3`). No responsive breakpoint changes the composition — the column just narrows on small screens via the container's own padding (`px-6`). No sidebar, no multi-column grid, no sticky header.
+The homepage is centered within a 1440px maximum width, with 5vw horizontal padding and 32px top/64px bottom padding. The name spans the top. Beneath it, a compact intro sits left and wrapping section navigation sits right, separated by a 48px gap.
+
+Work experience begins after 88px, followed by projects after 72px. Work experience uses full-width hairline-separated expandable rows: each shows the role and organization together with a plus/minus control at the right, and expanded content sits below the title. Projects use a full-width hairline-separated log: each entry pairs a mono year.month date against the title, description, and plain-text tag/link line, with no expand/collapse. Supporting sections retain a right-aligned column up to 720px wide.
+
+At 700px and below, page padding becomes 24px horizontally, intro and navigation stack, initial content spacing drops to 56px, titles become 22px, and the hero uses `clamp(36px, 9vw, 56px)`. Blog routes retain their own reading layouts.
 
 ## Elevation & Depth
 
-None. Every surface is flat — the page background itself, with no card, shadow, or layered surface anywhere. Content is separated by whitespace and one hairline rule (the footer's top border), never by a container.
-
-### Named Rules
-**The Flat-Always Rule.** No `box-shadow` appears anywhere in this system. Depth is not part of this world's vocabulary.
+Content is flat. Whitespace, typography, and hairlines provide separation without elevated cards, background texture, or gradients. The name's temporary glitch text shadows are an interaction effect, not surface elevation.
 
 ## Shapes
 
-No radius, no border beyond the single footer hairline, no clipping. Photos are plain rectangular `<img>` tiles at a fixed small size (96–112px), unrounded.
+Content stays square and unboxed. Thin horizontal rules organize the project log and writing. Tags remain plain text separated by middle dots. Photos are compact, full-color 3:4 thumbnails; no other section carries imagery.
 
 ## Components
 
-### Links
-- **Style:** inherit the surrounding text color; underlined at rest in `line` gray, darkening to `ink` on hover/focus. No button, ever — every actionable element on the page is an inline text link.
-
-### Lists (Work / Writing)
-- **Style:** a flat `<ul>`/`<li>` list, each entry one line of prose (`title — description`, or `date — title: excerpt`). No card, no border, no hover-lift.
-
-### Photos
-- **Style:** small (96–112px) plain `<img>` tiles in a `flex-wrap` row, `object-cover`, no frame or caption overlay; the caption lives in the image's `title` attribute only.
-
-### Facts list (bio)
-- **Style:** a two-column `label — value` list (`Status`, `Focus`, `Based in`, etc.), label in `ink-soft`, value in `ink` or the placeholder style if unfilled.
+- **Name:** Two spans share a grid cell. Hover swaps English for Hindi through a half-second stepped glitch; the Hindi span is hidden from assistive technology and marked with its language. Reduced motion replaces the glitch with an opacity transition.
+- **Navigation:** Plain small links beneath the name, aligned right on desktop and left on mobile. Hover darkens and underlines them; global keyboard focus uses a visible 2px outline with 2px offset.
+- **Experience rows:** `ExpandableRow` client component. Mouse entry opens and exit closes the details. A semantic button toggles on click/tap or Enter/Space, exposes `aria-expanded` and `aria-controls`, and Escape closes. Hidden content is removed from keyboard navigation. Experience descriptions remain honest placeholders unless supplied; Simile includes the supplied multi-agent coordination description and a related-reading link, without implying paper authorship.
+- **Project log:** `ProjectsNotebook` client component, always expanded, no toggle. `.project-title` (with the `langBIOS` case-preserve exception `ExpandableRow` also uses) keeps title styling consistent across both components.
+- **Supporting sections:** Achievements, writing, photos, and contact retain their existing content and comment-style labels. Writing uses hairline-separated entries; contact gives the email its own line. Unfilled copy and unverified links retain bracketed, muted italic placeholder treatment.
+- **Theme toggle:** A small mono text button fixed bottom-right names the destination theme. Selection persists in local storage, with light mode as fallback and an initialization script before first paint.
 
 ## Do's and Don'ts
 
-### Do:
-- **Do** keep the whole page to one system serif and two text colors plus one hairline gray.
-- **Do** keep every actionable element a plain underlined text link — no button anywhere.
-- **Do** keep honest, bracketed, italic placeholder styling for any fact that isn't real yet.
-- **Do** redirect old subpage routes to `/#anchor` rather than reintroducing separate page chrome.
+- **Do** preserve the name's dominant scale and the contrast between sans-serif content and mono metadata.
+- **Do** preserve mobile stacking, visible focus, reduced-motion behavior, and both themes.
+- **Do** retain existing verified content and distinguish placeholders until the user supplies replacements.
+- **Don't** restore the obsolete all-monospace, narrow dev-log homepage or gold palette.
+- **Don't** turn compact text lists into elevated cards or tag pills.
+- **Don't** invent achievements, project claims, social profiles, or personal photo provenance.
 
-### Don't:
-- **Don't** add a card, shadow, border-radius, or button — this world is flat and rectangular on principle.
-- **Don't** source a display font or add a second type family.
-- **Don't** introduce an accent color; ink and hairline gray are the whole palette.
-- **Don't** fabricate a live stat, visitor count, or activity feed — say something true, or leave it bracketed.
+## Essays and photo gallery
+
+Writing uses a plain title-and-date list shared by the homepage and /blog. Essay pages have a narrow 720px reading column, restrained headings, paragraph spacing, and a back link. Content remains marked as placeholder until supplied.
+
+The photo section uses an even grid: four columns above 1000px and two on smaller screens, with uniform 3:4 crops. Hover or keyboard focus gently enlarges a photo and reveals its supplied date; touch devices show dates directly. Full captions appear only in the expanded viewer. The basketball image has no supplied date or caption. Reduced motion removes scaling. Clicking a photograph opens a native modal dialog with focus containment, close/Escape, previous/next buttons, and arrow-key navigation. The original photographs are locally stored in public/photos.
+
+## World timeline and pronunciation
+
+/timeline is a world map with a dashed route through Atlanta, Seattle, NYC, Boston, Minneapolis, Chicago, UK, India, and Canada, in that order. The final three are explicitly country-level approximate locations. Accessible stop buttons and previous/next controls select a stop; zoom controls enlarge the scrollable map. The map asset is Ebrahim's CC BY-SA 4.0 equirectangular map, credited on the page. No dates are invented.
+
+The name speaker requests an American English female voice available through browser speech synthesis and speaks the user's supplied pronunciation, Luck-SHaye. Unsupported voices produce a visible status message.
+
+Projects render as a single hairline-separated log, one entry per row: a `YYYY.MM` mono date (the repository's real GitHub creation date, never invented) beside the title, one-line description, and a plain-text tags/link line ("tag · tag — repo →"). No thumbnails, cards, or expand/collapse — carried over from the earlier grid-of-GitHub-preview-card version, which a design critique flagged for contradicting the flat/unboxed system and for depending on a live, rate-limited external image host with no fallback. The curated list is sourced from public GitHub repository metadata and READMEs. Contact uses brand SVGs with visible names and the full email, in one row when space permits and wrapping on mobile.
